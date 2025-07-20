@@ -5,6 +5,7 @@ import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
 import { Button } from './button'
+import { siteConfig } from '@/lib/constants'
 
 export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
   items: Array<{ name: string; href: string }>
@@ -33,6 +34,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       setIsOpen(false)
     }
 
+    const handleContactClick = () => {
+      window.location.href = `mailto:${siteConfig.email}`
+    }
+
     return (
       <nav
         className={clsx(
@@ -52,7 +57,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             <div className="flex items-center">
               {logo || (
                 <span className="text-xl font-semibold text-gray-900 tracking-tight">
-                  Sengdao
+                  {siteConfig.name}
                 </span>
               )}
             </div>
@@ -70,7 +75,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                 </button>
               ))}
               <div className="ml-4">
-                <Button variant="primary" size="sm">
+                <Button variant="primary" size="sm" onClick={handleContactClick}>
                   Get in touch
                 </Button>
               </div>
@@ -103,7 +108,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   </button>
                 ))}
                 <div className="px-4 pt-4">
-                  <Button variant="primary" size="sm" className="w-full">
+                  <Button variant="primary" size="sm" className="w-full" onClick={handleContactClick}>
                     Get in touch
                   </Button>
                 </div>

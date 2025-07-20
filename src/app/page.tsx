@@ -1,6 +1,8 @@
+'use client'
+
 import { Navigation, Section, Container, Card, CardHeader, CardTitle, CardDescription, Button } from '@/components/ui'
-import { navigation, projects, experience, skills } from '@/lib/constants'
-import { ArrowRight, ExternalLink, Github, Mail, Linkedin } from 'lucide-react'
+import { navigation, projects, experience, skills, education, achievements, siteConfig } from '@/lib/constants'
+import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -24,10 +26,22 @@ export default function Home() {
                 <span className="text-accent-600">crafting digital experiences</span>
               </h1>
               
-              <p className="text-xl leading-8 text-gray-600 mb-12 max-w-2xl mx-auto">
-                I build exceptional digital products with a focus on clean design, 
-                performance, and user experience. Currently working on modern web applications.
+              <p className="text-xl leading-8 text-gray-600 mb-8 max-w-2xl mx-auto">
+                I build exceptional digital products with React, Java, and cloud technologies. 
+                Currently modernizing banking workflows at JPMorganChase with a focus on clean design, 
+                performance, and user experience.
               </p>
+
+              <div className="flex items-center justify-center gap-6 mb-12 text-sm text-gray-500">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>{siteConfig.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>{siteConfig.email}</span>
+                </div>
+              </div>
               
               <div className="flex items-center justify-center gap-4">
                 <Button variant="primary" size="lg" className="group">
@@ -43,22 +57,23 @@ export default function Home() {
         </Section>
 
         {/* About Section */}
-        <Section variant="secondary" className="py-24">
+        <Section variant="secondary" className="py-24" id="about">
           <Container size="lg">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               <div>
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">
                   About me
                 </h2>
                 <div className="space-y-6 text-gray-600">
                   <p className="text-lg leading-relaxed">
-                    I&apos;m a software engineer with 4+ years of experience building modern web applications. 
-                    I specialize in React, Next.js, and TypeScript, with a passion for creating 
-                    intuitive user interfaces and scalable backend systems.
+                    I&apos;m a software engineer with experience building modern web applications and cloud infrastructure. 
+                    I specialize in React, Java, and AWS, with a passion for creating intuitive user interfaces 
+                    and scalable backend systems.
                   </p>
                   <p className="text-lg leading-relaxed">
-                    When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to 
-                    open source projects, or sharing knowledge with the developer community.
+                    Currently working at JPMorganChase where I&apos;m modernizing legacy banking workflows and serving 
+                    as the frontend point of contact for my team. I&apos;m also an AWS Certified Cloud Practitioner 
+                    with experience in event-driven architectures and infrastructure as code.
                   </p>
                 </div>
               </div>
@@ -66,7 +81,7 @@ export default function Home() {
               <div className="space-y-8">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills & Technologies</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-4">
                     {skills.map((skillGroup) => (
                       <div key={skillGroup.category} className="space-y-2">
                         <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
@@ -86,13 +101,25 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Achievements</h3>
+                  <div className="space-y-2">
+                    {achievements.map((achievement, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <Award className="h-4 w-4 text-accent-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">{achievement}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </Container>
         </Section>
 
         {/* Experience Section */}
-        <Section className="py-24">
+        <Section className="py-24" id="experience">
           <Container size="lg">
             <div className="mx-auto max-w-4xl">
               <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">
@@ -110,7 +137,16 @@ export default function Home() {
                         <span className="text-sm text-gray-500">•</span>
                         <span className="text-sm font-medium text-accent-600">{job.company}</span>
                       </div>
-                      <p className="text-sm text-gray-500 mb-3">{job.period}</p>
+                      <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-3 w-3" />
+                          <span>{job.period}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MapPin className="h-3 w-3" />
+                          <span>{job.location}</span>
+                        </div>
+                      </div>
                       <p className="text-gray-600 leading-relaxed mb-4">{job.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {job.technologies.map((tech) => (
@@ -130,8 +166,46 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* Work Section */}
+        {/* Education Section */}
         <Section variant="secondary" className="py-24">
+          <Container size="lg">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">
+                Education
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {education.map((edu, index) => (
+                  <Card key={index} hover>
+                    <CardHeader>
+                      <CardTitle className="text-lg">{edu.degree}</CardTitle>
+                      <CardDescription className="text-base font-medium text-gray-700">
+                        {edu.school}
+                      </CardDescription>
+                    </CardHeader>
+                    <div className="px-6 pb-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-1 text-sm text-gray-500">
+                          <Calendar className="h-3 w-3" />
+                          <span>{edu.period}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-sm text-gray-500">
+                          <MapPin className="h-3 w-3" />
+                          <span>{edu.location}</span>
+                        </div>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        GPA: <span className="font-medium text-gray-900">{edu.gpa}</span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        {/* Projects Section */}
+        <Section className="py-24" id="projects">
           <Container size="lg">
             <div className="mx-auto max-w-4xl">
               <div className="text-center mb-16">
@@ -139,8 +213,8 @@ export default function Home() {
                   Featured projects
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  A selection of projects I&apos;ve worked on recently, showcasing my approach to 
-                  design and development.
+                  A selection of projects I&apos;ve worked on, showcasing my approach to 
+                  design, development, and problem-solving.
                 </p>
               </div>
               
@@ -151,14 +225,16 @@ export default function Home() {
                       <div className="flex items-start justify-between mb-4">
                         <CardTitle className="text-xl">{project.title}</CardTitle>
                         <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                          >
-                            <Github className="h-4 w-4" />
-                          </a>
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                            >
+                              <Github className="h-4 w-4" />
+                            </a>
+                          )}
                           <a
                             href={project.link}
                             target="_blank"
@@ -193,7 +269,7 @@ export default function Home() {
         </Section>
 
         {/* Contact Section */}
-        <Section className="py-24">
+        <Section variant="secondary" className="py-24" id="contact">
           <Container size="sm">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-semibold text-gray-900 mb-4">
@@ -205,12 +281,21 @@ export default function Home() {
               </p>
               
               <div className="flex items-center justify-center gap-6">
-                <Button variant="primary" size="lg" className="group">
+                <Button 
+                  variant="primary" 
+                  size="lg" 
+                  className="group"
+                  onClick={() => window.location.href = `mailto:${siteConfig.email}`}
+                >
                   <Mail className="mr-2 h-4 w-4" />
                   Send email
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => window.open(`https://${siteConfig.linkedin}`, '_blank')}
+                >
                   <Linkedin className="mr-2 h-4 w-4" />
                   Connect on LinkedIn
                 </Button>
