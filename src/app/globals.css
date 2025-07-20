@@ -14,7 +14,7 @@
 
   /* Typography hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-foreground;
+    @apply font-semibold text-foreground tracking-tight;
   }
 
   p {
@@ -25,11 +25,11 @@
 @layer components {
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    @apply bg-transparent;
   }
   
   ::-webkit-scrollbar-thumb {
@@ -47,11 +47,11 @@
   
   /* Button base styles */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 ease-out focus-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 ease-out focus-ring disabled:pointer-events-none disabled:opacity-50;
   }
   
   .btn-primary {
-    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md;
+    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md hover:shadow-accent-600/25;
   }
   
   .btn-secondary {
@@ -68,11 +68,11 @@
   
   /* Card styles */
   .card {
-    @apply rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 ease-out;
+    @apply rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 ease-out;
   }
 
   .card-hover {
-    @apply hover:shadow-md hover:border-gray-300;
+    @apply hover:shadow-lg hover:shadow-gray-200/50 hover:border-gray-300 hover:-translate-y-1;
   }
   
   /* Section styles */
@@ -86,7 +86,7 @@
 
   /* Navigation styles */
   .nav-link {
-    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-out font-medium;
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-out font-medium text-sm;
   }
 
   .nav-link-active {
@@ -122,5 +122,19 @@
 
   .gradient-accent {
     @apply bg-gradient-to-br from-accent-50 to-accent-100;
+  }
+
+  /* Skill tags */
+  .skill-tag {
+    @apply inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200;
+  }
+
+  .tech-tag {
+    @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 transition-colors duration-200 hover:bg-gray-100;
+  }
+
+  /* Status badge */
+  .status-badge {
+    @apply inline-flex items-center rounded-full bg-accent-50 px-3 py-1 text-sm font-medium text-accent-700 ring-1 ring-inset ring-accent-700/10;
   }
 }

@@ -10,7 +10,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, children, hover = false, ...props }, ref) => {
     return (
       <div
-        className={clsx('card', hover && 'card-hover', className)}
+        className={clsx(
+          'card group',
+          hover && 'card-hover',
+          className
+        )}
         ref={ref}
         {...props}
       >
@@ -30,7 +34,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <div
-        className={clsx('flex flex-col space-y-2 p-6', className)}
+        className={clsx('flex flex-col space-y-3 p-6', className)}
         ref={ref}
         {...props}
       >
@@ -50,7 +54,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <h3
-        className={clsx('text-lg font-semibold leading-none tracking-tight text-foreground', className)}
+        className={clsx('text-lg font-semibold leading-none tracking-tight text-foreground group-hover:text-accent-600 transition-colors duration-200', className)}
         ref={ref}
         {...props}
       >

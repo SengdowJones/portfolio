@@ -36,9 +36,9 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
     return (
       <nav
         className={clsx(
-          'sticky top-0 z-50 w-full transition-all duration-200 ease-out',
+          'sticky top-0 z-50 w-full transition-all duration-300 ease-out',
           {
-            'bg-white/80 backdrop-blur-md border-b border-gray-200': isScrolled,
+            'bg-white/80 backdrop-blur-md border-b border-gray-200/50': isScrolled,
             'bg-white': !isScrolled,
           },
           className
@@ -51,7 +51,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             {/* Logo */}
             <div className="flex items-center">
               {logo || (
-                <span className="text-xl font-semibold text-foreground">
+                <span className="text-xl font-semibold text-foreground tracking-tight">
                   Sengdao
                 </span>
               )}
@@ -63,14 +63,17 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="nav-link"
+                  className="nav-link relative group"
                 >
                   {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-600 transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
-              <Button variant="primary" size="sm">
-                Get in touch
-              </Button>
+              <div className="ml-4">
+                <Button variant="primary" size="sm">
+                  Get in touch
+                </Button>
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -79,7 +82,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2"
+                className="p-2 h-10 w-10"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -88,18 +91,18 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden">
-              <div className="space-y-1 pb-3 pt-2">
+            <div className="md:hidden border-t border-gray-200/50">
+              <div className="py-4 space-y-1">
                 {items.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200 ease-out"
+                    className="block w-full text-left px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 ease-out"
                   >
                     {item.name}
                   </button>
                 ))}
-                <div className="px-3 pt-2">
+                <div className="px-4 pt-4">
                   <Button variant="primary" size="sm" className="w-full">
                     Get in touch
                   </Button>
