@@ -3,10 +3,6 @@
 @import "tailwindcss/utilities";
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -14,6 +10,15 @@
   
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foreground;
+  }
+
+  p {
+    @apply font-normal text-foreground-secondary leading-relaxed;
   }
 }
 
@@ -37,29 +42,37 @@
   
   /* Focus styles */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-600 focus:ring-offset-2 focus:ring-offset-background;
   }
   
   /* Button base styles */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 ease-out focus-ring disabled:pointer-events-none disabled:opacity-50;
   }
   
   .btn-primary {
-    @apply bg-accent-600 text-white hover:bg-accent-700;
+    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md;
   }
   
   .btn-secondary {
-    @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 border border-gray-200;
   }
   
   .btn-ghost {
-    @apply hover:bg-gray-100 hover:text-gray-900;
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100;
   }
   
   /* Card styles */
   .card {
-    @apply rounded-lg border border-gray-200 bg-white shadow-sm;
+    @apply rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 ease-out;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:border-gray-300;
   }
   
   /* Section styles */
@@ -69,5 +82,45 @@
   
   .container {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-out font-medium;
+  }
+
+  .nav-link-active {
+    @apply text-gray-900;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    @apply animate-fade-in;
+  }
+
+  .animate-slide-up {
+    @apply animate-slide-up;
+  }
+
+  .animate-fade-in-up {
+    @apply animate-fade-in-up;
+  }
+
+  /* Interactive elements */
+  .interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .interactive:hover {
+    @apply transform translate-y-[-1px];
+  }
+
+  /* Gradient backgrounds */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-50 to-accent-100;
   }
 }

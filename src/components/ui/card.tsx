@@ -3,13 +3,14 @@ import { clsx } from 'clsx'
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
+  hover?: boolean
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, children, hover = false, ...props }, ref) => {
     return (
       <div
-        className={clsx('card', className)}
+        className={clsx('card', hover && 'card-hover', className)}
         ref={ref}
         {...props}
       >
@@ -29,7 +30,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <div
-        className={clsx('flex flex-col space-y-1.5 p-6', className)}
+        className={clsx('flex flex-col space-y-2 p-6', className)}
         ref={ref}
         {...props}
       >
@@ -69,7 +70,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <p
-        className={clsx('text-sm text-foreground-secondary', className)}
+        className={clsx('text-sm text-foreground-secondary leading-relaxed', className)}
         ref={ref}
         {...props}
       >

@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode
-  variant?: 'default' | 'secondary' | 'tertiary'
+  variant?: 'default' | 'secondary' | 'tertiary' | 'gradient'
 }
 
 const Section = forwardRef<HTMLElement, SectionProps>(
@@ -16,6 +16,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
             'bg-background': variant === 'default',
             'bg-background-secondary': variant === 'secondary',
             'bg-background-tertiary': variant === 'tertiary',
+            'gradient-bg': variant === 'gradient',
           },
           className
         )}
