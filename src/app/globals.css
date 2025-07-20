@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-gray-900 tracking-tight;
+  }
+
+  p {
+    @apply font-normal text-gray-600 leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+  
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-600 focus:ring-offset-2 focus:ring-offset-white;
+  }
+  
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 ease-out focus-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md hover:shadow-accent-600/25;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 border border-gray-200;
+  }
+  
+  .btn-ghost {
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 ease-out;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:shadow-gray-200/50 hover:border-gray-300 hover:-translate-y-1;
+  }
+  
+  /* Section styles */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-out font-medium text-sm;
+  }
+
+  .nav-link-active {
+    @apply text-gray-900;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    @apply animate-fade-in;
+  }
+
+  .animate-slide-up {
+    @apply animate-slide-up;
+  }
+
+  .animate-fade-in-up {
+    @apply animate-fade-in-up;
+  }
+
+  /* Interactive elements */
+  .interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .interactive:hover {
+    @apply transform translate-y-[-1px];
+  }
+
+  /* Gradient backgrounds */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-50 to-accent-100;
+  }
+
+  /* Skill tags */
+  .skill-tag {
+    @apply inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200;
+  }
+
+  .tech-tag {
+    @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 transition-colors duration-200 hover:bg-gray-100;
+  }
+
+  /* Status badge */
+  .status-badge {
+    @apply inline-flex items-center rounded-full bg-accent-50 px-3 py-1 text-sm font-medium text-accent-700 ring-1 ring-inset ring-accent-700/10;
+  }
+}
