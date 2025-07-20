@@ -35,27 +35,56 @@ export const skills = [
 
 export const projects = [
   {
-    title: 'Project 1',
-    description: 'A modern web application built with Next.js and TypeScript.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    image: '/projects/project-1.jpg',
-    link: 'https://project1.com',
-    github: 'https://github.com/sengdao/project-1',
+    title: 'E-Commerce Platform',
+    description: 'A modern e-commerce platform built with Next.js, featuring real-time inventory management, secure payments, and responsive design.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'PostgreSQL'],
+    image: '/projects/ecommerce.jpg',
+    link: 'https://ecommerce-demo.com',
+    github: 'https://github.com/sengdao/ecommerce-platform',
+    featured: true,
   },
   {
-    title: 'Project 2',
-    description: 'A full-stack application with real-time features.',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    image: '/projects/project-2.jpg',
-    link: 'https://project2.com',
-    github: 'https://github.com/sengdao/project-2',
+    title: 'Task Management App',
+    description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
+    image: '/projects/task-app.jpg',
+    link: 'https://task-app-demo.com',
+    github: 'https://github.com/sengdao/task-management',
+    featured: true,
   },
   {
-    title: 'Project 3',
-    description: 'A mobile-first responsive website with modern design.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    image: '/projects/project-3.jpg',
-    link: 'https://project3.com',
-    github: 'https://github.com/sengdao/project-3',
+    title: 'Portfolio Website',
+    description: 'A responsive portfolio website showcasing projects and skills with modern design and smooth animations.',
+    technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
+    image: '/projects/portfolio.jpg',
+    link: 'https://sengdao.dev',
+    github: 'https://github.com/sengdao/portfolio',
+    featured: true,
+  },
+]
+
+export const experience = [
+  {
+    title: 'Senior Software Engineer',
+    company: 'Tech Company',
+    period: '2022 - Present',
+    description: 'Leading development of web applications using modern technologies and best practices.',
+    technologies: ['React', 'Node.js', 'TypeScript', 'AWS'],
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'Startup Inc',
+    period: '2020 - 2022',
+    description: 'Built and maintained multiple web applications with focus on user experience and performance.',
+    technologies: ['Next.js', 'Python', 'PostgreSQL', 'Docker'],
+  },
+]
+
+export const education = [
+  {
+    degree: 'Bachelor of Computer Science',
+    school: 'University Name',
+    period: '2016 - 2020',
+    description: 'Focused on software engineering and web development.',
   },
 ] 
