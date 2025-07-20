@@ -5,6 +5,7 @@ import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
 import { Button } from './button'
+import { ThemeToggle } from './theme-toggle'
 import { siteConfig } from '@/lib/constants'
 
 export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
@@ -43,8 +44,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         className={clsx(
           'sticky top-0 z-50 w-full transition-all duration-300 ease-out',
           {
-            'bg-white/80 backdrop-blur-md border-b border-gray-200/50': isScrolled,
-            'bg-white': !isScrolled,
+            'bg-white/80 backdrop-blur-md border-b border-gray-200/50 dark:bg-gray-950/80 dark:border-gray-800/50': isScrolled,
+            'bg-white dark:bg-gray-950': !isScrolled,
           },
           className
         )}
@@ -56,7 +57,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             {/* Logo */}
             <div className="flex items-center">
               {logo || (
-                <span className="text-xl font-semibold text-gray-900 tracking-tight">
+                <span className="text-xl font-semibold text-gray-900 tracking-tight dark:text-gray-100">
                   {siteConfig.name}
                 </span>
               )}
@@ -74,7 +75,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-600 transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
-              <div className="ml-4">
+              <div className="ml-4 flex items-center gap-2">
+                <ThemeToggle />
                 <Button variant="primary" size="sm" onClick={handleContactClick}>
                   Get in touch
                 </Button>
@@ -82,7 +84,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="sm"
@@ -96,13 +99,13 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden border-t border-gray-200/50">
+            <div className="md:hidden border-t border-gray-200/50 dark:border-gray-800/50">
               <div className="py-4 space-y-1">
                 {items.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 ease-out"
+                    className="block w-full text-left px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200 ease-out dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800"
                   >
                     {item.name}
                   </button>

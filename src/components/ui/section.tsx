@@ -13,9 +13,9 @@ const Section = forwardRef<HTMLElement, SectionProps>(
         className={clsx(
           'section',
           {
-            'bg-white': variant === 'default',
-            'bg-gray-50': variant === 'secondary',
-            'bg-gray-100': variant === 'tertiary',
+            'bg-white dark:bg-gray-950': variant === 'default',
+            'bg-gray-50 dark:bg-gray-900': variant === 'secondary',
+            'bg-gray-100 dark:bg-gray-800': variant === 'tertiary',
             'gradient-bg': variant === 'gradient',
           },
           className
