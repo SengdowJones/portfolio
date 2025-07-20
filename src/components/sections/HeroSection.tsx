@@ -2,7 +2,7 @@
 
 import { Section, Container, Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
-import { ArrowRight, Mail, MapPin, Sparkles } from 'lucide-react'
+import { ArrowRight, Mail, MapPin, Sparkles, Cloud, Award, Users } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeroSectionProps {
@@ -27,45 +27,56 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <Container size="lg">
         <div className="mx-auto max-w-6xl">
           {/* Photo at top */}
-          <div className="flex justify-center mb-12">
-            <div className="relative group">
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
-                <Image
-                  src="/sengdao-profile.jpg"
-                  alt="Sengdao Inthavong - Software Engineer"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 640px) 128px, 160px"
-                />
+          <div className="flex flex-col items-center text-center space-y-6">
+            {/* Profile image */}
+            <div>
+              <div className="relative group">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
+                  <Image
+                    src="/sengdao-profile.jpg"
+                    alt="Sengdao Inthavong - Software Engineer"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 640px) 96px, 128px"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Main hero content */}
-          <div className="text-center mb-16">
-            <div className="mb-6">
-              <span className="inline-flex items-center rounded-full bg-blue-950 px-4 py-2 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30 animate-fade-in-up">
+            {/* Available badge */}
+            <div>
+              <span className="inline-flex items-center rounded-full bg-blue-950 px-4 py-2 text-xs font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30 animate-fade-in-up">
                 <Sparkles className="h-4 w-4 mr-2" />
                 Available for new opportunities
               </span>
             </div>
-            
-            <h1 className="text-4xl font-bold tracking-tight text-gray-50 sm:text-5xl lg:text-6xl mb-6 font-display max-w-4xl mx-auto">
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-50 font-display max-w-2xl mx-auto">
               Software engineer
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 crafting digital experiences
               </span>
             </h1>
-            
-            <p className="text-lg sm:text-xl leading-8 text-gray-300 mb-8 max-w-3xl mx-auto text-body">
-              I build exceptional digital products with React, Java, and cloud technologies. 
-              Currently modernizing banking workflows at JPMorganChase with a focus on clean design, 
-              performance, and user experience.
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg leading-7 text-gray-300 max-w-xl mx-auto text-body">
+              I build digital products with React, Java, and cloud technologies.<br />
+              Currently modernizing banking workflows at JPMorganChase with a focus on clean design and user experience.
             </p>
-
-            <div className="flex items-center justify-center gap-8 mb-8 text-sm text-gray-400">
+            {/* Badges row */}
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-blue-300 font-medium">
+                <Cloud className="h-4 w-4 text-blue-400" /> AWS Certified
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-purple-300 font-medium">
+                <Award className="h-4 w-4 text-purple-400" /> Award-Winning
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-yellow-300 font-medium">
+                <Users className="h-4 w-4 text-yellow-400" /> Research & Mentorship
+              </span>
+            </div>
+            {/* Location/email row */}
+            <div className="flex items-center justify-center gap-6 text-xs text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -75,12 +86,12 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
                 <span>{siteConfig.email}</span>
               </div>
             </div>
-            
-            <div className="flex items-center justify-center gap-4">
+            {/* Buttons */}
+            <div className="flex items-center justify-center gap-3">
               <Button 
                 variant="primary" 
                 size="lg" 
-                className="group text-lg px-8 py-4"
+                className="group text-base px-6 py-3"
                 onClick={onEmailContact}
               >
                 Get in touch
@@ -89,7 +100,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 py-4"
+                className="text-base px-6 py-3"
                 onClick={onScrollToProjects}
               >
                 View projects
