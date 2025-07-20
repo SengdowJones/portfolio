@@ -17,7 +17,7 @@ const defaultContext: ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType>(defaultContext)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme] = useState<Theme>('dark')
 
   useEffect(() => {
     // Force dark mode
