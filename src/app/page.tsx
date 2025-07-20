@@ -18,13 +18,13 @@ export default function Home() {
                 </span>
               </div>
               
-              <h1 className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl mb-8">
+              <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl mb-8">
                 Software engineer
                 <br />
                 <span className="text-accent-600">crafting digital experiences</span>
               </h1>
               
-              <p className="text-xl leading-8 text-foreground-secondary mb-12 max-w-2xl mx-auto">
+              <p className="text-xl leading-8 text-gray-600 mb-12 max-w-2xl mx-auto">
                 I build exceptional digital products with a focus on clean design, 
                 performance, and user experience. Currently working on modern web applications.
               </p>
@@ -47,10 +47,10 @@ export default function Home() {
           <Container size="lg">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl font-semibold text-foreground mb-6">
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">
                   About me
                 </h2>
-                <div className="space-y-6 text-foreground-secondary">
+                <div className="space-y-6 text-gray-600">
                   <p className="text-lg leading-relaxed">
                     I&apos;m a software engineer with 4+ years of experience building modern web applications. 
                     I specialize in React, Next.js, and TypeScript, with a passion for creating 
@@ -65,11 +65,11 @@ export default function Home() {
               
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Skills & Technologies</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills & Technologies</h3>
                   <div className="grid grid-cols-2 gap-4">
                     {skills.map((skillGroup) => (
                       <div key={skillGroup.category} className="space-y-2">
-                        <h4 className="text-sm font-medium text-foreground-secondary uppercase tracking-wide">
+                        <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
                           {skillGroup.category}
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -95,7 +95,7 @@ export default function Home() {
         <Section className="py-24">
           <Container size="lg">
             <div className="mx-auto max-w-4xl">
-              <h2 className="text-3xl font-semibold text-foreground mb-12 text-center">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-12 text-center">
                 Experience
               </h2>
               <div className="space-y-12">
@@ -106,12 +106,12 @@ export default function Home() {
                     </div>
                     <div className="ml-16">
                       <div className="flex items-center gap-4 mb-2">
-                        <h3 className="text-xl font-semibold text-foreground">{job.title}</h3>
-                        <span className="text-sm text-foreground-secondary">•</span>
+                        <h3 className="text-xl font-semibold text-gray-900">{job.title}</h3>
+                        <span className="text-sm text-gray-500">•</span>
                         <span className="text-sm font-medium text-accent-600">{job.company}</span>
                       </div>
-                      <p className="text-sm text-foreground-secondary mb-3">{job.period}</p>
-                      <p className="text-foreground-secondary leading-relaxed mb-4">{job.description}</p>
+                      <p className="text-sm text-gray-500 mb-3">{job.period}</p>
+                      <p className="text-gray-600 leading-relaxed mb-4">{job.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {job.technologies.map((tech) => (
                           <span
@@ -135,10 +135,10 @@ export default function Home() {
           <Container size="lg">
             <div className="mx-auto max-w-4xl">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-semibold text-foreground mb-4">
+                <h2 className="text-3xl font-semibold text-gray-900 mb-4">
                   Featured projects
                 </h2>
-                <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                   A selection of projects I&apos;ve worked on recently, showcasing my approach to 
                   design and development.
                 </p>
@@ -196,10 +196,10 @@ export default function Home() {
         <Section className="py-24">
           <Container size="sm">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-semibold text-foreground mb-4">
+              <h2 className="text-3xl font-semibold text-gray-900 mb-4">
                 Let&apos;s work together
               </h2>
-              <p className="text-lg text-foreground-secondary mb-12">
+              <p className="text-lg text-gray-600 mb-12">
                 I&apos;m always interested in hearing about new opportunities and exciting projects. 
                 Whether you have a question or just want to say hi, feel free to reach out.
               </p>

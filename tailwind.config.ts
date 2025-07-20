@@ -37,24 +37,6 @@ const config: Config = {
           900: '#5b21b6',
           950: '#3b0764',
         },
-        // Background colors
-        background: {
-          DEFAULT: '#ffffff',
-          secondary: '#fafafa',
-          tertiary: '#f4f4f5',
-        },
-        // Text colors
-        foreground: {
-          DEFAULT: '#18181b',
-          secondary: '#52525b',
-          tertiary: '#71717a',
-          muted: '#a1a1aa',
-        },
-        // Border colors
-        border: {
-          DEFAULT: '#e4e4e7',
-          secondary: '#f4f4f5',
-        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -70,6 +52,7 @@ const config: Config = {
         '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '0.025em' }],
         '5xl': ['3rem', { lineHeight: '1', letterSpacing: '0.025em' }],
         '6xl': ['3.75rem', { lineHeight: '1', letterSpacing: '0.025em' }],
+        '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '0.025em' }],
       },
       spacing: {
         // 8px grid system

@@ -51,7 +51,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             {/* Logo */}
             <div className="flex items-center">
               {logo || (
-                <span className="text-xl font-semibold text-foreground tracking-tight">
+                <span className="text-xl font-semibold text-gray-900 tracking-tight">
                   Sengdao
                 </span>
               )}
