@@ -2,8 +2,7 @@
 
 import { Navigation, Section, Container, Card, CardHeader, CardTitle, CardDescription, Button } from '@/components/ui'
 import { navigation, projects, experience, skills, education, achievements, siteConfig } from '@/lib/constants'
-import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award, Code, Zap, Shield, Globe, Terminal, Cpu, Database, Cloud, Star, Sparkles, ChevronRight, Users, Lock, Zap as ZapIcon } from 'lucide-react'
-import Image from 'next/image'
+import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award } from 'lucide-react'
 import { useEffect, useRef, useCallback } from 'react'
 import HeroSection from '@/components/sections/HeroSection'
 import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection'
@@ -155,7 +154,7 @@ export default function Home() {
                   <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
                     <h3 className="text-lg font-semibold text-gray-50 mb-4 font-display">Skills & Technologies</h3>
                     <div className="space-y-4">
-                      {skills.map((skillGroup, groupIndex) => (
+                      {skills.map((skillGroup) => (
                         <div key={skillGroup.category} className="space-y-2">
                           <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">
                             {skillGroup.category}
