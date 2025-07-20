@@ -3,8 +3,8 @@ export const siteConfig = {
   title: 'Software Engineer',
   description: 'Software engineer crafting digital experiences with React, Java, and cloud technologies.',
   email: 'imsengdao@gmail.com',
-  linkedin: 'linkedin.com/in/sengdao-inthavong',
-  github: 'github.com/SengdowJones',
+  linkedin: 'https://linkedin.com/in/sengdao-inthavong',
+  github: 'https://github.com/SengdowJones',
   location: 'Chicago, IL',
 }
 
