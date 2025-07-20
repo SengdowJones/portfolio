@@ -1,23 +1,29 @@
 # Sengdao Inthavong – Portfolio
 
-Sengdao Inthavong’s portfolio is a personal website and showcase for my professional experience, selected projects, and background—all presented in a clean, modern interface. Built with Next.js, TypeScript, and Tailwind CSS, the site is designed for fast performance, responsive layouts, and accessible, user-friendly navigation.
+Sengdao Inthavong’s portfolio is a modern web application designed to showcase professional experience, selected projects, and educational background in a clean, user-focused interface. Built with Next.js, TypeScript, and Tailwind CSS, the site delivers fast performance, responsive layouts, and accessible navigation.
 
 ## Features
 
-- Responsive layouts for seamless experience on any device
+The portfolio offers a seamless browsing experience across devices, emphasizing clarity, accessibility, and ease of navigation. Visitors can explore work history, project highlights, and educational achievements through a thoughtfully structured interface.
+
+- Responsive layouts for consistent experience on any device
 - Accessible navigation and content for all users
-- Clear content structure for easy exploration
+- Clear content structure for intuitive exploration
 - Smooth, progressive page transitions and section reveals
 
-## 🎨 Design System
+## Design System
+
+The design system draws inspiration from modern minimalism and the Linear interface, prioritizing clarity, consistency, and purposeful motion. Visual elements and interactions are crafted to support content and guide user attention without distraction.
 
 - Neutral gray palette with subtle accent colors for clarity and focus
 - Raleway and Inter typography for modern readability
 - Consistent 8px spacing grid for layout harmony
-- Modular, reusable UI components inspired by Linear’s minimalism
-- Subtle, purposeful motion to guide attention without distraction
+- Modular, reusable UI components
+- Subtle, purposeful motion to enhance usability
 
-## 🛠️ Tech Stack
+## Tech Stack
+
+This portfolio is engineered with a robust, maintainable stack that supports rapid development and high code quality.
 
 - Next.js 15 (App Router)
 - TypeScript
@@ -26,7 +32,7 @@ Sengdao Inthavong’s portfolio is a personal website and showcase for my profes
 - clsx (utility)
 - ESLint, Prettier (code quality)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -38,13 +44,9 @@ src/
 └── public/              # Static assets (images, favicon, etc.)
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
-- Node.js 18+
-- npm 8+
-
-### Installation & Local Development
+To run this project locally, you’ll need Node.js 18+ and npm 8+.
 
 ```bash
 git clone https://github.com/sengdao/portfolio.git
@@ -63,7 +65,7 @@ Visit [http://localhost:3000](http://localhost:3000) to view the site locally.
 - `npm run format` – Format code
 - `npm run type-check` – TypeScript check
 
-## 📬 Contact
+## Contact
 
 - **Email**: imsengdao@gmail.com
 - **LinkedIn**: [linkedin.com/in/sengdao](https://linkedin.com/in/sengdao)
