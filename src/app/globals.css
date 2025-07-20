@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-white text-gray-900 font-sans antialiased dark:bg-gray-950 dark:text-gray-100;
+    @apply bg-white text-gray-900 font-sans antialiased dark:bg-gray-950 dark:text-gray-50;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
@@ -13,13 +12,36 @@
     scroll-behavior: smooth;
   }
 
-  /* Typography hierarchy */
+  /* Typography hierarchy with better contrast */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-gray-900 tracking-tight dark:text-gray-100;
+    @apply font-semibold text-gray-900 tracking-tight dark:text-gray-50;
+    font-family: var(--font-raleway), system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply font-semibold tracking-tight;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply font-medium tracking-tight;
+    letter-spacing: -0.01em;
   }
 
   p {
-    @apply font-normal text-gray-600 leading-relaxed dark:text-gray-300;
+    @apply font-normal text-gray-800 leading-relaxed dark:text-gray-200;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Better contrast for links */
+  a {
+    @apply text-gray-800 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 }
 
@@ -34,40 +56,41 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full dark:bg-gray-700;
+    @apply bg-gray-300 rounded-full dark:bg-gray-600;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-600;
+    @apply bg-gray-400 dark:bg-gray-500;
   }
   
-  /* Focus styles */
+  /* Focus styles with better contrast */
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-accent-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-950;
   }
   
-  /* Button base styles */
+  /* Button base styles with better contrast */
   .btn {
     @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 ease-out focus-ring disabled:pointer-events-none disabled:opacity-50;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
   
   .btn-primary {
-    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md hover:shadow-accent-600/25;
+    @apply bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800 shadow-sm hover:shadow-md hover:shadow-accent-600/25 font-medium;
   }
   
   .btn-secondary {
-    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 border border-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-600 dark:border-gray-700;
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 border border-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-600 dark:border-gray-700 font-medium;
   }
   
   .btn-ghost {
-    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 dark:active:bg-gray-700;
+    @apply text-gray-700 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-800 dark:active:bg-gray-700 font-medium;
   }
 
   .btn-outline {
-    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:border-gray-600 dark:active:bg-gray-700;
+    @apply border border-gray-300 bg-white text-gray-800 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:border-gray-600 dark:active:bg-gray-700 font-medium;
   }
   
-  /* Card styles */
+  /* Card styles with better contrast */
   .card {
     @apply rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 ease-out dark:border-gray-800 dark:bg-gray-900;
   }
@@ -85,9 +108,10 @@
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
-  /* Navigation styles */
+  /* Navigation styles with better contrast */
   .nav-link {
-    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200 ease-out font-medium text-sm dark:text-gray-400 dark:hover:text-gray-100;
+    @apply text-gray-700 hover:text-gray-900 transition-colors duration-200 ease-out font-medium text-sm dark:text-gray-300 dark:hover:text-gray-100;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
   .nav-link-active {
@@ -125,17 +149,47 @@
     @apply bg-gradient-to-br from-accent-50 to-accent-100 dark:from-accent-950 dark:to-accent-900;
   }
 
-  /* Skill tags */
+  /* Skill tags with better contrast */
   .skill-tag {
-    @apply inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700;
+    @apply inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-800 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
   .tech-tag {
-    @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 transition-colors duration-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700;
+    @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 
-  /* Status badge */
+  /* Status badge with better contrast */
   .status-badge {
-    @apply inline-flex items-center rounded-full bg-accent-50 px-3 py-1 text-sm font-medium text-accent-700 ring-1 ring-inset ring-accent-700/10 dark:bg-accent-950 dark:text-accent-300 dark:ring-accent-700/30;
+    @apply inline-flex items-center rounded-full bg-accent-50 px-3 py-1 text-sm font-medium text-accent-800 ring-1 ring-inset ring-accent-700/10 dark:bg-accent-950 dark:text-accent-200 dark:ring-accent-700/30;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Enhanced text styles for better readability */
+  .text-body {
+    @apply text-gray-800 leading-relaxed dark:text-gray-200;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  .text-heading {
+    @apply text-gray-900 dark:text-gray-50;
+    font-family: var(--font-raleway), system-ui, sans-serif;
+  }
+
+  /* List styles with better contrast */
+  ul, ol {
+    @apply text-gray-800 dark:text-gray-200;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  li {
+    @apply text-gray-800 dark:text-gray-200;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 }
