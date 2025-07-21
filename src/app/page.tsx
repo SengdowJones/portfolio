@@ -2,7 +2,7 @@
 
 import { Navigation, Section, Container, Card, Button } from '@/components/ui'
 import { navigation, projects, experience, skills, education, siteConfig } from '@/lib/constants'
-import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award, Trophy } from 'lucide-react'
+import { ArrowRight, ExternalLink, Code, Mail, Linkedin, MapPin, Calendar, Award, Trophy } from 'lucide-react'
 import { useEffect, useRef, useCallback } from 'react'
 import HeroSection from '@/components/sections/HeroSection'
 import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection'
@@ -308,7 +308,7 @@ export default function Home() {
                             onClick={() => handleExternalLink(project.github!)}
                             className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-blue-400 transition-colors font-medium cursor-pointer"
                           >
-                            <Github className="h-4 w-4" />
+                            <Code className="h-4 w-4" />
                             <span>View code</span>
                           </button>
                         )}
@@ -370,7 +370,7 @@ export default function Home() {
                   onClick={() => handleExternalLink(siteConfig.github)}
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
                 >
-                  <Github className="h-5 w-5" />
+                  <Code className="h-5 w-5" />
                   <span>GitHub</span>
                 </button>
               </div>
