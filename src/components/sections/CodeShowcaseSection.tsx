@@ -2,7 +2,6 @@
 import { Section, Container } from '@/components/ui'
 import { Cloud, Database, Terminal, Users } from 'lucide-react'
 
-// @ts-nocheck
 interface CodeShowcaseSectionProps {
   addScrollRef: (el: HTMLElement | null) => void;
 }
