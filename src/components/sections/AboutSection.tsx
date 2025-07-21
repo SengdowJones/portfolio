@@ -1,8 +1,8 @@
 'use client'
 
 import { Section, Container } from '@/components/ui'
-import { skills, education, achievements } from '@/lib/constants'
-import { Calendar } from 'lucide-react'
+import { skills, education } from '@/lib/constants'
+import { Calendar, Award } from 'lucide-react'
 
 interface AboutSectionProps {
   addScrollRef: (el: HTMLElement | null) => void
@@ -72,21 +72,22 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 ))}
               </div>
             </div>
+            {/* Achievements Section - Linear-Inspired Subtle Styling */}
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
-              <div className="flex flex-col gap-3 w-full">
-                {achievements.map((achievement, idx) => {
-                  const Icon = achievement.icon;
-                  return (
-                    <span
-                      key={idx}
-                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass}`}
-                    >
-                      <Icon className={`h-4 w-4 ${achievement.iconClass}`} />
-                      {achievement.label}
-                    </span>
-                  );
-                })}
+              <div className="flex flex-wrap gap-2 w-full">
+                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-blue-300">
+                  <Award className="h-4 w-4 text-blue-500" />
+                  Best Technology Award at WildHacks '23
+                </span>
+                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-accent-300">
+                  <Award className="h-4 w-4 text-accent-400" />
+                  3rd at Hack with Google: Chicago '23 ($2,000)
+                </span>
+                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-yellow-200">
+                  <Award className="h-4 w-4 text-yellow-400" />
+                  Winner of Northwestern Data Vis Contest '22 ($200)
+                </span>
               </div>
             </div>
           </div>
