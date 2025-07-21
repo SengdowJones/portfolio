@@ -1,4 +1,4 @@
-import { Settings2, Crown, Gamepad2, Moon, Award, Trophy } from 'lucide-react'
+import { Settings2, Crown, Gamepad2, Moon } from 'lucide-react'
 
 export const siteConfig = {
   name: 'Sengdao Inthavong',
@@ -123,24 +123,3 @@ export const education = [
     location: 'Evanston, IL'
   }
 ]
-
-export const achievements = [
-  {
-    label: "Best Technology Award at WildHacks '23",
-    icon: Award,
-    colorClass: 'bg-gray-800/80',
-    iconClass: 'text-blue-400',
-  },
-  {
-    label: "3rd at Hack with Google: Chicago '23 ($2,000)",
-    icon: Award,
-    colorClass: 'bg-gray-800/80',
-    iconClass: 'text-purple-400',
-  },
-  {
-    label: "Winner of Northwestern Data Vis Contest '22 ($200)",
-    icon: Trophy,
-    colorClass: 'bg-gray-800/80',
-    iconClass: 'text-yellow-400',
-  },
-] 
