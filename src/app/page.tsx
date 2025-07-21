@@ -27,7 +27,7 @@ export default function Home() {
         <CodeShowcaseSection addScrollRef={addScrollRef} />
         <AboutSection addScrollRef={addScrollRef} />
         <ExperienceSection addScrollRef={addScrollRef} />
-        <ProjectsSection addScrollRef={addScrollRef} />
+        <ProjectsSection />
         <ContactSection addScrollRef={addScrollRef} />
       </main>
     </>

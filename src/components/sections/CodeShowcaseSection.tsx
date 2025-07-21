@@ -3,7 +3,11 @@ import { Section, Container } from '@/components/ui'
 import { Cloud, Database, Terminal, Users } from 'lucide-react'
 
 // @ts-nocheck
-export default function CodeShowcaseSection({ addScrollRef }) {
+interface CodeShowcaseSectionProps {
+  addScrollRef: (el: HTMLElement | null) => void;
+}
+
+export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectionProps) {
   return (
     <Section className="py-24 relative overflow-hidden starlight-bg scroll-section scroll-mt-20" id="code-showcase">
       {/* Grid pattern background */}
