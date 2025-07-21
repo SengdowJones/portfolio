@@ -12,7 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="pt-24 pb-20 scroll-mt-20 relative overflow-hidden starlight-bg">
+    <Section className="min-h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden starlight-bg">
       {/* Gradient background overlay - much darker */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/5 via-transparent to-purple-950/5"></div>
@@ -47,13 +47,6 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
                   />
                 </div>
               </div>
-            </div>
-            {/* Available badge */}
-            <div className="fade-in-up-blur fade-delay-1">
-              <span className="inline-flex items-center rounded-full bg-blue-950 px-5 py-2 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30">
-                <Sparkles className="h-5 w-5 mr-2" />
-                Available for new opportunities
-              </span>
             </div>
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur fade-delay-2">
