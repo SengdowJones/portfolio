@@ -1,7 +1,7 @@
 'use client'
 
 import { projects } from '@/lib/constants'
-import { Section, Container, Card } from '@/components/ui'
+import { Section, Container } from '@/components/ui'
 import { handleExternalLink } from '@/lib/utils'
 import { Code, ExternalLink } from 'lucide-react'
 
@@ -23,8 +23,7 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
             </p>
           </div>
           <div className="divide-y divide-gray-800">
-            {projects.map((project, idx) => {
-              const Icon = project.icon
+            {projects.map((project) => {
               return (
                 <div key={project.title} className="flex flex-col md:flex-row items-center justify-between py-5 gap-4">
                   <div className="flex-1 min-w-0">

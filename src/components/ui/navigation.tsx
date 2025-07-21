@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { forwardRef } from 'react'
-import { Flame } from 'lucide-react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
 import { Button } from './button'
@@ -15,7 +14,7 @@ export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Navigation = forwardRef<HTMLElement, NavigationProps>(
-  ({ className, items, logo, ...props }, ref) => {
+  ({ items, logo, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
