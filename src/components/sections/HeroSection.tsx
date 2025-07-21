@@ -34,7 +34,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
           {/* Photo at top */}
           <div className="flex flex-col items-center text-center space-y-8">
             {/* Profile image */}
-            <div className="hero-image-animate fade-delay-0">
+            <div className="fade-in-up-blur fade-delay-0">
               <div className="relative group">
                 <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
                   <Image
