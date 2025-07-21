@@ -129,21 +129,18 @@ export const achievements = [
     label: "Best Technology Award at WildHacks '23",
     icon: Award,
     colorClass: 'bg-blue-900/80',
-    iconClass: 'text-blue-200',
-    textClass: 'text-blue-200',
+    iconClass: 'text-blue-200'
   },
   {
     label: "3rd at Hack with Google: Chicago '23 ($2,000)",
     icon: Award,
     colorClass: 'bg-purple-900/80',
-    iconClass: 'text-purple-200',
-    textClass: 'text-purple-200',
+    iconClass: 'text-purple-200'
   },
   {
     label: "Winner of Northwestern Data Vis Contest '22 ($200)",
     icon: Trophy,
     colorClass: 'bg-yellow-700/80',
-    iconClass: 'text-yellow-100',
-    textClass: 'text-yellow-100',
+    iconClass: 'text-yellow-100'
   },
 ] 
