@@ -407,5 +407,5 @@
 }
 .fade-in-up-blur-premium {
   opacity: 0;
-  animation: fadeInUpBlurPremium 1.05s cubic-bezier(0.4,0,0.2,1) var(--fadein-delay, 0ms) forwards;
+  animation: fadeInUpBlurPremium 1.05s cubic-bezier(0.4,0,0.2,1) var(--fade-in-delay, 0ms) forwards;
 }
