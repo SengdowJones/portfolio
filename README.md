@@ -98,11 +98,27 @@ src/
 All content is centralized in `src/lib/constants.ts`:
 
 - **Personal Information**: Update `siteConfig` object
-- **Navigation**: Modify `navigation` array
+- **Navigation**: Modify `navigation` array (now uses semantic `<a>` tags for anchor navigation)
 - **Skills**: Update `skills` array with your expertise
 - **Experience**: Add/modify entries in `experience` array
 - **Projects**: Update `projects` array with your work
 - **Education**: Modify `education` array
+
+### Navigation & Accessibility
+
+- Navigation bar uses semantic `<a>` tags for anchor navigation, improving accessibility and SEO.
+- All major sections (`Hero`, `About`, `Experience`, `Projects`, `Contact`) use `scroll-mt-20` for consistent anchor offset with the fixed navbar.
+- Focus states and keyboard navigation are supported for all interactive elements.
+- Linting is enforced for code quality and accessibility best practices.
+
+### TypeScript & JavaScript
+
+- The codebase is TypeScript-first for type safety and maintainability, but can be adapted for plain React/JavaScript if preferred.
+
+### Linting & Best Practices
+
+- ESLint is configured to enforce code quality, catch unused variables, and encourage accessibility best practices.
+- Run `npm run lint` to check for issues before committing or deploying.
 
 ### Styling
 

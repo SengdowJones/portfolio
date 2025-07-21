@@ -43,15 +43,15 @@ export default function CodeShowcaseSection({ addScrollRef }) {
                 <div className="code-block">
                   <pre className="font-mono text-sm text-left leading-relaxed">
                     <code>
-                      <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">'react'</span>;
+                      <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;
                       {"\n"}
                       {"\n"}
                       <span className="text-purple-400">const</span> <span className="text-blue-400">Portfolio</span> = () =&gt; {'{'}
                       {"\n  return (\n    "}
-                        <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">'modern-ui'</span><span className="text-blue-400">&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">'Sengdao'</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">'React, Java, AWS'</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">'JPMorganChase'</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
+                        <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">&apos;modern-ui&apos;</span><span className="text-blue-400">&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">&apos;Sengdao&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">&apos;React, Java, AWS&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">&apos;JPMorganChase&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
                         <span className="text-blue-400">&lt;/main&gt;</span>{"\n  );\n"}
                       {'}'};
                       {"\n\n"}

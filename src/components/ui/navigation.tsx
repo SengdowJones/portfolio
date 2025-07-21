@@ -27,14 +27,6 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const scrollToSection = (href: string) => {
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-      setIsOpen(false)
-    }
-
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       setIsOpen(false)

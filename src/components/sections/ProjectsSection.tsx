@@ -5,11 +5,7 @@ import { Section, Container } from '@/components/ui'
 import { handleExternalLink } from '@/lib/utils'
 import { Code, ExternalLink } from 'lucide-react'
 
-interface ProjectsSectionProps {
-  addScrollRef: (el: HTMLElement | null) => void
-}
-
-export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) {
+export default function ProjectsSection() {
   return (
     <Section className="py-20 starlight-bg scroll-section" id="projects">
       <Container size="5xl">
