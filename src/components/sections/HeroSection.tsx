@@ -2,7 +2,7 @@
 
 import { Section, Container, Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
-import { ArrowRight, Mail, MapPin, Sparkles, Cloud, Award, Users } from 'lucide-react'
+import { ArrowRight, Mail, MapPin, Cloud, Award, Users } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeroSectionProps {

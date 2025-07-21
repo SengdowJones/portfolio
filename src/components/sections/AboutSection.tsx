@@ -78,15 +78,15 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
               <div className="flex flex-wrap gap-2 w-full">
                 <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-blue-300">
                   <Award className="h-4 w-4 text-blue-500" />
-                  Best Technology Award at WildHacks '23
+                  Best Technology Award at WildHacks &apos;23
                 </span>
                 <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-accent-300">
                   <Award className="h-4 w-4 text-accent-400" />
-                  3rd at Hack with Google: Chicago '23 ($2,000)
+                  3rd at Hack with Google: Chicago &apos;23 ($2,000)
                 </span>
                 <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-yellow-200">
                   <Award className="h-4 w-4 text-yellow-400" />
-                  Winner of Northwestern Data Vis Contest '22 ($200)
+                  Winner of Northwestern Data Vis Contest &apos;22 ($200)
                 </span>
               </div>
             </div>
