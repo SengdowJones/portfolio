@@ -123,10 +123,3 @@ export const education = [
     location: 'Evanston, IL'
   }
 ]
-
-export const achievements = [
-  'AWS Certified Cloud Practitioner',
-  '2nd Runner-up, Hack with Google: Workspace and AppSheet 2023 ($2,000 prize)',
-  'Best Undergraduate Visualization, Northwestern Data Visualization Contest 2022 ($200 prize)',
-  'Frontend Point of Contact designation at JPMorganChase'
-] 

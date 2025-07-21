@@ -14,7 +14,7 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
     <Section className="py-20 starlight-bg scroll-section scroll-mt-20" id="projects" ref={addScrollRef}>
       <Container size="5xl">
         <div className="mx-auto max-w-5xl scroll-section-content">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 scroll-reveal" ref={addScrollRef}>
             <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">
               Featured Projects
             </h2>
