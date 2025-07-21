@@ -5,6 +5,7 @@ import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
 import { Button } from './button'
+import { Container } from './container'
 import { siteConfig } from '@/lib/constants'
 
 export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
@@ -13,7 +14,7 @@ export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Navigation = forwardRef<HTMLElement, NavigationProps>(
-  ({ className, items, logo, ...props }, ref) => {
+  ({ items, logo, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
@@ -26,76 +27,96 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const scrollToSection = (href: string) => {
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-      setIsOpen(false)
-    }
-
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       setIsOpen(false)
     }
 
     const handleContactClick = () => {
-      window.location.href = `mailto:${siteConfig.email}?subject=Portfolio Contact - Let's work together`
+      window.location.href = `mailto:${siteConfig.email}?subject=Portfolio Inquiry - Hello from your website`
     }
 
     return (
       <nav
         className={clsx(
-          'sticky top-0 z-50 w-full transition-all duration-300 ease-out',
-          {
-            'bg-gray-950/80 backdrop-blur-md border-b border-gray-800/50': isScrolled,
-            'bg-gray-950': !isScrolled,
-          },
-          className
+          'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out',
+          isScrolled
+            ? 'bg-gray-950 shadow-md shadow-black/10 backdrop-blur-md'
+            : 'bg-gray-950 backdrop-blur-md'
         )}
         ref={ref}
         {...props}
       >
-        <div className="container">
-          <div className="flex h-16 items-center justify-between">
+        {/* Solid background to reduce blue bleed */}
+        <div className="absolute inset-0 bg-gray-950 opacity-100"></div>
+
+        <Container size="5xl" className="relative z-10 px-8">
+          <div className="flex h-14 items-center justify-between overflow-hidden py-2">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               {logo || (
                 <button
                   onClick={scrollToTop}
-                  className="text-xl font-semibold text-gray-100 tracking-tight hover:text-blue-400 transition-colors cursor-pointer"
+                  className="text-lg font-semibold text-gray-100 tracking-tight hover:text-white transition-colors cursor-pointer"
                 >
                   {siteConfig.name}
                 </button>
               )}
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex md:items-center md:space-x-8">
-              {items.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="nav-link relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
-                </button>
-              ))}
-              <div className="ml-4 flex items-center gap-2">
-                <Button variant="primary" size="sm" onClick={handleContactClick}>
-                  Get in touch
-                </Button>
+            {/* Desktop Navigation - Absolutely Centered */}
+            <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 h-full items-center justify-center">
+              <div className="flex space-x-5">
+                {items.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="relative group text-sm text-gray-400/80 font-normal px-3 py-2 transition-colors duration-200 cursor-pointer rounded-md focus-visible:outline-none"
+                    onClick={e => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      setIsOpen(false);
+                    }}
+                    role="link"
+                    tabIndex={0}
+                  >
+                    {/* Animated pill background */}
+                    <span
+                      className="absolute inset-x-0 inset-y-[4px] z-0 rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100 bg-gray-800 transition-all duration-200"
+                      aria-hidden="true"
+                    />
+                    <span className="relative z-10 group-hover:text-white group-focus-visible:text-white transition-colors duration-200">
+                      {item.name}
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
 
+            {/* Action Buttons - Right */}
+            <div className="hidden md:flex items-center flex-shrink-0">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Resume"
+                className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-900 font-semibold text-xs px-3 py-1.5 transition-colors hover:bg-gray-900 hover:text-white hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                style={{ fontSize: '0.85rem', paddingTop: '0.35rem', paddingBottom: '0.35rem' }}
+              >
+                Resume
+              </a>
+            </div>
+
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center gap-2">
+            <div className="md:hidden flex items-center">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 h-10 w-10"
+                className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -104,26 +125,41 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden border-t border-gray-800/50">
-              <div className="py-4 space-y-1">
+            <div className="md:hidden border-t border-gray-800/20">
+              <div className="py-3 space-y-1">
                 {items.map((item) => (
-                  <button
+                  <a
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-4 py-3 text-base font-medium text-gray-400 hover:text-gray-100 hover:bg-gray-800 rounded-lg transition-all duration-200 ease-out"
+                    href={item.href}
+                    className="block w-full text-left px-4 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                    onClick={e => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      setIsOpen(false);
+                    }}
+                    role="link"
+                    tabIndex={0}
                   >
                     {item.name}
-                  </button>
+                  </a>
                 ))}
-                <div className="px-4 pt-4">
-                  <Button variant="primary" size="sm" className="w-full" onClick={handleContactClick}>
+                <div className="px-4 pt-3">
+                  <Button 
+                    variant="primary" 
+                    size="sm" 
+                    className="w-full bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2" 
+                    onClick={handleContactClick}
+                  >
                     Get in touch
                   </Button>
                 </div>
               </div>
             </div>
           )}
-        </div>
+        </Container>
       </nav>
     )
   }

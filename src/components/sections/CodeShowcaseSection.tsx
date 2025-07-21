@@ -1,15 +1,14 @@
-'use client'
 
 import { Section, Container } from '@/components/ui'
-import { Cloud, Database, Terminal } from 'lucide-react'
+import { Cloud, Database, Terminal, Users } from 'lucide-react'
 
 interface CodeShowcaseSectionProps {
-  addScrollRef: (el: HTMLElement | null) => void
+  addScrollRef: (el: HTMLElement | null) => void;
 }
 
 export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectionProps) {
   return (
-    <Section className="py-24 relative overflow-hidden starlight-bg scroll-section">
+    <Section className="py-24 relative overflow-hidden starlight-bg scroll-section scroll-mt-20" id="code-showcase">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-30"></div>
       
@@ -18,7 +17,7 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
       <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-400/30 rounded-full lighthouse-signal-delay-2"></div>
       <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cyan-400/25 rounded-full satellite-flash-delay-3"></div>
       
-      <Container size="lg">
+      <Container size="5xl">
         <div className="mx-auto max-w-6xl scroll-section-content">
           <div className="text-center mb-16">
             <div className="scroll-reveal" ref={addScrollRef}>
@@ -41,92 +40,27 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
                     <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
-                  <span className="text-sm text-gray-400 font-mono">portfolio.tsx</span>
+                  <span className="text-sm text-gray-400 font-mono">portfolio.jsx</span>
                 </div>
                 
                 <div className="code-block">
-                  <div className="space-y-4 font-mono text-sm">
-                    <div className="flex items-center gap-2">
-                      <span className="text-purple-400">import</span>
-                      <span className="text-gray-300">{'{'}</span>
-                      <span className="text-blue-400">React</span>
-                      <span className="text-gray-300">{'}'}</span>
-                      <span className="text-purple-400">from</span>
-                      <span className="text-green-400">&apos;react&apos;</span>
-                      <span className="text-gray-300">;</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-purple-400">import</span>
-                      <span className="text-gray-300">{'{'}</span>
-                      <span className="text-blue-400">NextJS</span>
-                      <span className="text-gray-300">,</span>
-                      <span className="text-blue-400">TypeScript</span>
-                      <span className="text-gray-300">{'}'}</span>
-                      <span className="text-purple-400">from</span>
-                      <span className="text-green-400">&apos;@/stack&apos;</span>
-                      <span className="text-gray-300">;</span>
-                    </div>
-                    <div className="h-4"></div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-purple-400">const</span>
-                      <span className="text-blue-400">Portfolio</span>
-                      <span className="text-gray-300">= () =&gt; {'{'}</span>
-                    </div>
-                    <div className="ml-4 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-purple-400">return</span>
-                        <span className="text-gray-300">(</span>
-                      </div>
-                      <div className="ml-4 space-y-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-blue-400">&lt;div</span>
-                          <span className="text-yellow-400">className</span>
-                          <span className="text-gray-300">=</span>
-                          <span className="text-green-400">&quot;modern-ui&quot;</span>
-                          <span className="text-blue-400">&gt;</span>
-                        </div>
-                        <div className="ml-4 space-y-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-blue-400">&lt;Hero</span>
-                            <span className="text-yellow-400">name</span>
-                            <span className="text-gray-300">=</span>
-                            <span className="text-green-400">&quot;Sengdao&quot;</span>
-                            <span className="text-blue-400">/&gt;</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-blue-400">&lt;Projects</span>
-                            <span className="text-yellow-400">tech</span>
-                            <span className="text-gray-300">=</span>
-                            <span className="text-green-400">&quot;React, Java, AWS&quot;</span>
-                            <span className="text-blue-400">/&gt;</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-blue-400">&lt;Experience</span>
-                            <span className="text-yellow-400">company</span>
-                            <span className="text-gray-300">=</span>
-                            <span className="text-green-400">&quot;JPMorganChase&quot;</span>
-                            <span className="text-blue-400">/&gt;</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-blue-400">&lt;/div&gt;</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-gray-300">);</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-gray-300">{'}'}</span>
-                      <span className="text-gray-300">;</span>
-                    </div>
-                    <div className="h-4"></div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-purple-400">export default</span>
-                      <span className="text-blue-400">Portfolio</span>
-                      <span className="text-gray-300">;</span>
-                    </div>
-                  </div>
+                  <pre className="font-mono text-sm text-left leading-relaxed">
+                    <code>
+                      <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;
+                      {"\n"}
+                      {"\n"}
+                      <span className="text-purple-400">const</span> <span className="text-blue-400">Portfolio</span> = () =&gt; {'{'}
+                      {"\n  return (\n    "}
+                        <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">&apos;modern-ui&apos;</span><span className="text-blue-400">&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">&apos;Sengdao&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">&apos;React, Java, AWS&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">&apos;JPMorganChase&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
+                        <span className="text-blue-400">&lt;/main&gt;</span>{"\n  );\n"}
+                      {'}'};
+                      {"\n\n"}
+                      <span className="text-purple-400">export default</span> <span className="text-blue-400">Portfolio</span>;
+                    </code>
+                  </pre>
                 </div>
               </div>
             </div>
@@ -140,7 +74,7 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-50 font-display">Full-Stack Development</h3>
-                      <p className="text-gray-400">React, TypeScript, Java, Spring Boot</p>
+                      <p className="text-gray-400">React, JavaScript, Java, Spring Boot</p>
                     </div>
                   </div>
                 </div>
@@ -168,15 +102,28 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="scroll-reveal scroll-reveal-delay-3" ref={addScrollRef}>
-                <div className="feature-card">
-                  <h4 className="text-lg font-semibold text-gray-50 mb-3 font-display">Current Focus</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Modernizing legacy banking systems at JPMorganChase, building scalable microservices, 
-                    and creating intuitive user interfaces that handle complex financial workflows.
-                  </p>
+                {/* Linear-inspired feature grid additions */}
+                <div className="scroll-reveal scroll-reveal-delay-4" ref={addScrollRef}>
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-xl">
+                      <Terminal className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-50 font-display">UI/UX</h3>
+                      <p className="text-gray-400">Modern interfaces, accessibility, design systems</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="scroll-reveal scroll-reveal-delay-5" ref={addScrollRef}>
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl">
+                      <Users className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-50 font-display">Collaboration</h3>
+                      <p className="text-gray-400">Mentorship, teamwork, agile delivery</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
