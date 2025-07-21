@@ -5,7 +5,7 @@ import { Cloud, Database, Terminal, Users } from 'lucide-react'
 // @ts-nocheck
 export default function CodeShowcaseSection({ addScrollRef }) {
   return (
-    <Section className="py-24 relative overflow-hidden starlight-bg scroll-section" id="code-showcase">
+    <Section className="py-24 relative overflow-hidden starlight-bg scroll-section scroll-mt-20" id="code-showcase">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-30"></div>
       

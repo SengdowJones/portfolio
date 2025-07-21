@@ -77,10 +77,20 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 h-full items-center justify-center">
               <div className="flex space-x-5">
                 {items.map((item) => (
-                  <button
+                  <a
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
                     className="relative group text-sm text-gray-400/80 font-normal px-3 py-2 transition-colors duration-200 cursor-pointer rounded-md focus-visible:outline-none"
+                    onClick={e => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      setIsOpen(false);
+                    }}
+                    role="link"
+                    tabIndex={0}
                   >
                     {/* Animated pill background */}
                     <span
@@ -90,7 +100,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                     <span className="relative z-10 group-hover:text-white group-focus-visible:text-white transition-colors duration-200">
                       {item.name}
                     </span>
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
@@ -127,13 +137,23 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             <div className="md:hidden border-t border-gray-800/20">
               <div className="py-3 space-y-1">
                 {items.map((item) => (
-                  <button
+                  <a
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
                     className="block w-full text-left px-4 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                    onClick={e => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      setIsOpen(false);
+                    }}
+                    role="link"
+                    tabIndex={0}
                   >
                     {item.name}
-                  </button>
+                  </a>
                 ))}
                 <div className="px-4 pt-3">
                   <Button 

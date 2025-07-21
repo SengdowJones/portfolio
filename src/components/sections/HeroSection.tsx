@@ -12,7 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="pt-24 pb-20 relative overflow-hidden starlight-bg">
+    <Section className="pt-24 pb-20 scroll-mt-20 relative overflow-hidden starlight-bg">
       {/* Gradient background overlay - much darker */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/5 via-transparent to-purple-950/5"></div>
