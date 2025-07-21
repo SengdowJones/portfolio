@@ -2,7 +2,7 @@
 
 import { Section, Container } from '@/components/ui'
 import { skills, education, achievements } from '@/lib/constants'
-import { Calendar, Award, Trophy } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 
 interface AboutSectionProps {
   addScrollRef: (el: HTMLElement | null) => void
@@ -80,7 +80,8 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   return (
                     <span
                       key={idx}
-                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass}`}
+                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass} bg-opacity-80`}
+                      style={{ backgroundColor: 'rgba(30,41,59,0.85)' }}
                     >
                       <Icon className={`h-4 w-4 ${achievement.iconClass}`} />
                       {achievement.label}
