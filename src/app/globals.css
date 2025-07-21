@@ -393,7 +393,16 @@
   }
 }
 
-@keyframes fadeInUpBlurPremium {
+/* Animation delay utilities for fade-in-up-blur */
+.fade-delay-0 { --fade-in-delay: 0ms; }
+.fade-delay-1 { --fade-in-delay: 700ms; }
+.fade-delay-2 { --fade-in-delay: 1100ms; }
+.fade-delay-3 { --fade-in-delay: 1500ms; }
+.fade-delay-4 { --fade-in-delay: 1900ms; }
+.fade-delay-5 { --fade-in-delay: 2300ms; }
+.fade-delay-6 { --fade-in-delay: 2700ms; }
+
+@keyframes fadeInUpBlur {
   from {
     opacity: 0;
     filter: blur(12px);
@@ -405,7 +414,7 @@
     transform: translateY(0);
   }
 }
-.fade-in-up-blur-premium {
+.fade-in-up-blur {
   opacity: 0;
-  animation: fadeInUpBlurPremium 1.05s cubic-bezier(0.4,0,0.2,1) var(--fade-in-delay, 0ms) forwards;
+  animation: fadeInUpBlur 1s cubic-bezier(0.4,0,0.2,1) var(--fade-in-delay, 0ms) forwards;
 }

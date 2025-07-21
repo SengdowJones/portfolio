@@ -34,7 +34,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
           {/* Photo at top */}
           <div className="flex flex-col items-center text-center space-y-8">
             {/* Profile image */}
-            <div className="hero-image-animate">
+            <div className="hero-image-animate fade-delay-0">
               <div className="relative group">
                 <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
                   <Image
@@ -49,14 +49,14 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Available badge */}
-            <div className="fade-in-up-blur-premium" style={{ '--fade-in-delay': '700ms' } as React.CSSProperties}>
+            <div className="fade-in-up-blur fade-delay-1">
               <span className="inline-flex items-center rounded-full bg-blue-950 px-5 py-2 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30">
                 <Sparkles className="h-5 w-5 mr-2" />
                 Available for new opportunities
               </span>
             </div>
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur-premium" style={{ '--fade-in-delay': '1100ms' } as React.CSSProperties}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur fade-delay-2">
               I&apos;m Sengdao.
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -64,12 +64,12 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </h1>
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body fade-in-up-blur-premium" style={{ '--fade-in-delay': '1500ms' } as React.CSSProperties}>
+            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body fade-in-up-blur fade-delay-3">
               Building digital products with React, Java, and cloud technologies.<br />
               Currently modernizing banking workflows at JPMorganChase with a focus on clean design and user experience.
             </p>
             {/* Badges row */}
-            <div className="flex flex-wrap justify-center gap-4 fade-in-up-blur-premium" style={{ '--fade-in-delay': '1900ms' } as React.CSSProperties}>
+            <div className="flex flex-wrap justify-center gap-4 fade-in-up-blur fade-delay-4">
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-blue-300 font-medium">
                 <Cloud className="h-5 w-5 text-blue-400" /> AWS Certified
               </span>
@@ -81,7 +81,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </div>
             {/* Location/email row */}
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 fade-in-up-blur-premium" style={{ '--fade-in-delay': '2300ms' } as React.CSSProperties}>
+            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 fade-in-up-blur fade-delay-5">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -92,7 +92,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-2 fade-in-up-blur-premium" style={{ '--fade-in-delay': '2700ms' } as React.CSSProperties}>
+            <div className="flex items-center justify-center gap-4 mt-2 fade-in-up-blur fade-delay-6">
               <Button 
                 variant="primary" 
                 size="md" 
