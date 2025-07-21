@@ -96,9 +96,11 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider>
-        {children}
-        </ThemeProvider>
+        <div>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   )

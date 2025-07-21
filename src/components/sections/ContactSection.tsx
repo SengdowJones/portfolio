@@ -11,7 +11,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ addScrollRef }: ContactSectionProps) {
   return (
-    <Section variant="secondary" className="py-24 starlight-bg scroll-section" id="contact">
+    <Section variant="secondary" className="py-24 starlight-bg scroll-section scroll-mt-20" id="contact">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       
@@ -19,7 +19,7 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
       <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-yellow-300/20 rounded-full lighthouse-signal"></div>
       <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-blue-400/15 rounded-full satellite-flash-delay-2"></div>
       
-      <Container size="md">
+      <Container size="5xl">
         <div className="mx-auto max-w-2xl text-center scroll-section-content">
           <div className="scroll-reveal" ref={addScrollRef}>
             <h2 className="text-3xl font-bold text-gray-50 mb-6 font-display">

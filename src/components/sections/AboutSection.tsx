@@ -10,13 +10,13 @@ interface AboutSectionProps {
 
 export default function AboutSection({ addScrollRef }: AboutSectionProps) {
   return (
-    <Section variant="secondary" className="py-24 starlight-bg scroll-section" id="about">
+    <Section variant="secondary" className="py-24 starlight-bg scroll-section scroll-mt-20" id="about">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-20"></div>
       {/* Satellite flash in about section */}
       <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400/30 rounded-full satellite-flash-delay-2"></div>
       <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-purple-400/25 rounded-full lighthouse-signal-delay-3"></div>
-      <Container size="lg">
+      <Container size="5xl">
         <div className="mx-auto max-w-5xl scroll-section-content grid md:grid-cols-2 gap-16 items-start">
           {/* Left: About me and Education */}
           <div className="flex flex-col space-y-10 min-w-0">
@@ -81,11 +81,11 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 </span>
                 <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/40 text-purple-200 text-sm font-medium">
                   <Award className="h-4 w-4 text-purple-400" />
-                  3rd at Hack with Google: Workspace & Appsheet &apos;23
+                  3rd at Hack with Google: Chicago &apos;23 ($2,000)
                 </span>
                 <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-200 text-sm font-medium">
                   <Trophy className="h-4 w-4 text-yellow-400" />
-                  Winner of Northwestern Data Visualization Contest &apos;22
+                  Winner of Northwestern Data Vis Contest &apos;22 ($200)
                 </span>
               </div>
             </div>

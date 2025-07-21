@@ -12,7 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="pt-16 pb-20 relative overflow-hidden starlight-bg">
+    <Section className="pt-24 pb-20 relative overflow-hidden starlight-bg">
       {/* Gradient background overlay - much darker */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/5 via-transparent to-purple-950/5"></div>
@@ -29,34 +29,34 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute bottom-32 left-20 w-1.5 h-1.5 bg-blue-300/25 rounded-full lighthouse-signal-delay-1"></div>
       <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-purple-300/30 rounded-full lighthouse-signal-delay-2"></div>
       
-      <Container size="lg">
-        <div className="mx-auto max-w-6xl relative z-10">
+      <Container size="5xl">
+        <div className="mx-auto max-w-7xl relative z-10">
           {/* Photo at top */}
-          <div className="flex flex-col items-center text-center space-y-6">
+          <div className="flex flex-col items-center text-center space-y-8">
             {/* Profile image */}
             <div>
               <div className="relative group">
-                <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
                   <Image
                     src="/sengdao-profile.jpg"
                     alt="Sengdao Inthavong - Software Engineer"
                     fill
                     className="object-cover"
                     priority
-                    sizes="(max-width: 640px) 96px, 128px"
+                    sizes="(max-width: 640px) 112px, 144px"
                   />
                 </div>
               </div>
             </div>
             {/* Available badge */}
             <div>
-              <span className="inline-flex items-center rounded-full bg-blue-950 px-4 py-2 text-xs font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30 animate-fade-in-up">
-                <Sparkles className="h-4 w-4 mr-2" />
+              <span className="inline-flex items-center rounded-full bg-blue-950 px-5 py-2 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30 animate-fade-in-up">
+                <Sparkles className="h-5 w-5 mr-2" />
                 Available for new opportunities
               </span>
             </div>
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-50 font-display max-w-2xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto">
               Software engineer
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -64,24 +64,24 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </h1>
             {/* Subheadline */}
-            <p className="text-base sm:text-lg leading-7 text-gray-300 max-w-xl mx-auto text-body">
+            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body">
               I build digital products with React, Java, and cloud technologies.<br />
               Currently modernizing banking workflows at JPMorganChase with a focus on clean design and user experience.
             </p>
             {/* Badges row */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-blue-300 font-medium">
-                <Cloud className="h-4 w-4 text-blue-400" /> AWS Certified
+            <div className="flex flex-wrap justify-center gap-4">
+              <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-blue-300 font-medium">
+                <Cloud className="h-5 w-5 text-blue-400" /> AWS Certified
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-purple-300 font-medium">
-                <Award className="h-4 w-4 text-purple-400" /> Award-Winning
+              <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-purple-300 font-medium">
+                <Award className="h-5 w-5 text-purple-400" /> Award-Winning
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 text-xs text-yellow-300 font-medium">
-                <Users className="h-4 w-4 text-yellow-400" /> Research & Mentorship
+              <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-yellow-300 font-medium">
+                <Users className="h-5 w-5 text-yellow-400" /> Research & Mentorship
               </span>
             </div>
             {/* Location/email row */}
-            <div className="flex items-center justify-center gap-6 text-xs text-gray-400">
+            <div className="flex items-center justify-center gap-8 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -92,10 +92,10 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-4 mt-2">
               <Button 
                 variant="primary" 
-                size="lg" 
+                size="md" 
                 className="group text-base px-6 py-3"
                 onClick={onEmailContact}
               >
@@ -104,7 +104,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </Button>
               <Button 
                 variant="outline" 
-                size="lg" 
+                size="md" 
                 className="text-base px-6 py-3"
                 onClick={onScrollToProjects}
               >
