@@ -57,7 +57,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
             </div>
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur-premium" style={{ '--fadein-delay': '1100ms' } as React.CSSProperties}>
-              I'm Sengdao.
+              I&apos;m Sengdao.
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 I craft digital experiences.
