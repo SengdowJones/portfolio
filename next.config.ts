@@ -14,8 +14,9 @@ const nextConfig: NextConfig = {
   // Headers for security and performance
   async headers() {
     return [
+      // Exclude Vercel Analytics route from custom headers
       {
-        source: '/(.*)',
+        source: '/((?!_vercel/insights).*)',
         headers: [
           {
             key: 'X-Frame-Options',
