@@ -5,9 +5,13 @@ import { Section, Container } from '@/components/ui'
 import { handleExternalLink } from '@/lib/utils'
 import { Code, ExternalLink } from 'lucide-react'
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  addScrollRef: (el: HTMLElement | null) => void;
+}
+
+export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) {
   return (
-    <Section className="py-20 starlight-bg scroll-section" id="projects">
+    <Section className="py-20 starlight-bg scroll-section scroll-mt-20" id="projects" ref={addScrollRef}>
       <Container size="5xl">
         <div className="mx-auto max-w-5xl scroll-section-content">
           <div className="text-center mb-10">
@@ -19,9 +23,9 @@ export default function ProjectsSection() {
             </p>
           </div>
           <div className="divide-y divide-gray-800">
-            {projects.map((project) => {
+            {projects.map((project, idx) => {
               return (
-                <div key={project.title} className="flex flex-col md:flex-row items-center justify-between py-5 gap-4">
+                <div key={project.title} className="flex flex-col md:flex-row items-center justify-between py-5 gap-4 scroll-reveal" ref={addScrollRef} style={{ transitionDelay: `${idx * 0.1}s` }}>
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold text-gray-50 truncate">{project.title}</div>
                     <div className="text-gray-400 text-sm truncate">{project.brief}</div>
