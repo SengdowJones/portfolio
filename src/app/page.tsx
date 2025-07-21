@@ -2,11 +2,10 @@
 
 import { Navigation, Section, Container, Card, CardHeader, CardTitle, CardDescription, Button } from '@/components/ui'
 import { navigation, projects, experience, skills, education, achievements, siteConfig } from '@/lib/constants'
-import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award } from 'lucide-react'
+import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award, Cloud, Trophy } from 'lucide-react'
 import { useEffect, useRef, useCallback } from 'react'
 import HeroSection from '@/components/sections/HeroSection'
 import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection'
-import StatsSection from '@/components/sections/StatsSection'
 
 export default function Home() {
   const scrollRefs = useRef<(HTMLElement | null)[]>([])
@@ -108,82 +107,84 @@ export default function Home() {
 
         <CodeShowcaseSection addScrollRef={addScrollRef} />
 
-        <StatsSection addScrollRef={addScrollRef} />
-
         {/* About Section - Linear-inspired with scroll reveal */}
         <Section variant="secondary" className="py-24 starlight-bg scroll-section" id="about">
           {/* Grid pattern background */}
           <div className="absolute inset-0 grid-pattern opacity-20"></div>
-          
           {/* Satellite flash in about section */}
           <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400/30 rounded-full satellite-flash-delay-2"></div>
           <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-purple-400/25 rounded-full lighthouse-signal-delay-3"></div>
-          
           <Container size="lg">
-            <div className="mx-auto max-w-4xl scroll-section-content">
-              <div className="text-center mb-16">
+            <div className="mx-auto max-w-5xl scroll-section-content grid md:grid-cols-2 gap-16 items-start">
+              {/* Left: About me and Education */}
+              <div className="flex flex-col space-y-10 min-w-0">
                 <div className="scroll-reveal" ref={addScrollRef}>
-                  <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">
-                    About me
-                  </h2>
-                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                  <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">About me</h2>
+                  <p className="text-lg text-gray-400 max-w-2xl mb-6">
                     Software engineer with a passion for building modern, scalable applications
                   </p>
+                  <p className="text-gray-300 mb-4">
+                    I&apos;m a software engineer with experience building modern web applications and cloud infrastructure. I specialize in React, Java, and AWS, with a passion for creating intuitive user interfaces and scalable backend systems.
+                  </p>
+                  <p className="text-gray-300">
+                    Currently working at JPMorganChase where I&apos;m modernizing legacy banking workflows. I&apos;m also an AWS Certified Cloud Practitioner with experience in event-driven architectures and infrastructure as code.
+                  </p>
+                </div>
+                <div className="scroll-reveal" ref={addScrollRef}>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-50">Education</h3>
+                  <div className="space-y-3">
+                    {education.map((edu, idx) => (
+                      <div key={idx} className="feature-card flex items-start gap-3 px-4 py-3 scroll-reveal" ref={addScrollRef}>
+                        <Calendar className="h-4 w-4 text-gray-400 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-50 mb-1">{edu.degree}</div>
+                          <div className="text-sm text-gray-400 mb-1">{edu.school} &bull; {edu.period}</div>
+                          <div className="text-xs text-gray-500">GPA: {edu.gpa} &bull; {edu.location}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              
-              <div className="grid lg:grid-cols-2 gap-16 items-start">
-                <div className="space-y-6 text-body">
-                  <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
-                    <p className="text-lg leading-relaxed text-gray-300">
-                      I&apos;m a software engineer with experience building modern web applications and cloud infrastructure. 
-                      I specialize in React, Java, and AWS, with a passion for creating intuitive user interfaces 
-                      and scalable backend systems.
-                    </p>
-                  </div>
-                  <div className="scroll-reveal scroll-reveal-delay-2" ref={addScrollRef}>
-                    <p className="text-lg leading-relaxed text-gray-300">
-                      Currently working at JPMorganChase where I&apos;m modernizing legacy banking workflows and serving 
-                      as the frontend point of contact for my team. I&apos;m also an AWS Certified Cloud Practitioner 
-                      with experience in event-driven architectures and infrastructure as code.
-                    </p>
+              {/* Right: Skills & Technologies and Achievements */}
+              <div className="flex flex-col items-start space-y-10 w-full">
+                <div className="scroll-reveal" ref={addScrollRef}>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-50">Skills & Technologies</h3>
+                  <div className="space-y-3">
+                    {skills.map((skillGroup) => (
+                      <div key={skillGroup.category} className="space-y-2">
+                        <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">
+                          {skillGroup.category}
+                        </h4>
+                        <div className="flex flex-wrap gap-2 max-w-full md:max-w-[420px] lg:max-w-[520px] xl:max-w-[600px] 2xl:max-w-[700px]">
+                          {skillGroup.items.map((skill) => (
+                            <span
+                              key={skill}
+                              className="tech-tag"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                
-                <div className="space-y-8">
-                  <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
-                    <h3 className="text-lg font-semibold text-gray-50 mb-4 font-display">Skills & Technologies</h3>
-                    <div className="space-y-4">
-                      {skills.map((skillGroup) => (
-                        <div key={skillGroup.category} className="space-y-2">
-                          <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">
-                            {skillGroup.category}
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {skillGroup.items.map((skill) => (
-                              <span
-                                key={skill}
-                                className="tech-tag"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="scroll-reveal scroll-reveal-delay-2" ref={addScrollRef}>
-                    <h3 className="text-lg font-semibold text-gray-50 mb-4 font-display">Achievements</h3>
-                    <div className="space-y-2">
-                      {achievements.map((achievement, index) => (
-                        <div key={index} className="flex items-start gap-3 p-3 rounded-lg feature-card">
-                          <Award className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-300">{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div className="scroll-reveal" ref={addScrollRef}>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
+                  <div className="flex flex-col gap-3 w-full">
+                    <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/40 text-blue-200 text-sm font-medium">
+                      <Award className="h-4 w-4 text-blue-400" />
+                      Best Technology Award at WildHacks '23
+                    </span>
+                    <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/40 text-purple-200 text-sm font-medium">
+                      <Award className="h-4 w-4 text-purple-400" />
+                      3rd at Hack with Google: Workspace & Appsheet '23
+                    </span>
+                    <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-200 text-sm font-medium">
+                      <Trophy className="h-4 w-4 text-yellow-400" />
+                      Winner of Northwestern Data Visualization Contest '22
+                    </span>
                   </div>
                 </div>
               </div>
@@ -247,51 +248,6 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Education Section - Linear-inspired */}
-        <Section variant="secondary" className="py-24 starlight-bg scroll-section">
-          <Container size="lg">
-            <div className="mx-auto max-w-4xl scroll-section-content">
-              <div className="text-center mb-16">
-                <div className="scroll-reveal" ref={addScrollRef}>
-                  <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">
-                    Education
-                  </h2>
-                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                    Academic background in computer science
-                  </p>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                {education.map((edu, index) => (
-                  <Card key={index} hover className="group scroll-reveal" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
-                    <CardHeader>
-                      <CardTitle className="text-lg font-display">{edu.degree}</CardTitle>
-                      <CardDescription className="text-base font-medium text-gray-300">
-                        {edu.school}
-                      </CardDescription>
-                    </CardHeader>
-                    <div className="px-6 pb-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <Calendar className="h-4 w-4" />
-                          <span>{edu.period}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <MapPin className="h-4 w-4" />
-                          <span>{edu.location}</span>
-                        </div>
-                      </div>
-                      <div className="text-base text-gray-300">
-                        GPA: <span className="font-bold text-gray-50">{edu.gpa}</span>
-                      </div>
-                    </div>
-                  </Card>
                 ))}
               </div>
             </div>
@@ -393,7 +349,7 @@ export default function Home() {
                   I&apos;m always interested in new opportunities and exciting projects. 
                   Whether you have a question or just want to say hi, feel free to reach out!
                 </p>
-              </div>
+        </div>
               
               <div className="flex items-center justify-center gap-6 mb-8">
                 <button
@@ -430,7 +386,7 @@ export default function Home() {
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
-            </div>
+    </div>
           </Container>
         </Section>
       </main>

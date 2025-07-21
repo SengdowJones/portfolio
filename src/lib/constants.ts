@@ -38,15 +38,15 @@ export const experience = [
   {
     title: 'Software Engineer',
     company: 'JPMorganChase',
-    period: 'Aug 2024 – Present',
+    period: 'Aug 2024 - Present',
     location: 'Chicago, IL',
-    description: 'Modernizing legacy banking workflows by developing full-stack features with React and Java for a platform used by 100+ corporate clients—saving 30+ hours/month in manual operations. Delivered core frontend reusable components and user flows in production with the Salt design system, ensuring quality through comprehensive unit, integration, and end-to-end testing achieving over 70% code coverage. Designated by the outgoing UI lead as frontend point of contact, supporting teammates with system-level guidance on reusable components and logic, and unblocking blockers through live debugging and reviews. Built and extended backend APIs with Spring Boot, applying Controller-Service-Repository layered architecture and Liquibase to deliver versioned, reliable database migrations supporting relational integrity.',
-    technologies: ['React', 'Java', 'Spring Boot', 'PostgreSQL', 'Liquibase', 'Salt Design System', 'Jest', 'Cypress']
+    description: 'Modernizing legacy banking workflows by developing full-stack features with React and Java for a platform used by 100+ corporate clients, saving 30+ hours/month in manual operations. Delivered core frontend reusable components and user flows in production with the Salt design system, ensuring quality through comprehensive unit, integration, and end-to-end testing achieving over 70% code coverage. Designated by the outgoing UI lead as frontend point of contact, supporting teammates with system-level guidance on reusable components and logic, and unblocking blockers through live debugging and reviews. Built and extended backend APIs with Spring Boot, applying Controller-Service-Repository layered architecture and Liquibase to deliver versioned, reliable database migrations supporting relational integrity.',
+    technologies: ['React', 'Java', 'Spring Boot', 'PostgreSQL', 'Liquibase', 'Salt Design System', 'Jest']
   },
   {
     title: 'Software Engineer Intern',
     company: 'JPMorganChase',
-    period: 'Jun 2023 – Aug 2023',
+    period: 'Jun 2023 - Aug 2023',
     location: 'Chicago, IL',
     description: 'Orchestrated a full-stack proof-of-concept with React and AWS (Terraform, Lambda, API Gateway, EventBridge) to simulate scalable, event-driven workflows; later adopted by internal engineering team for further validation.',
     technologies: ['React', 'AWS', 'Terraform', 'Lambda', 'API Gateway', 'EventBridge']
@@ -54,17 +54,17 @@ export const experience = [
   {
     title: 'Software Engineer Intern',
     company: 'Optum',
-    period: 'Jun 2022 – Aug 2022',
+    period: 'Jun 2022 - Aug 2022',
     location: 'Schaumburg, IL',
     description: 'Led an Azure proof of concept using emerging cloud services to build scalable, cost-efficient data pipelines for >500K healthcare records, and built an interactive Power BI dashboard to deliver real-time, actionable insights.',
     technologies: ['Azure', 'Power BI', 'Data Pipelines', 'Python']
   },
   {
     title: 'Research Assistant',
-    company: 'Tech Innovations for Inclusive Learning & Teaching Lab',
-    period: 'Jun 2021 – Jun 2022',
+    company: 'Technological Innovations for Inclusive Learning & Teaching Lab',
+    period: 'Jun 2021 - Jun 2022',
     location: 'Evanston, IL',
-    description: 'Developed interactive visualizations interpreting classroom audio data—tracking speaker activity, sentiment, and transcripts—to assist educators in monitoring discussions while navigating student privacy concerns.',
+    description: 'Developed interactive visualizations interpreting classroom audio data, tracking speaker activity, sentiment, and transcripts, to assist educators in monitoring discussions while navigating student privacy concerns.',
     technologies: ['D3.js', 'Data Visualization', 'Audio Processing', 'Privacy Compliance']
   }
 ]
@@ -74,21 +74,18 @@ export const projects = [
     title: 'No-Code Smart Contracts Tool',
     description: 'Built user interface using Google AppSheet and Solidity to empower non-developers to deploy Ethereum contracts. Awarded 2nd runner-up and $2,000 prize at Hack with Google: Workspace and AppSheet 2023.',
     technologies: ['Google AppSheet', 'Solidity', 'Ethereum', 'Smart Contracts'],
-    github: 'https://github.com/ahkim3/google-hackathon-23',
-    link: 'https://github.com/ahkim3/google-hackathon-23'
+    github: 'https://github.com/ahkim3/google-hackathon-23'
   },
   {
-    title: 'Chess Opening Hierarchy — Data Visualization',
+    title: 'Chess Opening Hierarchy - Data Visualization',
     description: 'Created an interactive D3.js visualization of chess openings by player rating, revealing strategy trends across ratings. Won Best Undergraduate Visualization and $200 prize at 2022 Northwestern Data Visualization Contest.',
     technologies: ['D3.js', 'Data Visualization', 'Chess Analysis', 'Interactive Charts'],
-    github: 'https://github.com/SengdowJones/chess-visualization',
     link: 'https://doi.org/10.21985/n2-ttqd-s984'
   },
   {
     title: 'Exploding Chickens - Multiplayer Card Game',
     description: 'Designed responsive UI components with TailwindCSS to improve gameplay clarity and flow. Implemented backend logic for turn-based mechanics, supporting 1,900+ games and 4,600+ player eliminations.',
-    technologies: ['React', 'Tailwind CSS', 'Node.js', 'WebSocket', 'Game Logic'],
-    github: 'https://github.com/SengdowJones/exploding-chickens',
+    technologies: ['React', 'Tailwind CSS', 'Node.js', 'WebSockets', 'Game Logic'],
     link: 'https://bit.ly/exploding-chickens'
   },
   {

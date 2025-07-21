@@ -12,8 +12,8 @@
     @apply text-gray-50 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  }
-  
+}
+
   html {
     scroll-behavior: smooth;
   }
@@ -131,7 +131,7 @@
 
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
-  }
+}
 
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out;
