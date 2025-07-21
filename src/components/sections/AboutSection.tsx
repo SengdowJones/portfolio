@@ -10,7 +10,7 @@ interface AboutSectionProps {
 
 export default function AboutSection({ addScrollRef }: AboutSectionProps) {
   return (
-    <Section variant="secondary" className="py-24 starlight-bg scroll-section scroll-mt-20" id="about">
+    <Section variant="secondary" className="py-24 starlight-bg scroll-section" id="about">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-20"></div>
       {/* Satellite flash in about section */}

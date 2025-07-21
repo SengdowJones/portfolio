@@ -11,7 +11,7 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) {
   return (
-    <Section className="py-20 starlight-bg scroll-section scroll-mt-20" id="projects">
+    <Section className="py-20 starlight-bg scroll-section" id="projects">
       <Container size="5xl">
         <div className="mx-auto max-w-5xl scroll-section-content">
           <div className="text-center mb-10">
