@@ -80,8 +80,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   return (
                     <span
                       key={idx}
-                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass} bg-opacity-80`}
-                      style={{ backgroundColor: 'rgba(30,41,59,0.85)' }}
+                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass}`}
                     >
                       <Icon className={`h-4 w-4 ${achievement.iconClass}`} />
                       {achievement.label}
