@@ -1,4 +1,4 @@
-import { Settings2, Crown, Gamepad2, Moon } from 'lucide-react'
+import { Settings2, Crown, Gamepad2, Moon, Award, Trophy } from 'lucide-react'
 
 export const siteConfig = {
   name: 'Sengdao Inthavong',
@@ -125,8 +125,22 @@ export const education = [
 ]
 
 export const achievements = [
-  'AWS Certified Cloud Practitioner',
-  '2nd Runner-up, Hack with Google: Workspace and AppSheet 2023 ($2,000 prize)',
-  'Best Undergraduate Visualization, Northwestern Data Visualization Contest 2022 ($200 prize)',
-  'Frontend Point of Contact designation at JPMorganChase'
+  {
+    label: "Best Technology Award at WildHacks '23",
+    icon: Award,
+    colorClass: 'bg-blue-900/40 text-blue-200',
+    iconClass: 'text-blue-400',
+  },
+  {
+    label: "3rd at Hack with Google: Chicago '23 ($2,000)",
+    icon: Award,
+    colorClass: 'bg-purple-900/40 text-purple-200',
+    iconClass: 'text-purple-400',
+  },
+  {
+    label: "Winner of Northwestern Data Vis Contest '22 ($200)",
+    icon: Trophy,
+    colorClass: 'bg-yellow-900/40 text-yellow-200',
+    iconClass: 'text-yellow-400',
+  },
 ] 

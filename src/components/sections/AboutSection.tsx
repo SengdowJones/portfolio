@@ -1,7 +1,7 @@
 'use client'
 
 import { Section, Container } from '@/components/ui'
-import { skills, education } from '@/lib/constants'
+import { skills, education, achievements } from '@/lib/constants'
 import { Calendar, Award, Trophy } from 'lucide-react'
 
 interface AboutSectionProps {
@@ -75,18 +75,18 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
               <div className="flex flex-col gap-3 w-full">
-                <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/40 text-blue-200 text-sm font-medium">
-                  <Award className="h-4 w-4 text-blue-400" />
-                  Best Technology Award at WildHacks &apos;23
-                </span>
-                <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/40 text-purple-200 text-sm font-medium">
-                  <Award className="h-4 w-4 text-purple-400" />
-                  3rd at Hack with Google: Chicago &apos;23 ($2,000)
-                </span>
-                <span className="achievement-chip flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-900/40 text-yellow-200 text-sm font-medium">
-                  <Trophy className="h-4 w-4 text-yellow-400" />
-                  Winner of Northwestern Data Vis Contest &apos;22 ($200)
-                </span>
+                {achievements.map((achievement, idx) => {
+                  const Icon = achievement.icon;
+                  return (
+                    <span
+                      key={idx}
+                      className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass}`}
+                    >
+                      <Icon className={`h-4 w-4 ${achievement.iconClass}`} />
+                      {achievement.label}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>

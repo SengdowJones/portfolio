@@ -31,7 +31,7 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
             </p>
           </div>
           
-          <div className="flex items-center justify-center gap-6 mb-8">
+          <div className="scroll-reveal scroll-reveal-delay-1 flex items-center justify-center gap-6 mb-8" ref={addScrollRef}>
             <button
               onClick={() => handleEmailContact(siteConfig.email)}
               className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
