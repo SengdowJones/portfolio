@@ -2,7 +2,7 @@
 
 import { Section, Container, Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
-import { ArrowRight, Mail, Linkedin, Code } from 'lucide-react'
+import { ArrowRight, Mail, Linkedin, Github } from 'lucide-react'
 import { handleEmailContact, handleExternalLink } from '@/lib/utils'
 
 interface ContactSectionProps {
@@ -50,7 +50,7 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
               onClick={() => handleExternalLink(siteConfig.github)}
               className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
             >
-              <Code className="h-5 w-5" />
+              <Github className="h-5 w-5" />
               <span>GitHub</span>
             </button>
           </div>
