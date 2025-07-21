@@ -83,7 +83,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                       className={`achievement-chip flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${achievement.colorClass}`}
                     >
                       <Icon className={`h-4 w-4 ${achievement.iconClass}`} />
-                      {achievement.label}
+                      <span className={achievement.textClass}>{achievement.label}</span>
                     </span>
                   );
                 })}
