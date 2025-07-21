@@ -11,15 +11,6 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
-  const heroDelays = {
-    image: '0ms',
-    badge: '700ms',
-    headline: '1100ms',
-    subheadline: '1500ms',
-    badges: '1900ms',
-    location: '2300ms',
-    buttons: '2700ms',
-  };
   return (
     <Section className="pt-24 pb-20 scroll-mt-20 relative overflow-hidden starlight-bg">
       {/* Gradient background overlay - much darker */}
@@ -58,27 +49,27 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Available badge */}
-            <div className="fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.badge } as React.CSSProperties}>
+            <div className="fade-in-up-blur-premium" style={{ '--fade-in-delay': '700ms' } as React.CSSProperties}>
               <span className="inline-flex items-center rounded-full bg-blue-950 px-5 py-2 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-700/30">
                 <Sparkles className="h-5 w-5 mr-2" />
                 Available for new opportunities
               </span>
             </div>
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.headline } as React.CSSProperties}>
-              I&apos;m {siteConfig.name}.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur-premium" style={{ '--fade-in-delay': '1100ms' } as React.CSSProperties}>
+              I&apos;m Sengdao.
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 I craft digital experiences.
               </span>
             </h1>
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.subheadline } as React.CSSProperties}>
+            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body fade-in-up-blur-premium" style={{ '--fade-in-delay': '1500ms' } as React.CSSProperties}>
               Building digital products with React, Java, and cloud technologies.<br />
               Currently modernizing banking workflows at JPMorganChase with a focus on clean design and user experience.
             </p>
             {/* Badges row */}
-            <div className="flex flex-wrap justify-center gap-4 fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.badges } as React.CSSProperties}>
+            <div className="flex flex-wrap justify-center gap-4 fade-in-up-blur-premium" style={{ '--fade-in-delay': '1900ms' } as React.CSSProperties}>
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-blue-300 font-medium">
                 <Cloud className="h-5 w-5 text-blue-400" /> AWS Certified
               </span>
@@ -90,7 +81,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </div>
             {/* Location/email row */}
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.location } as React.CSSProperties}>
+            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 fade-in-up-blur-premium" style={{ '--fade-in-delay': '2300ms' } as React.CSSProperties}>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -101,7 +92,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-2 fade-in-up-blur-premium" style={{ '--fade-in-delay': heroDelays.buttons } as React.CSSProperties}>
+            <div className="flex items-center justify-center gap-4 mt-2 fade-in-up-blur-premium" style={{ '--fade-in-delay': '2700ms' } as React.CSSProperties}>
               <Button 
                 variant="primary" 
                 size="md" 
