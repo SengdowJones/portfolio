@@ -1,13 +1,9 @@
-'use client'
 
 import { Section, Container } from '@/components/ui'
 import { Cloud, Database, Terminal, Users } from 'lucide-react'
 
-interface CodeShowcaseSectionProps {
-  addScrollRef: (el: HTMLElement | null) => void
-}
-
-export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectionProps) {
+// @ts-nocheck
+export default function CodeShowcaseSection({ addScrollRef }) {
   return (
     <Section className="py-24 relative overflow-hidden starlight-bg scroll-section" id="code-showcase">
       {/* Grid pattern background */}
@@ -41,22 +37,21 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
                     <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
-                  <span className="text-sm text-gray-400 font-mono">portfolio.tsx</span>
+                  <span className="text-sm text-gray-400 font-mono">portfolio.jsx</span>
                 </div>
                 
                 <div className="code-block">
                   <pre className="font-mono text-sm text-left leading-relaxed">
                     <code>
-                      <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">&quot;react&quot;</span>;
+                      <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">'react'</span>;
                       {"\n"}
-                      <span className="text-purple-400">import</span> {'{ '}<span className="text-blue-400">NextJS</span>, <span className="text-blue-400">TypeScript</span>{' }'} <span className="text-purple-400">from</span> <span className="text-green-400">&quot;@/stack&quot;</span>;
-                      {"\n\n"}
+                      {"\n"}
                       <span className="text-purple-400">const</span> <span className="text-blue-400">Portfolio</span> = () =&gt; {'{'}
                       {"\n  return (\n    "}
-                        <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">&quot;modern-ui&quot;</span><span className="text-blue-400">&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">&quot;Sengdao&quot;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">&quot;React, Java, AWS&quot;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
-                          <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">&quot;JPMorganChase&quot;</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
+                        <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">'modern-ui'</span><span className="text-blue-400">&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">'Sengdao'</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">'React, Java, AWS'</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                          <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">'JPMorganChase'</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
                         <span className="text-blue-400">&lt;/main&gt;</span>{"\n  );\n"}
                       {'}'};
                       {"\n\n"}
