@@ -1,8 +1,8 @@
 'use client'
 
-import { Navigation, Section, Container, Card, CardHeader, CardTitle, CardDescription, Button } from '@/components/ui'
-import { navigation, projects, experience, skills, education, achievements, siteConfig } from '@/lib/constants'
-import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award, Cloud, Trophy } from 'lucide-react'
+import { Navigation, Section, Container, Card, Button } from '@/components/ui'
+import { navigation, projects, experience, skills, education, siteConfig } from '@/lib/constants'
+import { ArrowRight, ExternalLink, Github, Mail, Linkedin, MapPin, Calendar, Award, Trophy } from 'lucide-react'
 import { useEffect, useRef, useCallback } from 'react'
 import HeroSection from '@/components/sections/HeroSection'
 import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection'
