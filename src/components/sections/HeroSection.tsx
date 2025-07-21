@@ -13,6 +13,11 @@ interface HeroSectionProps {
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
     <Section className="pt-16 pb-20 relative overflow-hidden starlight-bg">
+      {/* Gradient background overlay - much darker */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/5 via-transparent to-purple-950/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/3 via-transparent to-indigo-950/3"></div>
+      
       {/* Subtle satellite flashes throughout */}
       <div className="absolute top-32 left-16 w-2 h-2 bg-blue-400/40 rounded-full satellite-flash"></div>
       <div className="absolute top-48 right-24 w-1.5 h-1.5 bg-purple-400/35 rounded-full satellite-flash-delay-1"></div>
@@ -25,7 +30,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-purple-300/30 rounded-full lighthouse-signal-delay-2"></div>
       
       <Container size="lg">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl relative z-10">
           {/* Photo at top */}
           <div className="flex flex-col items-center text-center space-y-6">
             {/* Profile image */}
