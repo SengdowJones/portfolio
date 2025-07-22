@@ -17,9 +17,9 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
       <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400/30 rounded-full satellite-flash-delay-2"></div>
       <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-purple-400/25 rounded-full lighthouse-signal-delay-3"></div>
       <Container size="5xl">
-        <div className="mx-auto max-w-5xl scroll-section-content grid md:grid-cols-2 gap-16 items-start">
+        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 scroll-section-content grid md:grid-cols-2 gap-16 items-start">
           {/* Left: About me and Education */}
-          <div className="flex flex-col space-y-10 min-w-0">
+          <div className="flex flex-col space-y-10 min-w-0 w-full max-w-full">
             <div className="scroll-reveal" ref={addScrollRef}>
               <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">About me</h2>
               <p className="text-lg text-gray-400 max-w-2xl mb-6">
@@ -49,7 +49,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
             </div>
           </div>
           {/* Right: Skills & Technologies and Achievements */}
-          <div className="flex flex-col items-start space-y-10 w-full">
+          <div className="flex flex-col items-start space-y-10 w-full max-w-full">
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Skills & Technologies</h3>
               <div className="space-y-3">
@@ -75,17 +75,17 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
             {/* Achievements Section - Linear-Inspired Subtle Styling */}
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
-              <div className="flex flex-wrap gap-2 w-full">
-                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-blue-300">
-                  <Award className="h-4 w-4 text-blue-500" />
+              <div className="flex flex-col gap-2 w-full">
+                <span className="flex items-center w-full rounded-md bg-blue-950/60 px-2 py-2 text-xs font-medium text-blue-200 gap-2 border border-blue-700 text-left justify-start">
+                  <Award className="h-3.5 w-3.5 text-blue-400" />
                   Best Technology Award at WildHacks &apos;23
                 </span>
-                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-accent-300">
-                  <Award className="h-4 w-4 text-accent-400" />
+                <span className="flex items-center w-full rounded-md bg-purple-950/60 px-2 py-2 text-xs font-medium text-purple-200 gap-2 border border-purple-700 text-left justify-start">
+                  <Award className="h-3.5 w-3.5 text-purple-400" />
                   3rd at Hack with Google: Chicago &apos;23 ($2,000)
                 </span>
-                <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium gap-2 bg-gray-900 border border-gray-800 text-yellow-200">
-                  <Award className="h-4 w-4 text-yellow-400" />
+                <span className="flex items-center w-full rounded-md bg-yellow-900/60 px-2 py-2 text-xs font-medium text-yellow-100 gap-2 border border-yellow-600 text-left justify-start">
+                  <Award className="h-3.5 w-3.5 text-yellow-400" />
                   Winner of Northwestern Data Vis Contest &apos;22 ($200)
                 </span>
               </div>

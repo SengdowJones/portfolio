@@ -30,7 +30,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-purple-300/30 rounded-full lighthouse-signal-delay-2"></div>
       
       <Container size="5xl">
-        <div className="mx-auto max-w-7xl relative z-10">
+        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 relative z-10">
           {/* Photo at top */}
           <div className="flex flex-col items-center text-center space-y-8">
             {/* Profile image */}
