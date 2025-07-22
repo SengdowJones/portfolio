@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
 import { Button } from './button'
 import { Container } from './container'
 import { siteConfig } from '@/lib/constants'
+import { createPortal } from 'react-dom';
 
 export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
   items: Array<{ name: string; href: string }>
@@ -16,20 +17,51 @@ export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
 const Navigation = forwardRef<HTMLElement, NavigationProps>(
   ({ items, logo, ...props }, ref) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [menuVisible, setMenuVisible] = useState(false)
+    const [isClosing, setIsClosing] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+
+    // Open menu
+    const openMenu = () => {
+      setMenuVisible(true);
+      requestAnimationFrame(() => setIsOpen(true));
+    };
+    // Close menu with animation
+    const closeMenu = () => {
+      setIsOpen(false);
+      setIsClosing(true);
+      setTimeout(() => {
+        setMenuVisible(false);
+        setIsClosing(false);
+      }, 300); // match slideout/fadeout duration
+    };
 
     useEffect(() => {
       const handleScroll = () => {
         setIsScrolled(window.scrollY > 10)
       }
-
       window.addEventListener('scroll', handleScroll)
       return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    // Close on Escape key
+    useEffect(() => {
+      if (!menuVisible) return;
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') closeMenu();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [menuVisible]);
+
+    // Overlay click handler (optional, closes if click on background)
+    const handleOverlayClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+      if (e.target === e.currentTarget) closeMenu();
+    }, []);
+
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      setIsOpen(false)
+      closeMenu();
     }
 
     const handleContactClick = () => {
@@ -78,7 +110,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                       if (element) {
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
-                      setIsOpen(false);
+                      closeMenu();
                     }}
                     role="link"
                     tabIndex={0}
@@ -115,30 +147,41 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => (menuVisible ? closeMenu() : openMenu())}
                 className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {menuVisible ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
           </div>
 
           {/* Mobile Navigation */}
-          {isOpen && (
-            <div className="md:hidden border-t border-gray-800/20">
-              <div className="py-3 space-y-1">
+          {menuVisible && typeof window !== 'undefined' && createPortal(
+            <div
+              className={`md:hidden fixed inset-0 w-full h-full z-50 bg-gray-950 bg-opacity-95 flex flex-col pt-4 overflow-y-auto border-t border-gray-800/20 transition-opacity duration-300 ease-in-out ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
+              onClick={handleOverlayClick}
+            >
+              {/* Close button */}
+              <button
+                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-gray-900/70 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
+                onClick={closeMenu}
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className={`py-3 space-y-1 w-full px-4 transition-transform duration-300 ease-in-out transform ${isOpen && !isClosing ? 'animate-slidein' : 'animate-slideout'}`}>
                 {items.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left px-4 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                    className="block w-full text-left px-2 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
                       if (element) {
                         element.scrollIntoView({ behavior: 'smooth' });
                       }
-                      setIsOpen(false);
+                      closeMenu();
                     }}
                     role="link"
                     tabIndex={0}
@@ -146,18 +189,19 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                     {item.name}
                   </a>
                 ))}
-                <div className="px-4 pt-3">
+                <div className="pt-3">
                   <Button 
                     variant="primary" 
                     size="sm" 
-                    className="w-full bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2" 
-                    onClick={handleContactClick}
+                    className="w-full rounded-none bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2" 
+                    onClick={() => { handleContactClick(); closeMenu(); }}
                   >
                     Get in touch
                   </Button>
                 </div>
               </div>
-            </div>
+            </div>,
+            document.body
           )}
         </Container>
       </nav>

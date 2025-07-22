@@ -25,11 +25,11 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
           <div className="divide-y divide-gray-800">
             {projects.map((project, idx) => {
               return (
-                <div key={project.title} className="flex flex-col md:flex-row items-center justify-between py-5 gap-4 scroll-reveal" ref={addScrollRef} style={{ transitionDelay: `${idx * 0.1}s` }}>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-gray-50 truncate">{project.title}</div>
-                    <div className="text-gray-400 text-sm truncate">{project.brief}</div>
-                    <div className="flex flex-wrap gap-2 mt-2">
+                <div key={project.title} className="flex flex-col md:flex-row items-center justify-between py-5 gap-4 scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${idx * 0.1}s` }}>
+                  <div className="flex-1 min-w-0 w-full max-w-full">
+                    <div className="font-semibold text-gray-50 break-words w-full max-w-full">{project.title}</div>
+                    <div className="text-gray-400 text-sm break-words w-full max-w-full">{project.brief}</div>
+                    <div className="flex flex-wrap gap-2 mt-2 w-full max-w-full break-words">
                       {project.technologies.map((tech) => (
                         <span key={tech} className="tech-tag">
                           {tech}

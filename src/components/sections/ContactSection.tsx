@@ -20,7 +20,7 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
       <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-blue-400/15 rounded-full satellite-flash-delay-2"></div>
       
       <Container size="5xl">
-        <div className="mx-auto max-w-2xl text-center scroll-section-content">
+        <div className="mx-auto max-w-2xl w-full px-4 sm:px-6 text-center scroll-section-content">
           <div className="scroll-reveal" ref={addScrollRef}>
             <h2 className="text-3xl font-bold text-gray-50 mb-6 font-display">
               Let&apos;s work together

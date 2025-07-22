@@ -418,3 +418,34 @@
   opacity: 0;
   animation: fadeInUpBlur 1s cubic-bezier(0.4,0,0.2,1) var(--fade-in-delay, 0ms) forwards;
 }
+
+/* Fade-in and slide-in for mobile menu overlay and content */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slidein {
+  from { transform: translateY(-16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-fadein {
+  animation: fadein 0.2s;
+}
+.animate-slidein {
+  animation: slidein 0.3s;
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes slideout {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-16px); opacity: 0; }
+}
+.animate-fadeout {
+  animation: fadeout 0.2s forwards;
+}
+.animate-slideout {
+  animation: slideout 0.3s forwards;
+}
