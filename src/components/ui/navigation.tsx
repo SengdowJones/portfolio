@@ -24,7 +24,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
     // Open menu
     const openMenu = () => {
       setMenuVisible(true);
-      setTimeout(() => setIsOpen(true), 10); // allow DOM to render
+      requestAnimationFrame(() => setIsOpen(true));
     };
     // Close menu with animation
     const closeMenu = () => {
@@ -44,11 +44,6 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // When menuVisible becomes true, open menu
-    useEffect(() => {
-      if (menuVisible) setIsOpen(true);
-    }, [menuVisible]);
-
     // Close on Escape key
     useEffect(() => {
       if (!menuVisible) return;
@@ -66,7 +61,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
 
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      setIsOpen(false)
+      closeMenu();
     }
 
     const handleContactClick = () => {
