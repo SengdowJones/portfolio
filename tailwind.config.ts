@@ -84,12 +84,19 @@ const config: Config = {
         '2xl': '1.5rem',
         '3xl': '2rem',
       },
+      backgroundSize: {
+        '300%': '300%',
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.3s ease-out',
         'slide-down': 'slideDown 0.3s ease-out',
         'scale-in': 'scaleIn 0.2s ease-out',
         'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'gradient-x': 'gradientX 3s ease-in-out infinite',
+        'bounce-slow': 'bounce 2s infinite',
+        'pulse-slow': 'pulse 3s infinite',
+        'scale-x': 'scaleX 1s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -112,16 +119,31 @@ const config: Config = {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        gradientX: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        scaleX: {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
       },
       transitionDuration: {
         '150': '150ms',
         '200': '200ms',
         '300': '300ms',
+        '500': '500ms',
+        '700': '700ms',
+        '1000': '1000ms',
       },
       transitionTimingFunction: {
         'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
         'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
         'ease-in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      scale: {
+        '102': '1.02',
       },
     },
   },

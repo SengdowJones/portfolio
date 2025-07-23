@@ -16,9 +16,14 @@ export default function Home() {
 
   return (
     <>
+      {/* Skip to main content for accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+      
       <Navigation items={navigation} />
       
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <HeroSection 
           onEmailContact={() => window.location.href = `mailto:imsengdao@gmail.com?subject=Portfolio Contact - Let's work together`}
           onScrollToProjects={() => scrollToSection('projects')}

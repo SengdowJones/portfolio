@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter, Raleway } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/lib/theme'
+import { ToastProvider } from '@/components/ui/toast'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -99,7 +100,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           <ThemeProvider>
-            {children}
+            <ToastProvider>
+              {children}
+            </ToastProvider>
           </ThemeProvider>
         </div>
         <Analytics />
