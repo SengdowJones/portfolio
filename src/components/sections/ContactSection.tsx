@@ -58,8 +58,8 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
           <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
             <Button 
               variant="primary" 
-              size="lg" 
-              className="group text-lg px-8 py-4"
+              size="md" 
+              className="group text-base px-5 py-2 rounded-md"
               onClick={() => handleEmailContact(siteConfig.email)}
             >
               Get in touch
