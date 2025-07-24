@@ -64,10 +64,6 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       closeMenu();
     }
 
-    const handleContactClick = () => {
-      window.location.href = `mailto:${siteConfig.email}?subject=Portfolio Inquiry - Hello from your website`
-    }
-
     return (
       <nav
         className={clsx(
@@ -129,52 +125,53 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             </div>
 
             {/* Action Buttons - Right */}
+            {/* Removed Resume button from desktop */}
             <div className="hidden md:flex items-center flex-shrink-0">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download Resume"
-                className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-900 font-semibold text-xs px-3 py-1.5 transition-colors hover:bg-gray-900 hover:text-white hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                style={{ fontSize: '0.85rem', paddingTop: '0.35rem', paddingBottom: '0.35rem' }}
-              >
-                Resume
-              </a>
+              {/* Resume button removed */}
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => (menuVisible ? closeMenu() : openMenu())}
-                className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                {menuVisible ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+            {/* Mobile menu button and Resume button (always visible in mobile) */}
+            <div className="md:hidden flex items-center gap-2 flex-shrink-0">
+              {/* Show hamburger menu button when menu is closed, X button when open */}
+              {!menuVisible ? (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={openMenu}
+                  className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={closeMenu}
+                  className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              )}
             </div>
           </div>
+        </Container>
 
-          {/* Mobile Navigation */}
-          {menuVisible && typeof window !== 'undefined' && createPortal(
-            <div
-              className={`md:hidden fixed inset-0 w-full h-full z-50 bg-gray-950 bg-opacity-95 flex flex-col pt-4 overflow-y-auto border-t border-gray-800/20 transition-opacity duration-300 ease-in-out ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
-              onClick={handleOverlayClick}
-            >
-              {/* Close button */}
-              <button
-                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-gray-900/70 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
-                onClick={closeMenu}
-                aria-label="Close menu"
-              >
-                <X className="h-6 w-6" />
-              </button>
-              <div className={`py-3 space-y-1 w-full px-4 transition-transform duration-300 ease-in-out transform ${isOpen && !isClosing ? 'animate-slidein' : 'animate-slideout'}`}>
+        {/* Mobile Navigation Overlay: only the menu links slide in below the top bar */}
+        {menuVisible && typeof window !== 'undefined' && createPortal(
+          <div
+            className={`md:hidden fixed inset-0 top-14 w-full h-[calc(100%-3.5rem)] z-50 bg-gray-950/95 backdrop-blur-sm flex flex-col transition-opacity duration-300 ease-in-out ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
+            style={{ pointerEvents: menuVisible ? 'auto' : 'none' }}
+            onClick={handleOverlayClick}
+          >
+            <div className="px-8">
+              <nav className="flex-1 flex flex-col justify-start py-4 space-y-2">
                 {items.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left px-2 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                    className="block w-full text-left text-2xl font-semibold text-gray-100 py-3 px-2 rounded-lg hover:bg-gray-800/60 hover:text-white transition-colors duration-150"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -190,20 +187,22 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   </a>
                 ))}
                 <div className="pt-3">
-                  <Button 
-                    variant="primary" 
-                    size="sm" 
-                    className="w-full rounded-none bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2" 
-                    onClick={() => { handleContactClick(); closeMenu(); }}
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download Resume"
+                    className="w-full inline-flex items-center justify-center rounded-none bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2 transition-colors"
+                    style={{ fontSize: '0.95rem' }}
                   >
-                    Get in touch
-                  </Button>
+                    Resume
+                  </a>
                 </div>
-              </div>
-            </div>,
-            document.body
-          )}
-        </Container>
+              </nav>
+            </div>
+          </div>,
+          document.body
+        )}
       </nav>
     )
   }
