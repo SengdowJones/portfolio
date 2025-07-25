@@ -63,7 +63,7 @@ export const experience = [
   },
   {
     title: 'Research Assistant',
-    company: 'Technological Innovations for Inclusive Learning & Teaching Lab',
+    company: 'Tech Innovations for Inclusive Learning & Teaching Lab',
     period: 'Jun 2021 - Jun 2022',
     location: 'Evanston, IL',
     description: 'Developed interactive visualizations interpreting classroom audio data, tracking speaker activity, sentiment, and transcripts, to assist educators in monitoring discussions while navigating student privacy concerns.',
