@@ -32,21 +32,20 @@ export default function ExperienceSection({ addScrollRef }: ExperienceSectionPro
           </div>
           <div className="space-y-8">
             {experience.map((job, index) => (
-              <div key={index} className="relative group scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="absolute left-0 top-0 hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-blue-950 group-hover:bg-blue-900 transition-colors">
+              <div key={index} className="relative scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
+                <div className="absolute left-0 top-0 hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-blue-950 transition-colors">
                   <div className="h-2.5 w-2.5 rounded-full bg-blue-400"></div>
                 </div>
                 <div className="ml-0 md:ml-16 w-full max-w-full">
-                  <div className="flex items-center gap-4 mb-2 w-full max-w-full">
-                    <h3 className="text-xl font-semibold text-gray-50 font-display group-hover:text-blue-400 transition-colors break-words w-full max-w-full">{job.title}</h3>
-                    <span className="text-sm text-gray-500">•</span>
+                  <h3 className="text-xl font-semibold text-gray-50 font-display break-words w-full max-w-full mb-2">{job.title}</h3>
+                  <div className="flex items-center gap-6 mb-3 text-sm text-gray-400 w-full max-w-full flex-wrap">
                     <span className="text-base font-medium text-blue-400 break-words">{job.company}</span>
-                  </div>
-                  <div className="flex items-center gap-6 mb-3 text-sm text-gray-400 w-full max-w-full">
+                    <span className="text-sm text-gray-500">•</span>
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />
                       <span>{job.period}</span>
                     </div>
+                    <span className="text-sm text-gray-500">•</span>
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4" />
                       <span>{job.location}</span>
