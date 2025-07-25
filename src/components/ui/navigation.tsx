@@ -125,9 +125,17 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             </div>
 
             {/* Action Buttons - Right */}
-            {/* Removed Resume button from desktop */}
             <div className="hidden md:flex items-center flex-shrink-0">
-              {/* Resume button removed */}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Resume"
+                className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-900 font-semibold text-xs px-3 py-1.5 transition-colors hover:bg-gray-900 hover:text-white hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                style={{ fontSize: '0.85rem', paddingTop: '0.35rem', paddingBottom: '0.35rem' }}
+              >
+                Resume
+              </a>
             </div>
 
             {/* Mobile menu button and Resume button (always visible in mobile) */}
