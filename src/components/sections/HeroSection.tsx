@@ -3,7 +3,6 @@
 import { Section, Container, Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
 import { ArrowRight, Mail, MapPin, Cloud, Award, Users } from 'lucide-react'
-import Image from 'next/image'
 
 interface HeroSectionProps {
   onEmailContact: () => void
@@ -24,17 +23,31 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute bottom-40 left-32 w-2 h-2 bg-cyan-400/40 rounded-full satellite-flash-delay-2"></div>
       <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/25 rounded-full satellite-flash-delay-3"></div>
       
+      {/* Random positioned satellite flashes */}
+      <div className="absolute top-1/4 left-1/2 w-1.5 h-1.5 bg-blue-400/30 rounded-full satellite-flash-random-1"></div>
+      <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-cyan-400/25 rounded-full satellite-flash-random-2"></div>
+      <div className="absolute top-1/2 left-1/6 w-2 h-2 bg-purple-400/35 rounded-full satellite-flash-random-3"></div>
+      <div className="absolute bottom-1/4 right-1/6 w-1.5 h-1.5 bg-indigo-400/30 rounded-full satellite-flash-random-4"></div>
+      <div className="absolute top-1/6 right-1/2 w-1 h-1 bg-sky-400/25 rounded-full satellite-flash-random-5"></div>
+      
       {/* Lighthouse signals */}
       <div className="absolute top-20 right-16 w-2 h-2 bg-yellow-300/30 rounded-full lighthouse-signal"></div>
       <div className="absolute bottom-32 left-20 w-1.5 h-1.5 bg-blue-300/25 rounded-full lighthouse-signal-delay-1"></div>
       <div className="absolute top-2/3 left-1/4 w-2 h-2 bg-purple-300/30 rounded-full lighthouse-signal-delay-2"></div>
       
+      {/* Random positioned lighthouse signals */}
+      <div className="absolute top-1/3 left-1/3 w-1.5 h-1.5 bg-blue-400/25 rounded-full lighthouse-signal-random-1"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-cyan-400/30 rounded-full lighthouse-signal-random-2"></div>
+      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-purple-400/25 rounded-full lighthouse-signal-random-3"></div>
+      <div className="absolute top-1/4 right-1/6 w-1.5 h-1.5 bg-indigo-400/30 rounded-full lighthouse-signal-random-4"></div>
+      <div className="absolute bottom-1/6 left-1/3 w-2 h-2 bg-sky-400/25 rounded-full lighthouse-signal-random-5"></div>
+      
       <Container size="5xl">
-        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 relative z-10">
+        <div className="mx-auto max-w-5xl w-full relative z-10">
           {/* Photo at top */}
-          <div className="flex flex-col items-center text-center space-y-8">
+          <div className="flex flex-col items-start text-left space-y-8">
             {/* Profile image */}
-            <div className="fade-in-up-blur fade-delay-0">
+            {/* <div className="fade-in-up-blur fade-delay-0">
               <div className="relative group">
                 <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
                   <Image
@@ -47,22 +60,23 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-4xl mx-auto fade-in-up-blur fade-delay-2">
-              I&apos;m Sengdao.
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                I craft digital experiences.
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-50 font-display max-w-5xl text-left">
+              <div className="animate-subtle-fade stagger-0">
+                I&apos;m Sengdao.
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  I design experiences.
+                </span>
+              </div>
             </h1>
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-2xl mx-auto text-body fade-in-up-blur fade-delay-3">
-              Building digital products with React, Java, and cloud technologies.<br />
-              Currently modernizing banking workflows at JPMorganChase with a focus on clean design and user experience.
+            <p className="text-lg sm:text-xl leading-8 text-gray-300 max-w-5xl text-left text-body animate-subtle-fade stagger-1">
+              I specialize in React, JavaScript, and modern web technologies, working as a fullstack engineer at JPMorganChase where I build scalable user interfaces with a focus on performance and accessibility.
             </p>
             {/* Badges row */}
-            <div className="flex flex-wrap justify-center gap-4 fade-in-up-blur fade-delay-4">
+            <div className="flex flex-wrap justify-left gap-4 animate-subtle-fade stagger-2">
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-800/80 text-sm text-blue-300 font-medium">
                 <Cloud className="h-5 w-5 text-blue-400" /> AWS Certified
               </span>
@@ -74,7 +88,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </div>
             {/* Location/email row */}
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 fade-in-up-blur fade-delay-5">
+            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 animate-subtle-fade stagger-3">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -85,7 +99,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-2 fade-in-up-blur fade-delay-6">
+            <div className="flex items-center justify-center gap-4 mt-2 animate-subtle-fade stagger-5">
               <Button 
                 variant="primary" 
                 size="md" 
