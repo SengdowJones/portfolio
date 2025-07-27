@@ -54,11 +54,24 @@ const generateStars = (count: number): Star[] => {
   // Use a fixed seed for deterministic generation
   const rng = new SeededRandom(12345)
 
+  // Create a grid for even distribution
+  const gridSize = Math.ceil(Math.sqrt(count))
+  const cellWidth = 100 / gridSize
+  const cellHeight = 100 / gridSize
+
   for (let i = 0; i < count; i++) {
+    // Calculate grid position
+    const gridRow = Math.floor(i / gridSize)
+    const gridCol = i % gridSize
+    
+    // Add randomness within each grid cell
+    const cellTop = gridRow * cellHeight + (rng.next() * cellHeight * 0.8) + (cellHeight * 0.1)
+    const cellLeft = gridCol * cellWidth + (rng.next() * cellWidth * 0.8) + (cellWidth * 0.1)
+
     stars.push({
       id: i,
-      top: rng.next() * 100, // 0-100%
-      left: rng.next() * 100, // 0-100%
+      top: cellTop,
+      left: cellLeft,
       size: sizes[Math.floor(rng.next() * sizes.length)],
       color: colors[Math.floor(rng.next() * colors.length)],
       animation: animations[Math.floor(rng.next() * animations.length)],
@@ -104,10 +117,10 @@ export default function StarfieldBackground({
 
   return (
     <div className={`absolute inset-0 pointer-events-none ${className}`}>
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/5 via-transparent to-purple-950/5"></div>
-      <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/3 via-transparent to-indigo-950/3"></div>
+      {/* Gradient overlays - increased opacity for better content visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-98"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/20 via-transparent to-purple-950/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/15 via-transparent to-indigo-950/15"></div>
       
       {/* Stars */}
       {stars.map((star) => (
