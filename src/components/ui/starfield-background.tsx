@@ -12,6 +12,20 @@ interface Star {
   opacity: number
 }
 
+// Deterministic random number generator using a seed
+class SeededRandom {
+  private seed: number
+
+  constructor(seed: number) {
+    this.seed = seed
+  }
+
+  next(): number {
+    this.seed = (this.seed * 9301 + 49297) % 233280
+    return this.seed / 233280
+  }
+}
+
 const generateStars = (count: number): Star[] => {
   const stars: Star[] = []
   const colors: ('white' | 'blue' | 'purple')[] = ['white', 'blue', 'purple']
@@ -37,15 +51,18 @@ const generateStars = (count: number): Star[] => {
     'lighthouse-signal-random-5'
   ]
 
+  // Use a fixed seed for deterministic generation
+  const rng = new SeededRandom(12345)
+
   for (let i = 0; i < count; i++) {
     stars.push({
       id: i,
-      top: Math.random() * 100, // 0-100%
-      left: Math.random() * 100, // 0-100%
-      size: sizes[Math.floor(Math.random() * sizes.length)],
-      color: colors[Math.floor(Math.random() * colors.length)],
-      animation: animations[Math.floor(Math.random() * animations.length)],
-      opacity: 0.4 + Math.random() * 0.4 // 0.4-0.8
+      top: rng.next() * 100, // 0-100%
+      left: rng.next() * 100, // 0-100%
+      size: sizes[Math.floor(rng.next() * sizes.length)],
+      color: colors[Math.floor(rng.next() * colors.length)],
+      animation: animations[Math.floor(rng.next() * animations.length)],
+      opacity: 0.4 + rng.next() * 0.4 // 0.4-0.8
     })
   }
 
