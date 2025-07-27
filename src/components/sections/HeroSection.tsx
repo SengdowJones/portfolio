@@ -15,6 +15,9 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       {/* Starfield background with truly random distribution */}
       <StarfieldBackground starCount={120} />
       
+      {/* Glassmorphism backdrop for entire hero section */}
+      <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
+      
       <Container size="5xl">
         <div className="mx-auto max-w-5xl w-full relative z-10">
           {/* Photo at top */}
