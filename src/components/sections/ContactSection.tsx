@@ -16,13 +16,13 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       
       {/* Lighthouse signal in contact */}
-      <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-yellow-300/20 rounded-full lighthouse-signal"></div>
-      <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-blue-400/15 rounded-full satellite-flash-delay-2"></div>
+      <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-blue-400/80 rounded-full lighthouse-signal"></div>
+      <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-white/65 rounded-full satellite-flash-delay-2"></div>
       
       <Container size="5xl">
         <div className="mx-auto max-w-2xl w-full px-4 sm:px-6 text-center scroll-section-content">
           <div className="scroll-reveal" ref={addScrollRef}>
-            <h2 className="text-3xl font-bold text-gray-50 mb-6 font-display">
+            <h2 className="section-heading">
               Let&apos;s work together
             </h2>
             <p className="text-lg text-gray-300 mb-8 text-body leading-relaxed">
@@ -34,21 +34,21 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
           <div className="scroll-reveal scroll-reveal-delay-1 flex items-center justify-center gap-6 mb-8" ref={addScrollRef}>
             <button
               onClick={() => handleEmailContact(siteConfig.email)}
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
+              className="contact-button"
             >
               <Mail className="h-5 w-5" />
               <span>Email me</span>
             </button>
             <button
               onClick={() => handleExternalLink(siteConfig.linkedin)}
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
+              className="contact-button"
             >
               <Linkedin className="h-5 w-5" />
               <span>LinkedIn</span>
             </button>
             <button
               onClick={() => handleExternalLink(siteConfig.github)}
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer"
+              className="contact-button"
             >
               <Github className="h-5 w-5" />
               <span>GitHub</span>

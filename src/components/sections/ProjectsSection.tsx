@@ -15,10 +15,10 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
       <Container size="5xl">
         <div className="mx-auto max-w-5xl scroll-section-content">
           <div className="text-center mb-10 scroll-reveal" ref={addScrollRef}>
-            <h2 className="text-3xl font-bold text-gray-50 mb-4 font-display">
+            <h2 className="section-heading">
               Featured Projects
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="section-description">
               A quick overview of my projects.
             </p>
           </div>

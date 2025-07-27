@@ -67,10 +67,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
     return (
       <nav
         className={clsx(
-          'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out',
+          'nav-container',
           isScrolled
-            ? 'bg-gray-950 shadow-md shadow-black/10 backdrop-blur-md'
-            : 'bg-gray-950 backdrop-blur-md'
+            ? 'nav-container-scrolled'
+            : 'nav-container-default'
         )}
         ref={ref}
         {...props}
@@ -85,7 +85,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               {logo || (
                 <button
                   onClick={scrollToTop}
-                  className="text-lg font-semibold text-gray-100 tracking-tight hover:text-white transition-colors cursor-pointer"
+                  className="nav-logo"
                 >
                   {siteConfig.name}
                 </button>
@@ -99,7 +99,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   <a
                     key={item.name}
                     href={item.href}
-                    className="relative group text-sm text-gray-400/80 font-normal px-3 py-2 transition-colors duration-200 cursor-pointer rounded-md focus-visible:outline-none"
+                    className="nav-link group"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -113,10 +113,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   >
                     {/* Animated pill background */}
                     <span
-                      className="absolute inset-x-0 inset-y-[4px] z-0 rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100 bg-gray-800 transition-all duration-200"
+                      className="nav-link-background"
                       aria-hidden="true"
                     />
-                    <span className="relative z-10 group-hover:text-white group-focus-visible:text-white transition-colors duration-200">
+                    <span className="nav-link-text">
                       {item.name}
                     </span>
                   </a>
@@ -169,7 +169,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         {/* Mobile Navigation Overlay: only the menu links slide in below the top bar */}
         {menuVisible && typeof window !== 'undefined' && createPortal(
           <div
-            className={`md:hidden fixed inset-0 top-14 w-full h-[calc(100%-3.5rem)] z-50 bg-gray-950/95 backdrop-blur-sm flex flex-col transition-opacity duration-300 ease-in-out ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
+            className={`nav-mobile-overlay ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
             style={{ pointerEvents: menuVisible ? 'auto' : 'none' }}
             onClick={handleOverlayClick}
           >
@@ -179,7 +179,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left text-2xl font-semibold text-gray-100 py-3 px-2 rounded-lg hover:bg-gray-800/60 hover:text-white transition-colors duration-150"
+                    className="nav-mobile-link"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -200,7 +200,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Download Resume"
-                    className="w-full inline-flex items-center justify-center rounded-none bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2 transition-colors"
+                    className="nav-resume-button"
                     style={{ fontSize: '0.95rem' }}
                   >
                     Resume

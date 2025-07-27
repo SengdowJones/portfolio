@@ -54,7 +54,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <h3
-        className={clsx('text-lg font-semibold leading-none tracking-tight text-gray-900 group-hover:text-accent-600 transition-colors duration-200 dark:text-gray-100 dark:group-hover:text-accent-400', className)}
+        className={clsx('card-title', className)}
         ref={ref}
         {...props}
       >
@@ -74,7 +74,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <p
-        className={clsx('text-sm text-gray-600 leading-relaxed dark:text-gray-300', className)}
+        className={clsx('card-description', className)}
         ref={ref}
         {...props}
       >

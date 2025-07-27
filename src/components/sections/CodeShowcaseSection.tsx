@@ -13,9 +13,9 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
       <div className="absolute inset-0 grid-pattern opacity-30"></div>
       
       {/* Satellite flashes in code section */}
-      <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-blue-400/35 rounded-full satellite-flash-delay-1"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-400/30 rounded-full lighthouse-signal-delay-2"></div>
-      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cyan-400/25 rounded-full satellite-flash-delay-3"></div>
+      <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-white/70 rounded-full satellite-flash-delay-1"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-400/80 rounded-full lighthouse-signal-delay-2"></div>
+      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-white/65 rounded-full satellite-flash-delay-3"></div>
       
       <Container size="5xl">
         <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 scroll-section-content">
@@ -34,13 +34,13 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center w-full max-w-full">
             <div className="w-full space-y-6 max-w-full">
               <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                <div className="code-window-controls">
+                  <div className="code-window-dots">
+                    <div className="code-window-dot-red"></div>
+                    <div className="code-window-dot-yellow"></div>
+                    <div className="code-window-dot-green"></div>
                   </div>
-                  <span className="text-xs sm:text-sm text-gray-400 font-mono">portfolio.jsx</span>
+                  <span className="code-window-title">portfolio.jsx</span>
                 </div>
                 <div className="code-block overflow-x-auto max-w-full text-xs sm:text-sm">
                   <pre className="font-mono text-left leading-relaxed whitespace-pre-wrap break-words">
