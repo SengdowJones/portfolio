@@ -163,24 +163,11 @@ Each section is modular and can be easily modified:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-
-1. **Connect Repository**: Link your GitHub repository to Vercel
-2. **Configure Build**: Vercel automatically detects Next.js
-3. **Deploy**: Push to main branch triggers automatic deployment
-
 ### Manual Deployment
 
 1. **Build**: `npm run build`
 2. **Start**: `npm run start`
 3. **Deploy**: Upload to your hosting provider
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+ across all metrics
-- **Core Web Vitals**: Optimized for all metrics
-- **Bundle Size**: Optimized with code splitting
-- **Images**: Optimized and responsive
 
 ## 📄 License
 
