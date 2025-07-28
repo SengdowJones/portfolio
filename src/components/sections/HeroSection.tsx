@@ -19,23 +19,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
       
         <div className="w-full relative z-10">
-          {/* Photo at top */}
           <div className="flex flex-col items-start text-left space-y-8">
-            {/* Profile image */}
-            {/* <div className="fade-in-up-blur fade-delay-0">
-              <div className="relative group">
-                <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-gray-700">
-                  <Image
-                    src="/sengdao-profile.jpg"
-                    alt="Sengdao Inthavong - Software Engineer"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 640px) 112px, 144px"
-                  />
-                </div>
-              </div>
-            </div> */}
             {/* Headline */}
             <h1 className="headline">
               <div className="animate-subtle-fade stagger-0">
