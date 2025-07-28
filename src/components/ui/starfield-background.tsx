@@ -3,6 +3,8 @@
 import React from 'react'
 
 // Constants
+// Default seed value for deterministic random number generation.
+// Chosen arbitrarily to ensure consistent starfield appearance across renders.
 const DEFAULT_SEED = 12345
 
 interface Star {
@@ -24,6 +26,10 @@ class SeededRandom {
   }
 
   next(): number {
+    // Linear Congruential Generator (LCG) formula:
+    // new_seed = (old_seed * multiplier + increment) % modulus
+    // Constants 9301, 49297, and 233280 are commonly used parameters for LCGs.
+    // These values are chosen to provide a good balance of randomness and performance.
     this.seed = (this.seed * 9301 + 49297) % 233280
     return this.seed / 233280
   }
