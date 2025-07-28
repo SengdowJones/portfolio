@@ -91,6 +91,35 @@ src/
 - `npm run format:check` - Check code formatting
 - `npm run type-check` - Run TypeScript type checking
 
+## 📝 Commit Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/) for commit messages:
+
+### Format
+```
+<type>(<scope>): <subject>
+```
+
+### Types
+- **feat**: New feature for the user
+- **fix**: Bug fix for the user
+- **docs**: Changes to documentation
+- **style**: Formatting, missing semicolons, etc.
+- **refactor**: Refactoring production code
+- **test**: Adding or refactoring tests
+- **chore**: Updating build tasks, dependencies, etc.
+
+### Examples
+```bash
+feat(hero): add new animation component
+fix(nav): resolve mobile menu toggle issue
+refactor(styles): optimize CSS classes
+style: format code with prettier
+docs: update README with new features
+test: add unit tests for utils
+chore: update dependencies
+```
+
 ## 🎨 Customization
 
 ### Content Updates
