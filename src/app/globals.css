@@ -184,6 +184,7 @@
     width: 2px;
     height: 2px;
     background: transparent;
+    filter: blur(0.3px);
   }
   
   .star::before,
