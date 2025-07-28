@@ -135,9 +135,9 @@ export default function StarfieldBackground({
   return (
     <div className={`absolute inset-0 pointer-events-none ${className}`}>
       {/* Gradient overlays - increased opacity for better content visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-98"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/20 via-transparent to-purple-950/20"></div>
-      <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/15 via-transparent to-indigo-950/15"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-950 to-gray-950 opacity-95"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/30 via-transparent to-purple-950/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/25 via-transparent to-indigo-950/25"></div>
       
       {/* Stars */}
       {stars.map((star) => (
