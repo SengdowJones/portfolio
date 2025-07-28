@@ -1,6 +1,6 @@
 'use client'
 
-import { Section, Container, Button } from '@/components/ui'
+import { Section, Button } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
 import { ArrowRight, Mail, Linkedin, Github } from 'lucide-react'
 import { handleEmailContact, handleExternalLink } from '@/lib/utils'
@@ -11,16 +11,11 @@ interface ContactSectionProps {
 
 export default function ContactSection({ addScrollRef }: ContactSectionProps) {
   return (
-    <Section variant="secondary" className="py-24 starlight-bg scroll-section scroll-mt-20" id="contact">
+    <Section variant="secondary" className="py-24 scroll-section scroll-mt-20" id="contact">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       
-      {/* Lighthouse signal in contact */}
-      <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-blue-400/80 rounded-full lighthouse-signal"></div>
-      <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-white/65 rounded-full satellite-flash-delay-2"></div>
-      
-      <Container size="5xl">
-        <div className="mx-auto max-w-2xl w-full px-4 sm:px-6 text-center scroll-section-content">
+        <div className="mx-auto max-w-2xl w-full text-center scroll-section-content">
           <div className="scroll-reveal" ref={addScrollRef}>
             <h2 className="section-heading">
               Let&apos;s work together
@@ -67,7 +62,6 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
             </Button>
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 

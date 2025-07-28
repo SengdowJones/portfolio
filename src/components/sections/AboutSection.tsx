@@ -1,6 +1,6 @@
 'use client'
 
-import { Section, Container } from '@/components/ui'
+import { Section } from '@/components/ui'
 import { skills, education } from '@/lib/constants'
 import { Calendar, Award } from 'lucide-react'
 
@@ -10,14 +10,10 @@ interface AboutSectionProps {
 
 export default function AboutSection({ addScrollRef }: AboutSectionProps) {
   return (
-    <Section variant="secondary" className="py-24 starlight-bg scroll-section scroll-mt-20" id="about">
+    <Section variant="secondary" className="py-24 scroll-section scroll-mt-20" id="about">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-20"></div>
-      {/* Satellite flash in about section */}
-      <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/65 rounded-full satellite-flash-delay-2"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-purple-400/75 rounded-full lighthouse-signal-delay-3"></div>
-      <Container size="5xl">
-        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 scroll-section-content grid md:grid-cols-2 gap-16 items-start">
+        <div className="scroll-section-content grid md:grid-cols-2 gap-16 items-start">
           {/* Left: About me and Education */}
           <div className="flex flex-col space-y-10 min-w-0 w-full max-w-full">
             <div className="scroll-reveal" ref={addScrollRef}>
@@ -92,7 +88,6 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
             </div>
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 

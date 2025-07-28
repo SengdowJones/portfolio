@@ -78,8 +78,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         {/* Subtle gradient overlay that fades to transparent */}
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/10 to-transparent"></div>
 
-        <Container size="5xl" className="relative z-10 px-8">
-          <div className="flex h-14 items-center justify-between overflow-hidden py-2">
+        <Container size="5xl" className="relative z-10">
+          <div className="flex h-14 items-center justify-between overflow-hidden py-2 w-full">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               {logo || (
@@ -92,8 +92,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               )}
             </div>
 
-            {/* Desktop Navigation - Absolutely Centered */}
-            <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 h-full items-center justify-center">
+            {/* Desktop Navigation - Centered using flex-1 */}
+            <div className="hidden md:flex items-center justify-center flex-1">
               <div className="flex space-x-5">
                 {items.map((item) => (
                   <a

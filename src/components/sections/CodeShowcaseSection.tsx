@@ -1,5 +1,5 @@
 
-import { Section, Container } from '@/components/ui'
+import { Section } from '@/components/ui'
 import { Cloud, Database, Terminal, Users } from 'lucide-react'
 
 interface CodeShowcaseSectionProps {
@@ -8,17 +8,11 @@ interface CodeShowcaseSectionProps {
 
 export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectionProps) {
   return (
-    <Section className="py-24 relative overflow-hidden starlight-bg scroll-section scroll-mt-20" id="code-showcase">
+    <Section className="py-24 relative overflow-hidden scroll-section scroll-mt-20" id="code-showcase">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-30"></div>
       
-      {/* Satellite flashes in code section */}
-      <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-white/70 rounded-full satellite-flash-delay-1"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-400/80 rounded-full lighthouse-signal-delay-2"></div>
-      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-white/65 rounded-full satellite-flash-delay-3"></div>
-      
-      <Container size="5xl">
-        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 scroll-section-content">
+        <div className="scroll-section-content">
           <div className="text-center mb-16">
             <div className="scroll-reveal" ref={addScrollRef}>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-50 mb-4 font-display">
@@ -115,7 +109,6 @@ export default function CodeShowcaseSection({ addScrollRef }: CodeShowcaseSectio
             </div>
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 

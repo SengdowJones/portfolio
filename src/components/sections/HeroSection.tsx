@@ -1,6 +1,6 @@
 'use client'
 
-import { Section, Container, Button, StarfieldBackground } from '@/components/ui'
+import { Section, Button, StarfieldBackground } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
 import { ArrowRight, Mail, MapPin, Cloud, Award, Users } from 'lucide-react'
 
@@ -11,15 +11,14 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="min-h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden">
+    <Section className="h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden">
       {/* Starfield background with truly random distribution */}
       <StarfieldBackground starCount={120} />
       
       {/* Glassmorphism backdrop for entire hero section */}
       <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
       
-      <Container size="5xl">
-        <div className="mx-auto max-w-5xl w-full relative z-10">
+        <div className="w-full relative z-10">
           {/* Photo at top */}
           <div className="flex flex-col items-start text-left space-y-8">
             {/* Profile image */}
@@ -96,7 +95,6 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
             </div>
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 

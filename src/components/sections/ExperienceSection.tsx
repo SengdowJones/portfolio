@@ -1,6 +1,6 @@
 'use client'
 
-import { Section, Container } from '@/components/ui'
+import { Section } from '@/components/ui'
 import { experience } from '@/lib/constants'
 import { Calendar, MapPin } from 'lucide-react'
 
@@ -10,15 +10,10 @@ interface ExperienceSectionProps {
 
 export default function ExperienceSection({ addScrollRef }: ExperienceSectionProps) {
   return (
-    <Section className="py-24 starlight-bg scroll-section scroll-mt-20" id="experience">
+    <Section className="py-24 scroll-section scroll-mt-20" id="experience">
       {/* Grid pattern background */}
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       
-      {/* Lighthouse signal in experience */}
-      <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-400/75 rounded-full lighthouse-signal-delay-3"></div>
-      <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white/60 rounded-full satellite-flash-delay-1"></div>
-      
-      <Container size="5xl">
         <div className="mx-auto max-w-4xl scroll-section-content">
           <div className="text-center mb-16">
             <div className="scroll-reveal" ref={addScrollRef}>
@@ -67,7 +62,6 @@ export default function ExperienceSection({ addScrollRef }: ExperienceSectionPro
             ))}
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 

@@ -1,7 +1,7 @@
 'use client'
 
 import { projects } from '@/lib/constants'
-import { Section, Container } from '@/components/ui'
+import { Section } from '@/components/ui'
 import { handleExternalLink } from '@/lib/utils'
 import { Code, ExternalLink } from 'lucide-react'
 
@@ -11,9 +11,8 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) {
   return (
-    <Section className="py-20 starlight-bg scroll-section scroll-mt-20" id="projects" ref={addScrollRef}>
-      <Container size="5xl">
-        <div className="mx-auto max-w-5xl scroll-section-content">
+    <Section className="py-20 scroll-section scroll-mt-20" id="projects" ref={addScrollRef}>
+        <div className="scroll-section-content">
           <div className="text-center mb-10 scroll-reveal" ref={addScrollRef}>
             <h2 className="section-heading">
               Featured Projects
@@ -62,7 +61,6 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
             })}
           </div>
         </div>
-      </Container>
     </Section>
   )
 } 
