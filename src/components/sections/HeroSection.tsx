@@ -16,7 +16,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <StarfieldBackground starCount={120} />
       
       {/* Glassmorphism backdrop for entire hero section */}
-      <div className="absolute inset-0 bg-gray-950/25 backdrop-blur-md border border-gray-800/30 rounded-2xl shadow-2xl"></div>
+      <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
       
         <div className="w-full relative z-10">
           <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8 pt-8 sm:pt-0">
