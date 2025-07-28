@@ -2,6 +2,9 @@
 
 import React from 'react'
 
+// Constants
+const DEFAULT_SEED = 12345
+
 interface Star {
   id: number
   top: number
@@ -52,7 +55,7 @@ const generateStars = (count: number): Star[] => {
   ]
 
   // Use a fixed seed for deterministic generation
-  const rng = new SeededRandom(12345)
+  const rng = new SeededRandom(DEFAULT_SEED)
 
   // Create a grid for even distribution
   const gridSize = Math.ceil(Math.sqrt(count))
