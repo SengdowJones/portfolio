@@ -7,6 +7,14 @@ import React from 'react'
 // Chosen arbitrarily to ensure consistent starfield appearance across renders.
 const DEFAULT_SEED = 12345
 
+// Cell positioning factors for star distribution
+const CELL_RANDOMNESS_FACTOR = 0.8  // Controls how much randomness within each grid cell
+const CELL_PADDING_FACTOR = 0.1     // Controls padding from cell edges
+
+// Opacity range for star appearance
+const MIN_OPACITY = 0.4             // Minimum opacity value for stars
+const OPACITY_RANGE = 0.4           // Range of opacity variation (0.4-0.8)
+
 interface Star {
   id: number
   top: number
@@ -74,8 +82,8 @@ const generateStars = (count: number): Star[] => {
     const gridCol = i % gridSize
     
     // Add randomness within each grid cell
-    const cellTop = gridRow * cellHeight + (rng.next() * cellHeight * 0.8) + (cellHeight * 0.1)
-    const cellLeft = gridCol * cellWidth + (rng.next() * cellWidth * 0.8) + (cellWidth * 0.1)
+    const cellTop = gridRow * cellHeight + (rng.next() * cellHeight * CELL_RANDOMNESS_FACTOR) + (cellHeight * CELL_PADDING_FACTOR)
+    const cellLeft = gridCol * cellWidth + (rng.next() * cellWidth * CELL_RANDOMNESS_FACTOR) + (cellWidth * CELL_PADDING_FACTOR)
 
     stars.push({
       id: i,
@@ -84,7 +92,7 @@ const generateStars = (count: number): Star[] => {
       size: sizes[Math.floor(rng.next() * sizes.length)],
       color: colors[Math.floor(rng.next() * colors.length)],
       animation: animations[Math.floor(rng.next() * animations.length)],
-      opacity: 0.4 + rng.next() * 0.4 // 0.4-0.8
+      opacity: MIN_OPACITY + rng.next() * OPACITY_RANGE // 0.4-0.8
     })
   }
 
