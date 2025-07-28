@@ -32,7 +32,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
             </h1>
             {/* Subheadline */}
             <p className="subheadline animate-subtle-fade stagger-1">
-              I specialize in React, JavaScript, and modern web technologies, working as a fullstack engineer at JPMorganChase where I build scalable user interfaces with a focus on performance and accessibility.
+              I specialize in React, JavaScript, and modern web technologies, working as a fullstack engineer at JPMorganChase where I build scalable user interfaces with a focus on performance and user-centric development.
             </p>
             {/* Badges row */}
             <div className="flex flex-wrap justify-start gap-2 sm:gap-4 animate-subtle-fade stagger-2">
