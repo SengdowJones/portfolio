@@ -168,7 +168,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         {/* Mobile Navigation Overlay: only the menu links slide in below the top bar */}
         {menuVisible && typeof window !== 'undefined' && createPortal(
           <div
-            className={`nav-mobile-overlay ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
+            className={clsx('nav-mobile-overlay', {
+              'animate-fadein': isOpen && !isClosing,
+              'animate-fadeout': !(isOpen && !isClosing),
+            })}
             style={{ pointerEvents: menuVisible ? 'auto' : 'none' }}
             onClick={handleOverlayClick}
           >
