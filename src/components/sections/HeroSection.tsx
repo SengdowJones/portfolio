@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="min-h-screen flex flex-col justify-start items-center scroll-mt-20 relative overflow-hidden pt-safe pt-16 sm:pt-20">
+    <Section className="min-h-screen flex flex-col justify-start sm:justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe pt-16 sm:pt-20">
       {/* Starfield background with truly random distribution */}
       <StarfieldBackground starCount={120} />
       
@@ -19,7 +19,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
       <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
       
         <div className="w-full relative z-10">
-          <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8 pt-8 sm:pt-12">
+          <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8 pt-8 sm:pt-0">
             {/* Headline */}
             <h1 className="headline">
               <div className="animate-subtle-fade stagger-0">
@@ -58,7 +58,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 sm:gap-4 mt-2 pb-8 sm:pb-12 animate-subtle-fade stagger-5">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 sm:gap-4 mt-2 pb-8 sm:pb-0 animate-subtle-fade stagger-5">
               <Button 
                 variant="primary" 
                 size="md" 
