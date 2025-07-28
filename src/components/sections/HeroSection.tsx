@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
   return (
-    <Section className="min-h-screen flex flex-col justify-start sm:justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe pt-16">
+    <Section className="min-h-screen flex flex-col justify-start sm:justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe sm:pt-16">
       {/* Starfield background with truly random distribution */}
       <StarfieldBackground starCount={120} />
       
