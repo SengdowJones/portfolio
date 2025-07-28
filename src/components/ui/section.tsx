@@ -23,7 +23,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
         ref={ref}
         {...props}
       >
-        <div className="container">
+        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
           {children}
         </div>
       </section>

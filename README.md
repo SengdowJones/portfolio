@@ -163,32 +163,11 @@ Each section is modular and can be easily modified:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-
-1. **Connect Repository**: Link your GitHub repository to Vercel
-2. **Configure Build**: Vercel automatically detects Next.js
-3. **Deploy**: Push to main branch triggers automatic deployment
-
 ### Manual Deployment
 
 1. **Build**: `npm run build`
 2. **Start**: `npm run start`
 3. **Deploy**: Upload to your hosting provider
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+ across all metrics
-- **Core Web Vitals**: Optimized for all metrics
-- **Bundle Size**: Optimized with code splitting
-- **Images**: Optimized and responsive
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 

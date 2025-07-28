@@ -64,46 +64,41 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       closeMenu();
     }
 
-    const handleContactClick = () => {
-      window.location.href = `mailto:${siteConfig.email}?subject=Portfolio Inquiry - Hello from your website`
-    }
-
     return (
       <nav
         className={clsx(
-          'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out',
+          'nav-container',
           isScrolled
-            ? 'bg-gray-950 shadow-md shadow-black/10 backdrop-blur-md'
-            : 'bg-gray-950 backdrop-blur-md'
+            ? 'nav-container-scrolled'
+            : 'nav-container-default'
         )}
         ref={ref}
         {...props}
       >
-        {/* Solid background to reduce blue bleed */}
-        <div className="absolute inset-0 bg-gray-950 opacity-100"></div>
 
-        <Container size="5xl" className="relative z-10 px-8">
-          <div className="flex h-14 items-center justify-between overflow-hidden py-2">
+
+        <Container size="5xl" className="relative z-10">
+          <div className="flex h-14 items-center justify-between overflow-hidden py-2 w-full">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               {logo || (
                 <button
                   onClick={scrollToTop}
-                  className="text-lg font-semibold text-gray-100 tracking-tight hover:text-white transition-colors cursor-pointer"
+                  className="nav-logo"
                 >
                   {siteConfig.name}
                 </button>
               )}
             </div>
 
-            {/* Desktop Navigation - Absolutely Centered */}
-            <div className="hidden md:flex absolute left-1/2 top-0 transform -translate-x-1/2 h-full items-center justify-center">
+            {/* Desktop Navigation - Centered using flex-1 */}
+            <div className="hidden md:flex items-center justify-center flex-1">
               <div className="flex space-x-5">
                 {items.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="relative group text-sm text-gray-400/80 font-normal px-3 py-2 transition-colors duration-200 cursor-pointer rounded-md focus-visible:outline-none"
+                    className="nav-link group"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -117,10 +112,10 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   >
                     {/* Animated pill background */}
                     <span
-                      className="absolute inset-x-0 inset-y-[4px] z-0 rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100 bg-gray-800 transition-all duration-200"
+                      className="nav-link-background"
                       aria-hidden="true"
                     />
-                    <span className="relative z-10 group-hover:text-white group-focus-visible:text-white transition-colors duration-200">
+                    <span className="nav-link-text">
                       {item.name}
                     </span>
                   </a>
@@ -142,39 +137,51 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
               </a>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => (menuVisible ? closeMenu() : openMenu())}
-                className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                {menuVisible ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+            {/* Mobile menu button and Resume button (always visible in mobile) */}
+            <div className="md:hidden flex items-center gap-2 flex-shrink-0">
+              {/* Show hamburger menu button when menu is closed, X button when open */}
+              {!menuVisible ? (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={openMenu}
+                  className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={closeMenu}
+                  className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              )}
             </div>
           </div>
+        </Container>
 
-          {/* Mobile Navigation */}
-          {menuVisible && typeof window !== 'undefined' && createPortal(
-            <div
-              className={`md:hidden fixed inset-0 w-full h-full z-50 bg-gray-950 bg-opacity-95 flex flex-col pt-4 overflow-y-auto border-t border-gray-800/20 transition-opacity duration-300 ease-in-out ${isOpen && !isClosing ? 'animate-fadein' : 'animate-fadeout'}`}
-              onClick={handleOverlayClick}
-            >
-              {/* Close button */}
-              <button
-                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-gray-900/70 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
-                onClick={closeMenu}
-                aria-label="Close menu"
-              >
-                <X className="h-6 w-6" />
-              </button>
-              <div className={`py-3 space-y-1 w-full px-4 transition-transform duration-300 ease-in-out transform ${isOpen && !isClosing ? 'animate-slidein' : 'animate-slideout'}`}>
+        {/* Mobile Navigation Overlay: only the menu links slide in below the top bar */}
+        {menuVisible && typeof window !== 'undefined' && createPortal(
+          <div
+            className={clsx('nav-mobile-overlay', {
+              'animate-fadein': isOpen && !isClosing,
+              'animate-fadeout': !(isOpen && !isClosing),
+            })}
+            style={{ pointerEvents: menuVisible ? 'auto' : 'none' }}
+            onClick={handleOverlayClick}
+          >
+            <div className="px-8">
+              <nav className="flex-1 flex flex-col justify-start py-4 space-y-2">
                 {items.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block w-full text-left px-2 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+                    className="nav-mobile-link"
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -190,20 +197,22 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   </a>
                 ))}
                 <div className="pt-3">
-                  <Button 
-                    variant="primary" 
-                    size="sm" 
-                    className="w-full rounded-none bg-white text-gray-900 hover:bg-gray-100 font-medium text-xs py-2" 
-                    onClick={() => { handleContactClick(); closeMenu(); }}
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download Resume"
+                    className="nav-resume-button"
+                    style={{ fontSize: '0.95rem' }}
                   >
-                    Get in touch
-                  </Button>
+                    Resume
+                  </a>
                 </div>
-              </div>
-            </div>,
-            document.body
-          )}
-        </Container>
+              </nav>
+            </div>
+          </div>,
+          document.body
+        )}
       </nav>
     )
   }
