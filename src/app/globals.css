@@ -732,7 +732,7 @@
 
 /* Navigation styles */
 .nav-container {
-  @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out;
+  @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out pt-safe;
 }
 .nav-container-scrolled {
   @apply bg-gray-950/95 shadow-md shadow-black/10;
