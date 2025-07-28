@@ -75,8 +75,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
         ref={ref}
         {...props}
       >
-        {/* Subtle gradient overlay that fades to transparent */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/10 to-transparent"></div>
+
 
         <Container size="5xl" className="relative z-10">
           <div className="flex h-14 items-center justify-between overflow-hidden py-2 w-full">
