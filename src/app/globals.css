@@ -736,10 +736,10 @@
   @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out pt-safe;
 }
 .nav-container-scrolled {
-  @apply bg-gray-950/95 shadow-md shadow-black/10;
+  @apply bg-gray-950/70 shadow-md shadow-black/10;
 }
 .nav-container-default {
-  @apply bg-gray-950/90;
+  @apply bg-gray-950/60;
 }
 .nav-logo {
   @apply text-lg font-semibold text-gray-100 tracking-tight hover:text-white transition-colors cursor-pointer;
