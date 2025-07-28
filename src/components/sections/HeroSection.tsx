@@ -47,7 +47,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </span>
             </div>
             {/* Location/email row */}
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-400 animate-subtle-fade stagger-3">
+            <div className="flex items-center justify-start gap-8 text-sm text-gray-400 animate-subtle-fade stagger-3">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -58,7 +58,7 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-2 animate-subtle-fade stagger-5">
+            <div className="flex items-center justify-start gap-4 mt-2 animate-subtle-fade stagger-5">
               <Button 
                 variant="primary" 
                 size="md" 
