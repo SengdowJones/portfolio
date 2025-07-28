@@ -109,7 +109,7 @@ export default function StarfieldBackground({
       case 'small':
         return 'star-small'
       case 'large':
-        return 'star-medium'
+        return 'star-large'
       default:
         return ''
     }
