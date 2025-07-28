@@ -92,7 +92,7 @@ const generateStars = (count: number): Star[] => {
       size: sizes[Math.floor(rng.next() * sizes.length)],
       color: colors[Math.floor(rng.next() * colors.length)],
       animation: animations[Math.floor(rng.next() * animations.length)],
-      opacity: MIN_OPACITY + rng.next() * OPACITY_RANGE // 0.4-0.8
+      opacity: MIN_OPACITY + rng.next() * OPACITY_RANGE // MIN_OPACITY to MIN_OPACITY + OPACITY_RANGE
     })
   }
 
