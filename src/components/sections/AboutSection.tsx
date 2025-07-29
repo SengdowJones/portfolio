@@ -28,6 +28,38 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 Currently working at JPMorganChase where I&apos;m modernizing legacy banking workflows. I&apos;m also an AWS Certified Cloud Practitioner with experience in event-driven architectures and infrastructure as code.
               </p>
             </div>
+
+            {/* Code Snippet - Clean Integration */}
+            <div className="scroll-reveal scroll-reveal-delay-1" ref={addScrollRef}>
+              <div className="code-window-controls">
+                <div className="code-window-dots">
+                  <div className="code-window-dot-red"></div>
+                  <div className="code-window-dot-yellow"></div>
+                  <div className="code-window-dot-green"></div>
+                </div>
+                <span className="code-window-title">portfolio.jsx</span>
+              </div>
+              <div className="code-block overflow-x-auto max-w-full text-xs sm:text-sm">
+                <pre className="font-mono text-left leading-relaxed whitespace-pre-wrap break-words">
+                  <code>
+                    <span className="text-purple-400">import</span> <span className="text-blue-400">React</span> <span className="text-purple-400">from</span> <span className="text-green-400">&apos;react&apos;</span>;
+                    {"\n"}
+                    {"\n"}
+                    <span className="text-purple-400">const</span> <span className="text-blue-400">Portfolio</span> = () =&gt; {'{'}
+                    {"\n  return (\n    "}
+                      <span className="text-blue-400">&lt;main</span> <span className="text-yellow-400">className</span>=<span className="text-green-400">&apos;modern-ui&apos;</span><span className="text-blue-400">&gt;</span>{"\n      "}
+                        <span className="text-blue-400">&lt;Hero</span> <span className="text-yellow-400">name</span>=<span className="text-green-400">&apos;Sengdao&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                        <span className="text-blue-400">&lt;Projects</span> <span className="text-yellow-400">tech</span>=<span className="text-green-400">&apos;React, Java, AWS&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n      "}
+                        <span className="text-blue-400">&lt;Experience</span> <span className="text-yellow-400">company</span>=<span className="text-green-400">&apos;JPMorganChase&apos;</span> <span className="text-blue-400">/&gt;</span>{"\n    "}
+                      <span className="text-blue-400">&lt;/main&gt;</span>{"\n  );\n"}
+                    {'}'};
+                    {"\n\n"}
+                    <span className="text-purple-400">export default</span> <span className="text-blue-400">Portfolio</span>;
+                  </code>
+                </pre>
+              </div>
+            </div>
+
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Education</h3>
               <div className="space-y-3">

@@ -5,7 +5,6 @@ import { navigation } from '@/lib/constants'
 import { useScrollReveal } from '@/lib/hooks'
 import { scrollToSection } from '@/lib/utils'
 import HeroSection from '@/components/sections/HeroSection'
-import CodeShowcaseSection from '@/components/sections/CodeShowcaseSection'
 import AboutSection from '@/components/sections/AboutSection'
 import ExperienceSection from '@/components/sections/ExperienceSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
@@ -24,7 +23,6 @@ export default function Home() {
           onScrollToProjects={() => scrollToSection('projects')}
         />
 
-        <CodeShowcaseSection addScrollRef={addScrollRef} />
         <AboutSection addScrollRef={addScrollRef} />
         <ExperienceSection addScrollRef={addScrollRef} />
         <ProjectsSection addScrollRef={addScrollRef} />
