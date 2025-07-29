@@ -60,23 +60,26 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
               </div>
             </div>
 
+            {/* Achievements Section - Linear-Inspired Subtle Styling */}
             <div className="scroll-reveal" ref={addScrollRef}>
-              <h3 className="text-lg font-semibold mb-4 text-gray-50">Education</h3>
-              <div className="space-y-3">
-                {education.map((edu, idx) => (
-                  <div key={idx} className="feature-card flex items-start gap-3 px-4 py-3 scroll-reveal" ref={addScrollRef}>
-                    <Calendar className="h-4 w-4 text-gray-400 mt-0.5" />
-                    <div>
-                      <div className="font-semibold text-gray-50 mb-1">{edu.degree}</div>
-                      <div className="text-sm text-gray-400 mb-1">{edu.school} &bull; {edu.period}</div>
-                      <div className="text-xs text-gray-500">GPA: {edu.gpa} &bull; {edu.location}</div>
-                    </div>
-                  </div>
-                ))}
+              <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="achievement-card-blue">
+                  <Award className="h-3.5 w-3.5 text-blue-400" />
+                  Best Technology Award at WildHacks &apos;23
+                </span>
+                <span className="achievement-card-purple">
+                  <Award className="h-3.5 w-3.5 text-purple-400" />
+                  3rd at Hack with Google: Chicago &apos;23 ($2,000)
+                </span>
+                <span className="achievement-card-yellow">
+                  <Award className="h-3.5 w-3.5 text-yellow-400" />
+                  Winner of Northwestern Data Vis Contest &apos;22 ($200)
+                </span>
               </div>
             </div>
           </div>
-          {/* Right: Skills & Technologies and Achievements */}
+          {/* Right: Skills & Technologies and Education */}
           <div className="flex flex-col items-start space-y-10 w-full max-w-full">
             <div className="scroll-reveal" ref={addScrollRef}>
               <h3 className="text-lg font-semibold mb-4 text-gray-50">Skills & Technologies</h3>
@@ -100,22 +103,19 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 ))}
               </div>
             </div>
-            {/* Achievements Section - Linear-Inspired Subtle Styling */}
             <div className="scroll-reveal" ref={addScrollRef}>
-              <h3 className="text-lg font-semibold mb-4 text-gray-50">Achievements</h3>
-              <div className="flex flex-col gap-2 w-full">
-                <span className="achievement-card-blue">
-                  <Award className="h-3.5 w-3.5 text-blue-400" />
-                  Best Technology Award at WildHacks &apos;23
-                </span>
-                <span className="achievement-card-purple">
-                  <Award className="h-3.5 w-3.5 text-purple-400" />
-                  3rd at Hack with Google: Chicago &apos;23 ($2,000)
-                </span>
-                <span className="achievement-card-yellow">
-                  <Award className="h-3.5 w-3.5 text-yellow-400" />
-                  Winner of Northwestern Data Vis Contest &apos;22 ($200)
-                </span>
+              <h3 className="text-lg font-semibold mb-4 text-gray-50">Education</h3>
+              <div className="space-y-3">
+                {education.map((edu, idx) => (
+                  <div key={idx} className="feature-card flex items-start gap-3 px-4 py-3 scroll-reveal" ref={addScrollRef}>
+                    <Calendar className="h-4 w-4 text-gray-400 mt-0.5" />
+                    <div>
+                      <div className="font-semibold text-gray-50 mb-1">{edu.degree}</div>
+                      <div className="text-sm text-gray-400 mb-1">{edu.school} &bull; {edu.period}</div>
+                      <div className="text-xs text-gray-500">GPA: {edu.gpa} &bull; {edu.location}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
