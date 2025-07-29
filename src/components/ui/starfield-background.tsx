@@ -1,7 +1,5 @@
 'use client'
 
-import React from 'react'
-
 // Constants
 // Default seed value for deterministic random number generation.
 // Chosen arbitrarily to ensure consistent starfield appearance across renders.

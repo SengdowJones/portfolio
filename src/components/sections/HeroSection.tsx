@@ -2,40 +2,57 @@
 
 import { Section, Button, StarfieldBackground } from '@/components/ui'
 import { siteConfig } from '@/lib/constants'
-import { ArrowRight, Mail, MapPin, Cloud, Award, Users } from 'lucide-react'
+import { ArrowRight, Mail, MapPin } from 'lucide-react'
 
 interface HeroSectionProps {
   onEmailContact: () => void
-  onScrollToProjects: () => void
+  onScrollToAbout: () => void
 }
 
-export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
+export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSectionProps) {
   return (
-    <Section className="min-h-screen flex flex-col justify-start sm:justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe sm:pt-16">
+    <Section className="min-h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe sm:pt-16">
       {/* Starfield background with truly random distribution */}
       <StarfieldBackground starCount={120} />
       
       {/* Glassmorphism backdrop for entire hero section */}
-      <div className="absolute inset-0 bg-gray-950/20 backdrop-blur-[0.5px] border border-gray-800/30 rounded-2xl shadow-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950/30 via-gray-900/20 to-gray-950/30 backdrop-blur-[1px] border border-gray-800/40 rounded-2xl shadow-2xl"></div>
+      
+      {/* Orbiting elements for space effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large orbiting orb */}
+        <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-400/30 rounded-full animate-orbit-slow"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-purple-400/20 rounded-full animate-orbit-medium"></div>
+        <div className="absolute top-1/2 left-1/3 w-1 h-1 bg-yellow-400/25 rounded-full animate-orbit-fast"></div>
+        
+        {/* Medium orbiting orbs */}
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-cyan-400/15 rounded-full animate-orbit-slow-delayed"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-1.5 h-1.5 bg-pink-400/20 rounded-full animate-orbit-medium-delayed"></div>
+        
+        {/* Small floating particles */}
+        <div className="absolute top-1/5 left-1/5 w-0.5 h-0.5 bg-white/40 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-1/5 right-1/5 w-0.5 h-0.5 bg-white/30 rounded-full animate-float-medium"></div>
+        <div className="absolute top-3/4 left-1/2 w-0.5 h-0.5 bg-white/25 rounded-full animate-float-fast"></div>
+      </div>
       
         <div className="w-full relative z-10">
-          <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8 pt-8 sm:pt-0">
+          <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
             {/* Headline */}
             <h1 className="headline">
               <div className="animate-subtle-fade stagger-0">
                 I&apos;m Sengdao.
                 <br />
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-500 via-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent animate-gradient">
                   I design experiences.
                 </span>
               </div>
             </h1>
             {/* Subheadline */}
-            <p className="subheadline animate-subtle-fade stagger-1">
-              I specialize in React, JavaScript, and modern web technologies, working as a full-stack engineer at JPMorganChase where I build scalable user interfaces with a focus on performance and user-centric development.
-            </p>
+            {/* <p className="subheadline animate-subtle-fade stagger-1">
+              I specialize in <strong>React, JavaScript, and modern web technologies</strong>, working as a full-stack engineer at JPMorganChase where I build scalable user interfaces with a focus on performance and user-centric development.
+            </p> */}
             {/* Badges row */}
-            <div className="flex flex-wrap justify-start gap-2 sm:gap-4 animate-subtle-fade stagger-2">
+            {/* <div className="flex flex-wrap justify-start gap-2 sm:gap-4 animate-subtle-fade stagger-2">
               <span className="badge badge-blue">
                 <Cloud className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" /> AWS Certified
               </span>
@@ -45,9 +62,9 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               <span className="badge badge-yellow">
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400" /> Research & Mentorship
               </span>
-            </div>
+            </div> */}
             {/* Location/email row */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 sm:gap-8 text-sm text-gray-400 animate-subtle-fade stagger-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-400 animate-subtle-fade stagger-2">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>{siteConfig.location}</span>
@@ -58,11 +75,11 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               </div>
             </div>
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3 sm:gap-4 mt-2 pb-8 sm:pb-0 animate-subtle-fade stagger-5">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-2 pb-8 sm:pb-0 animate-gentle-fade stagger-6">
               <Button 
                 variant="primary" 
                 size="md" 
-                className="group text-base px-6 py-3 w-full sm:w-auto"
+                className="group text-base px-8 py-4 w-full sm:w-auto bg-gradient-to-r from-white to-gray-100 hover:from-gray-100 hover:to-white shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={onEmailContact}
               >
                 Get in touch
@@ -71,10 +88,10 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
               <Button 
                 variant="outline" 
                 size="md" 
-                className="text-base px-6 py-3 w-full sm:w-auto"
-                onClick={onScrollToProjects}
+                className="text-base px-8 py-4 w-full sm:w-auto border-2 hover:bg-gray-800/20 shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={onScrollToAbout}
               >
-                View projects
+                About me
               </Button>
             </div>
           </div>
