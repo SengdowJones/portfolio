@@ -3,6 +3,5 @@ export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 export { Section } from './section'
 export { Container } from './container'
 export { Navigation } from './navigation'
-export { AnimatedSection } from './animated-section'
 
 export { default as StarfieldBackground } from './starfield-background' 

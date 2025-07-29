@@ -1,4 +1,4 @@
-import { Settings2, Crown, Gamepad2, Moon } from 'lucide-react'
+
 
 export const siteConfig = {
   name: 'Sengdao Inthavong',
@@ -77,24 +77,21 @@ export const projects = [
     brief: 'No-code UI for deploying Ethereum contracts',
     description: 'Built user interface using Google AppSheet and Solidity to empower non-developers to deploy Ethereum contracts. Awarded 2nd runner-up and $2,000 prize at Hack with Google: Workspace and AppSheet 2023.',
     technologies: ['Google AppSheet', 'Solidity', 'Ethereum', 'Smart Contracts'],
-    github: 'https://github.com/ahkim3/google-hackathon-23',
-    icon: Settings2
+    github: 'https://github.com/ahkim3/google-hackathon-23'
   },
   {
     title: 'Chess Opening Hierarchy - Data Visualization',
     brief: 'D3.js chess opening visualizer by rating',
     description: 'Created an interactive D3.js visualization of chess openings by player rating, revealing strategy trends across ratings. Won Best Undergraduate Visualization and $200 prize at 2022 Northwestern Data Visualization Contest.',
     technologies: ['D3.js', 'Data Visualization', 'Chess Analysis', 'Interactive Charts'],
-    link: 'https://doi.org/10.21985/n2-ttqd-s984',
-    icon: Crown
+    link: 'https://doi.org/10.21985/n2-ttqd-s984'
   },
   {
     title: 'Exploding Chickens - Multiplayer Card Game',
     brief: 'Online multiplayer card game with real-time logic',
     description: 'Designed responsive UI components with TailwindCSS to improve gameplay clarity and flow. Implemented backend logic for turn-based mechanics, supporting 1,900+ games and 4,600+ player eliminations.',
     technologies: ['React', 'Tailwind CSS', 'Node.js', 'WebSockets', 'Game Logic'],
-    link: 'https://bit.ly/exploding-chickens',
-    icon: Gamepad2
+    link: 'https://bit.ly/exploding-chickens'
   },
   {
     title: 'Sleepcat - A Sleep Tracker App Wireframe',
@@ -102,8 +99,7 @@ export const projects = [
     description: 'Crafted and prototyped a gamified sleep tracker app wireframe in Figma, driven by personal experience to increase user motivation for healthier sleep habits through visual rewards and intuitive, engaging UX features.',
     technologies: ['Figma', 'UX Design', 'Wireframing', 'Gamification', 'Sleep Tracking'],
     github: null,
-    link: 'https://bit.ly/sleepcat-app',
-    icon: Moon
+    link: 'https://bit.ly/sleepcat-app'
   }
 ]
 
