@@ -38,10 +38,19 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
 
     useEffect(() => {
       const handleScroll = () => {
-        setIsScrolled(window.scrollY > 10)
+        // Show navbar only after scrolling past hero section (roughly 100vh)
+        // But always show on mobile
+        const heroHeight = window.innerHeight;
+        const isMobile = window.innerWidth < 768; // md breakpoint
+        setIsScrolled(isMobile || window.scrollY > heroHeight * 0.8)
       }
       window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
+      // Also check on resize to handle orientation changes
+      window.addEventListener('resize', handleScroll)
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+        window.removeEventListener('resize', handleScroll)
+      }
     }, [])
 
     // Close on Escape key
@@ -70,7 +79,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
           'nav-container',
           isScrolled
             ? 'nav-container-scrolled'
-            : 'nav-container-default'
+            : 'nav-container-hidden'
         )}
         ref={ref}
         {...props}

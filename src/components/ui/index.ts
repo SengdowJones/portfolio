@@ -4,5 +4,5 @@ export { Section } from './section'
 export { Container } from './container'
 export { Navigation } from './navigation'
 export { AnimatedSection } from './animated-section'
-export { ThemeToggle } from './theme-toggle'
+
 export { default as StarfieldBackground } from './starfield-background' 
