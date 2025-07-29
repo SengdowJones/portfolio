@@ -6,10 +6,10 @@ import { ArrowRight, Mail, MapPin } from 'lucide-react'
 
 interface HeroSectionProps {
   onEmailContact: () => void
-  onScrollToProjects: () => void
+  onScrollToAbout: () => void
 }
 
-export default function HeroSection({ onEmailContact, onScrollToProjects }: HeroSectionProps) {
+export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSectionProps) {
   return (
     <Section className="min-h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe sm:pt-16">
       {/* Starfield background with truly random distribution */}
@@ -89,9 +89,9 @@ export default function HeroSection({ onEmailContact, onScrollToProjects }: Hero
                 variant="outline" 
                 size="md" 
                 className="text-base px-8 py-4 w-full sm:w-auto border-2 hover:bg-gray-800/20 shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={onScrollToProjects}
+                onClick={onScrollToAbout}
               >
-                View projects
+                About me
               </Button>
             </div>
           </div>
