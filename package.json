@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.0.5",
+  "version": "1.1.1",
   "private": true,
   "description": "Sengdao Inthavong's personal portfolio website built with Next.js, TypeScript, and Tailwind CSS",
   "author": "Sengdao Inthavong",
