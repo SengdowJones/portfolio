@@ -18,7 +18,7 @@ export default function ProjectsSection({ addScrollRef }: ProjectsSectionProps) 
               Featured Projects
             </h2>
             <p className="section-description">
-              A quick overview of my projects.
+              A collection of my recent work and technical projects
             </p>
           </div>
           <div className="divide-y divide-gray-800">

@@ -42,7 +42,7 @@ export const experience = [
     company: 'JPMorganChase',
     period: 'Aug 2024 - Present',
     location: 'Chicago, IL',
-    description: 'Modernizing legacy banking workflows by developing full-stack features with React and Java for a platform used by 100+ corporate clients, saving 30+ hours/month in manual operations. Delivered core frontend reusable components and user flows in production with the Salt design system, ensuring quality through comprehensive unit, integration, and end-to-end testing achieving over 70% code coverage. Designated by the outgoing UI lead as frontend point of contact, supporting teammates with system-level guidance on reusable components and logic, and unblocking blockers through live debugging and reviews. Built and extended backend APIs with Spring Boot, applying Controller-Service-Repository layered architecture and Liquibase to deliver versioned, reliable database migrations supporting relational integrity.',
+    description: 'Modernizing banking workflows through full-stack development with React and Java, delivering reusable components with the Salt design system and building backend APIs with Spring Boot.',
     technologies: ['React', 'Java', 'Spring Boot', 'PostgreSQL', 'Liquibase', 'Salt Design System', 'Jest']
   },
   {
