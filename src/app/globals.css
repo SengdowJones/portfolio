@@ -6,6 +6,7 @@
   /* Force dark mode styling by default */
   :root {
     --background-color: #000000;
+    background-color: var(--background-color);
   }
   
   html {
@@ -39,10 +40,7 @@
     scroll-behavior: smooth;
   }
 
-  /* Ensure viewport background matches theme during overscroll */
-  :root {
-    background-color: var(--background-color);
-  }
+
 
   /* Linear-inspired typography */
   h1, h2, h3, h4, h5, h6 {
