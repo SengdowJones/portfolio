@@ -5,8 +5,8 @@
 @layer base {
   /* Force dark mode styling by default */
   html {
-    background: #0f0f23;
-    background-color: #0f0f23;
+    background: #000000;
+    background-color: #000000;
   }
   
   /* Safe area insets for mobile devices */
@@ -29,8 +29,8 @@
   body {
     @apply text-gray-50 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: #0f0f23;
-    background-color: #0f0f23;
+    background: #000000;
+    background-color: #000000;
   }
 
   html {
@@ -39,7 +39,7 @@
 
   /* Ensure viewport background matches theme during overscroll */
   :root {
-    background-color: #0f0f23;
+    background-color: #000000;
   }
 
   /* Linear-inspired typography */
