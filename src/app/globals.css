@@ -6,6 +6,7 @@
   /* Force dark mode styling by default */
   html {
     background: #0f0f23;
+    background-color: #0f0f23;
   }
   
   /* Safe area insets for mobile devices */
@@ -29,10 +30,16 @@
     @apply text-gray-50 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     background: #0f0f23;
-}
+    background-color: #0f0f23;
+  }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Ensure viewport background matches theme during overscroll */
+  :root {
+    background-color: #0f0f23;
   }
 
   /* Linear-inspired typography */
