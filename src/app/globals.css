@@ -5,7 +5,7 @@
 @layer base {
   /* Force dark mode styling by default */
   html {
-    background: linear-gradient(135deg, #1a1f35 0%, #2d3748 50%, #4a5568 100%);
+    background: #0f0f23;
   }
   
   /* Safe area insets for mobile devices */
@@ -28,7 +28,7 @@
   body {
     @apply text-gray-50 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(135deg, #1a1f35 0%, #2d3748 50%, #4a5568 100%);
+    background: #0f0f23;
 }
 
   html {
