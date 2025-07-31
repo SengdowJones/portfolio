@@ -16,7 +16,7 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
       <StarfieldBackground starCount={120} />
       
       {/* Glassmorphism backdrop for entire hero section */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-950/30 via-gray-900/20 to-gray-950/30 backdrop-blur-[1px] border border-gray-800/40 rounded-2xl shadow-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950/30 via-gray-900/20 to-gray-950/30 backdrop-blur-[1px] border border-gray-800/40 shadow-2xl"></div>
       
       {/* Orbiting elements for space effect */}
       <div className="absolute inset-0 pointer-events-none">
