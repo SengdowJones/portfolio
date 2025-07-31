@@ -4,8 +4,13 @@
 
 @layer base {
   /* Force dark mode styling by default */
+  :root {
+    --background-color: #000000;
+    background-color: var(--background-color);
+  }
+  
   html {
-    background: linear-gradient(135deg, #1a1f35 0%, #2d3748 50%, #4a5568 100%);
+    background: var(--background-color);
   }
   
   /* Safe area insets for mobile devices */
@@ -28,12 +33,14 @@
   body {
     @apply text-gray-50 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(135deg, #1a1f35 0%, #2d3748 50%, #4a5568 100%);
-}
+    background: var(--background-color);
+  }
 
   html {
     scroll-behavior: smooth;
   }
+
+
 
   /* Linear-inspired typography */
   h1, h2, h3, h4, h5, h6 {
