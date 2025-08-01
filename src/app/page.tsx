@@ -1,6 +1,6 @@
 'use client'
 
-import { Navigation } from '@/components/ui'
+import { Navigation, Footer } from '@/components/ui'
 import { navigation } from '@/lib/constants'
 import { useScrollReveal } from '@/lib/hooks'
 import { scrollToSection } from '@/lib/utils'
@@ -28,6 +28,8 @@ export default function Home() {
         <ProjectsSection addScrollRef={addScrollRef} />
         <ContactSection addScrollRef={addScrollRef} />
       </main>
+
+      <Footer />
     </>
   )
 }
