@@ -19,7 +19,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-right">
             <p className="text-sm text-gray-500">
-              © 2025 Sengdao Inthavong. All rights reserved.
+              © {new Date().getFullYear()} Sengdao Inthavong. All rights reserved.
             </p>
           </div>
           {children}
