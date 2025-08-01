@@ -77,9 +77,8 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-2 pb-8 sm:pb-0 animate-gentle-fade stagger-6">
               <Button 
-                variant="primary" 
                 size="md" 
-                className="group text-base px-8 py-4 w-full sm:w-auto bg-gradient-to-r from-white to-gray-100 hover:from-gray-100 hover:to-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group text-base px-8 py-4 w-full sm:w-auto bg-white text-gray-900 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 font-medium border border-gray-200"
                 onClick={onEmailContact}
               >
                 Get in touch
