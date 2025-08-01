@@ -68,7 +68,7 @@ export default function ContactSection({ addScrollRef }: ContactSectionProps) {
             </CardHeader>
             <CardContent>
               <CardDescription className="text-gray-300">
-                Explore my projects, contributions, and technical work in open source.
+                Explore my projects, contributions, and technical work.
               </CardDescription>
             </CardContent>
             <CardFooter>
