@@ -132,7 +132,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                     onLoad={() => handleImageLoad('hackathons')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
-                  {!imageLoading['hackathons'] && (
+                  {imageLoading['hackathons'] !== true && (
                     <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -162,7 +162,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                     onLoad={() => handleImageLoad('team')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
-                  {!imageLoading['team'] && (
+                  {imageLoading['team'] !== true && (
                     <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -192,7 +192,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                     onLoad={() => handleImageLoad('hobbies')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
-                  {!imageLoading['hobbies'] && (
+                  {imageLoading['hobbies'] !== true && (
                     <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -222,7 +222,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                     onLoad={() => handleImageLoad('travel')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
-                  {!imageLoading['travel'] && (
+                  {imageLoading['travel'] !== true && (
                     <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
