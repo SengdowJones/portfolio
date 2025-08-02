@@ -10,15 +10,15 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
     return (
       <footer
         className={clsx(
-          'py-6 border-t border-gray-800/50',
+          'py-4 border-t border-gray-800/30',
           className
         )}
         ref={ref}
         {...props}
       >
         <div className="mx-auto max-w-6xl px-4">
-          <div className="text-right">
-            <p className="text-sm text-gray-500">
+          <div className="text-center">
+            <p className="text-xs text-gray-600/70">
               © {new Date().getFullYear()} Sengdao Inthavong. All rights reserved.
             </p>
           </div>
