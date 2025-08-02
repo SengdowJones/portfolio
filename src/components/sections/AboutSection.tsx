@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Section } from '@/components/ui'
 import { skills, education } from '@/lib/constants'
 import { generatePhotoGalleries } from '@/lib/photoGallery'
@@ -111,7 +112,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 Life & Adventures
               </div>
               <div className="text-gray-400 text-sm break-words w-full max-w-full mb-6">
-                A glimpse into my life beyond code - from hackathons and travels to hobbies and team moments. Click on any category to explore more photos.
+                Here&apos;s a glimpse into my life beyond code - from hackathons and travels to hobbies and team moments. Click on any category to explore more photos.
               </div>
               
               {/* Photo Grid */}
