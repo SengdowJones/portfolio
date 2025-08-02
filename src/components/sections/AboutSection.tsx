@@ -125,7 +125,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/hackathons/badhacks.jpg" 
                     alt="BadHacks 2022" 
-                    priority={photoGalleries.hackathons.photos[0]?.priority || true}
+                    priority={photoGalleries.hackathons.photos[0]?.priority || false}
                     width={500}
                     height={500}
                     sizes="(max-width: 768px) 50vw, 25vw"
