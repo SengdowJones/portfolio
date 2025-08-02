@@ -154,7 +154,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                 >
                   <Image
                     src="/life_adventures/team/ieeechaos.jpg" 
-                    alt="IEEE Exec Board 2024s" 
+                    alt="IEEE Exec Board 2024" 
                     priority={photoGalleries.team.photos[0]?.priority || true}
                     width={500}
                     height={500}
