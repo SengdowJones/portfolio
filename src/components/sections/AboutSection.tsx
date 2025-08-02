@@ -155,7 +155,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/team/ieeechaos.jpg" 
                     alt="IEEE Exec Board 2024" 
-                    priority={photoGalleries.team.photos[0]?.priority || true}
+                    priority={photoGalleries.team.photos[0]?.priority || false}
                     width={500}
                     height={500}
                     sizes="(max-width: 768px) 50vw, 25vw"
@@ -185,7 +185,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/hobbies/chess.jpg" 
                     alt="Chess Game" 
-                    priority={photoGalleries.hobbies.photos[0]?.priority || true}
+                    priority={photoGalleries.hobbies.photos[0]?.priority || false}
                     width={500}
                     height={500}
                     sizes="(max-width: 768px) 50vw, 25vw"
@@ -215,7 +215,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/travel/sf_bridge.jpg" 
                     alt="San Francisco Bridge" 
-                    priority={photoGalleries.travel.photos[0]?.priority || true}
+                    priority={photoGalleries.travel.photos[0]?.priority || false}
                     width={500}
                     height={500}
                     sizes="(max-width: 768px) 50vw, 25vw"
