@@ -125,9 +125,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/hackathons/badhacks.jpg" 
                     alt="BadHacks 2022" 
-                    priority={true}
+                    priority={photoGalleries.hackathons.photos[0]?.priority || true}
                     width={500}
                     height={500}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     onLoad={() => handleImageLoad('hackathons')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
@@ -154,9 +155,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/team/ieeechaos.jpg" 
                     alt="IEEE Exec Board 2024s" 
-                    priority={true}
+                    priority={photoGalleries.team.photos[0]?.priority || true}
                     width={500}
                     height={500}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     onLoad={() => handleImageLoad('team')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
@@ -183,9 +185,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/hobbies/chess.jpg" 
                     alt="Chess Game" 
-                    priority={true}
+                    priority={photoGalleries.hobbies.photos[0]?.priority || true}
                     width={500}
                     height={500}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     onLoad={() => handleImageLoad('hobbies')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
@@ -212,9 +215,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <Image
                     src="/life_adventures/travel/sf_bridge.jpg" 
                     alt="San Francisco Bridge" 
-                    priority={true}
+                    priority={photoGalleries.travel.photos[0]?.priority || true}
                     width={500}
                     height={500}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     onLoad={() => handleImageLoad('travel')}
                     className="aspect-square object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
