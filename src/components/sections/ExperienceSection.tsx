@@ -11,9 +11,6 @@ interface ExperienceSectionProps {
 export default function ExperienceSection({ addScrollRef }: ExperienceSectionProps) {
   return (
     <Section className="py-24 scroll-section scroll-mt-20" id="experience">
-      {/* Grid pattern background */}
-      <div className="absolute inset-0 grid-pattern opacity-15"></div>
-      
         <div className="mx-auto max-w-4xl scroll-section-content">
           <div className="text-center mb-16">
             <div className="scroll-reveal" ref={addScrollRef}>
