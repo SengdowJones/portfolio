@@ -270,6 +270,9 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
           </div>
         </div>
 
+        {/* Horizontal Divider */}
+        <div className="border-t border-gray-800 my-12"></div>
+
         {/* Education and Achievements Two-Column Layout */}
         <div className="grid md:grid-cols-2 gap-8 mt-8">
           {/* Education Section */}

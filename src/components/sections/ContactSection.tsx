@@ -12,9 +12,6 @@ interface ContactSectionProps {
 export default function ContactSection({ addScrollRef }: ContactSectionProps) {
   return (
     <Section className="py-24 scroll-section scroll-mt-20" id="contact">
-      {/* Grid pattern background */}
-      <div className="absolute inset-0 grid-pattern opacity-15"></div>
-      
       <div className="mx-auto max-w-6xl w-full scroll-section-content">
         {/* Main Heading Section */}
         <div className="text-center mb-16 scroll-reveal" ref={addScrollRef}>
