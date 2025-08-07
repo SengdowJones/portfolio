@@ -700,11 +700,6 @@
   @apply inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer;
 }
 
-/* Experience section styles - simplified to match projects aesthetic */
-
-
-
-
 /* Code window controls */
 .code-window-controls {
   @apply flex items-center gap-3 mb-6;
