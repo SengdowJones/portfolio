@@ -79,18 +79,18 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
               <Button 
                 size="md" 
                 className="group text-base px-8 py-4 w-full sm:w-auto bg-white text-gray-900 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 font-medium border border-gray-200"
-                onClick={onEmailContact}
+                onClick={onScrollToAbout}
               >
-                Get in touch
+                About me
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button 
                 variant="outline" 
                 size="md" 
                 className="text-base px-8 py-4 w-full sm:w-auto border-2 hover:bg-gray-800/20 shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={onScrollToAbout}
+                onClick={onEmailContact}
               >
-                About me
+                Get in touch
               </Button>
             </div>
           </div>
