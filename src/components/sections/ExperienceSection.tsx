@@ -10,40 +10,33 @@ interface ExperienceSectionProps {
 
 export default function ExperienceSection({ addScrollRef }: ExperienceSectionProps) {
   return (
-    <Section className="py-24 scroll-section scroll-mt-20" id="experience">
-        <div className="mx-auto max-w-4xl scroll-section-content">
-          <div className="text-center mb-16">
-            <div className="scroll-reveal" ref={addScrollRef}>
-              <h2 className="section-heading">
-                Experience
-              </h2>
-              <p className="section-description">
-                My journey in software engineering, from internships to full-time roles
-              </p>
-            </div>
+    <Section className="py-20 scroll-section scroll-mt-20" id="experience">
+        <div className="scroll-section-content">
+          <div className="text-center mb-10 scroll-reveal" ref={addScrollRef}>
+            <h2 className="section-heading">
+              Experience
+            </h2>
+            <p className="section-description">
+              My journey in software engineering, from internships to full-time roles
+            </p>
           </div>
-          <div className="space-y-8">
+          <div className="divide-y divide-gray-800">
             {experience.map((job, index) => (
-              <div key={index} className="relative scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="timeline-dot">
-                  <div className="timeline-dot-inner"></div>
-                </div>
-                <div className="timeline-content">
-                  <h3 className="job-title">{job.title}</h3>
-                  <div className="job-meta">
-                    <span className="job-company">{job.company}</span>
-                    <span className="job-meta-separator">•</span>
-                    <div className="job-meta-item">
-                      <Calendar className="h-4 w-4" />
+              <div key={index} className="flex flex-col md:flex-row items-start justify-between py-5 gap-4 scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
+                <div className="flex-1 min-w-0 w-full max-w-full">
+                  <div className="font-semibold text-gray-50 break-words w-full max-w-full">{job.title}</div>
+                  <div className="text-blue-400 text-sm break-words w-full max-w-full mb-2">{job.company}</div>
+                  <div className="text-gray-400 text-sm break-words w-full max-w-full mb-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Calendar className="h-4 w-4 flex-shrink-0" />
                       <span>{job.period}</span>
                     </div>
-                    <span className="job-meta-separator">•</span>
-                    <div className="job-meta-item">
-                      <MapPin className="h-4 w-4" />
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 flex-shrink-0" />
                       <span>{job.location}</span>
                     </div>
                   </div>
-                  <p className="job-description">{job.description}</p>
+                  <div className="text-gray-300 text-sm break-words w-full max-w-full mb-3">{job.description}</div>
                   <div className="flex flex-wrap gap-2 w-full max-w-full break-words">
                     {job.technologies.map((tech) => (
                       <span

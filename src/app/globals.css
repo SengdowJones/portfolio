@@ -474,8 +474,11 @@
   }
 
   .tech-tag {
-    @apply inline-flex items-center rounded-md bg-gray-800 px-2 py-1 text-xs font-medium text-gray-300 transition-colors duration-200 hover:bg-gray-700;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-300 border border-gray-700;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    word-break: break-word;
   }
 
   /* Linear-inspired status badge */
@@ -532,7 +535,9 @@
   }
 
   .scroll-section-content {
-    @apply relative z-10;
+    @apply w-full;
+    max-width: none;
+    overflow: visible;
   }
 
   /* Linear-inspired grid patterns */
@@ -693,35 +698,6 @@
 /* Contact button styles */
 .contact-button {
   @apply inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer;
-}
-
-/* Experience timeline styles */
-.timeline-dot {
-  @apply absolute left-0 top-0 hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-blue-950 transition-colors;
-}
-.timeline-dot-inner {
-  @apply h-2.5 w-2.5 rounded-full bg-blue-400;
-}
-.timeline-content {
-  @apply ml-0 md:ml-16 w-full max-w-full;
-}
-.job-title {
-  @apply text-xl font-semibold text-gray-50 font-display break-words w-full max-w-full mb-2;
-}
-.job-meta {
-  @apply flex items-center gap-6 mb-3 text-sm text-gray-400 w-full max-w-full flex-wrap;
-}
-.job-company {
-  @apply text-base font-medium text-blue-400 break-words;
-}
-.job-meta-separator {
-  @apply text-sm text-gray-500;
-}
-.job-meta-item {
-  @apply flex items-center gap-2;
-}
-.job-description {
-  @apply text-gray-300 leading-relaxed mb-4 text-body break-words w-full max-w-full;
 }
 
 /* Code window controls */
@@ -905,3 +881,5 @@
 .nav-resume-button {
   @apply w-full inline-flex items-center justify-center rounded-lg bg-white text-gray-900 hover:bg-gray-100 font-medium text-sm py-3 transition-colors;
 }
+
+

@@ -19,7 +19,7 @@ export default function Home() {
       
       <main className="min-h-screen">
         <HeroSection 
-          onEmailContact={() => window.location.href = `mailto:imsengdao@gmail.com?subject=Portfolio Contact - Let's work together`}
+          onEmailContact={() => scrollToSection('contact')}
           onScrollToAbout={() => scrollToSection('about')}
         />
 
