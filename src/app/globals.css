@@ -700,105 +700,10 @@
   @apply inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors text-base font-medium cursor-pointer;
 }
 
-/* Experience card styles with timeline - inspired by hero gradient theme */
-.timeline-content {
-  @apply w-full;
-  min-width: 0;
-  overflow-wrap: break-word;
-  overflow: visible;
-  max-width: none;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  background: rgba(17, 24, 39, 0.2);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  backdrop-filter: blur(4px);
-}
+/* Experience section styles - simplified to match projects aesthetic */
 
-.timeline-content:hover {
-  background: rgba(17, 24, 39, 0.4);
-  border-color: rgba(99, 102, 241, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
-}
 
-/* Timeline indicator styles - using hero gradient colors */
-.timeline-indicator {
-  @apply absolute left-6 top-6 w-4 h-4 rounded-full hidden md:flex items-center justify-center;
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
-  border: 2px solid rgba(17, 24, 39, 0.8);
-  z-index: 10;
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
-}
 
-/* Timeline line with gradient */
-.timeline-line {
-  background: linear-gradient(to bottom, rgba(99, 102, 241, 0.6), rgba(59, 130, 246, 0.3));
-}
-
-@media (min-width: 768px) {
-  .timeline-content {
-    padding: 2rem;
-    margin-left: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .timeline-content {
-    padding: 2.5rem;
-    margin-left: 4rem;
-  }
-}
-.job-title {
-  @apply text-xl font-semibold text-gray-50 font-display w-full mb-2;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  word-break: break-word;
-  max-width: none;
-  overflow: visible;
-}
-.job-meta {
-  @apply flex flex-col gap-1 mb-3 text-sm text-gray-400 w-full;
-  min-height: 0;
-  align-items: flex-start;
-  max-width: none;
-  overflow: visible;
-}
-
-.job-company {
-  @apply text-base font-medium mb-2;
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  word-break: break-word;
-  flex-shrink: 1;
-  min-width: 0;
-  max-width: none;
-  overflow: visible;
-}
-.job-meta-separator {
-  @apply text-sm text-gray-500;
-}
-.job-meta-item {
-  @apply flex items-center gap-2 py-0.5;
-  flex-shrink: 0;
-  min-width: fit-content;
-}
-.job-description {
-  @apply text-gray-300 leading-relaxed mb-4 text-body w-full;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  word-break: break-word;
-  max-width: none;
-  overflow: visible;
-}
 
 /* Code window controls */
 .code-window-controls {
@@ -982,37 +887,4 @@
   @apply w-full inline-flex items-center justify-center rounded-lg bg-white text-gray-900 hover:bg-gray-100 font-medium text-sm py-3 transition-colors;
 }
 
-/* Specific fix for medium screen sizes where text cutoff occurs */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .timeline-content {
-    padding: 2rem;
-    margin-left: 3rem;
-    width: 100%;
-    max-width: none;
-  }
-  
-  .job-description {
-    max-width: none;
-    overflow: visible;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .job-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .job-meta-separator {
-    display: none;
-  }
-}
 
-/* Balanced layout for larger screens */
-@media (min-width: 1024px) {
-  .timeline-content {
-    padding: 2.5rem;
-    margin-left: 4rem;
-  }
-}
