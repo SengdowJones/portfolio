@@ -14,6 +14,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
           className
         )}
         ref={ref}
+        role="contentinfo"
         {...props}
       >
         <div className="mx-auto max-w-6xl px-4">

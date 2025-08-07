@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { Menu, X } from 'lucide-react'
@@ -8,6 +8,7 @@ import { Button } from './button'
 import { Container } from './container'
 import { siteConfig } from '@/lib/constants'
 import { createPortal } from 'react-dom';
+import { useActiveSection } from '@/lib/hooks'
 
 export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
   items: Array<{ name: string; href: string }>
@@ -21,10 +22,29 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
     const [isClosing, setIsClosing] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
+    // Active section highlighting
+    const sectionIds = useMemo(() => items
+      .map((i) => i.href)
+      .filter((href) => href.startsWith('#'))
+      .map((href) => href.replace('#', '')),
+    [items])
+    const activeId = useActiveSection(sectionIds)
+
+    const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null)
+    const hamburgerRef = useRef<HTMLButtonElement | null>(null)
+
     // Open menu
     const openMenu = () => {
       setMenuVisible(true);
       requestAnimationFrame(() => setIsOpen(true));
+      // Lock scroll
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'hidden'
+      }
+      // Move focus to first link after portal mounts
+      setTimeout(() => {
+        firstMobileLinkRef.current?.focus()
+      }, 10)
     };
     // Close menu with animation
     const closeMenu = () => {
@@ -33,6 +53,12 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       setTimeout(() => {
         setMenuVisible(false);
         setIsClosing(false);
+        // Unlock scroll
+        if (typeof document !== 'undefined') {
+          document.body.style.overflow = ''
+        }
+        // Restore focus to hamburger
+        hamburgerRef.current?.focus()
       }, 300); // match slideout/fadeout duration
     };
 
@@ -53,11 +79,32 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
       }
     }, [])
 
-    // Close on Escape key
+    // Close on Escape key and trap Tab within menu when open
     useEffect(() => {
       if (!menuVisible) return;
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') closeMenu();
+        if (e.key === 'Tab') {
+          // Simple focus trap: keep focus inside overlay
+          const focusable = Array.from(document.querySelectorAll(
+            '#mobile-menu-overlay a, #mobile-menu-overlay button'
+          )) as HTMLElement[]
+          if (focusable.length === 0) return
+          const first = focusable[0]
+          const last = focusable[focusable.length - 1]
+          const active = document.activeElement as HTMLElement | null
+          if (e.shiftKey) {
+            if (active === first) {
+              e.preventDefault()
+              last.focus()
+            }
+          } else {
+            if (active === last) {
+              e.preventDefault()
+              first.focus()
+            }
+          }
+        }
       };
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
@@ -82,6 +129,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             : 'nav-container-hidden'
         )}
         ref={ref}
+        role="navigation"
+        aria-label="Primary"
         {...props}
       >
 
@@ -107,7 +156,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                   <a
                     key={item.name}
                     href={item.href}
-                    className="nav-link group"
+                    className={clsx('nav-link group', activeId && item.href === `#${activeId}` && 'nav-link-active')}
                     onClick={e => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -118,6 +167,7 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                     }}
                     role="link"
                     tabIndex={0}
+                    aria-current={activeId && item.href === `#${activeId}` ? 'page' : undefined}
                   >
                     {/* Animated pill background */}
                     <span
@@ -153,9 +203,12 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={openMenu}
+                   onClick={openMenu}
                   className="p-2 h-9 w-9 text-gray-300 hover:text-white hover:bg-gray-800"
-                  aria-label="Open menu"
+                   aria-label="Open menu"
+                   aria-controls="mobile-menu-overlay"
+                   aria-expanded={menuVisible}
+                  ref={hamburgerRef}
                 >
                   <Menu className="h-5 w-5" />
                 </Button>
@@ -183,10 +236,14 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
             })}
             style={{ pointerEvents: menuVisible ? 'auto' : 'none' }}
             onClick={handleOverlayClick}
+            id="mobile-menu-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile menu"
           >
             <div className="px-8">
               <nav className="flex-1 flex flex-col justify-start py-4 space-y-2">
-                {items.map((item) => (
+                {items.map((item, idx) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -201,6 +258,8 @@ const Navigation = forwardRef<HTMLElement, NavigationProps>(
                     }}
                     role="link"
                     tabIndex={0}
+                    ref={idx === 0 ? firstMobileLinkRef : undefined}
+                    aria-current={activeId && item.href === `#${activeId}` ? 'page' : undefined}
                   >
                     {item.name}
                   </a>

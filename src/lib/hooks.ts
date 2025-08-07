@@ -1,8 +1,9 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 
 export function useScrollReveal() {
   const scrollRefs = useRef<(HTMLElement | null)[]>([])
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const [reduceMotion, setReduceMotion] = useState(false)
 
   // Initialize the observer
   const initObserver = useCallback(() => {
@@ -11,7 +12,7 @@ export function useScrollReveal() {
     }
 
     // Ensure IntersectionObserver is available
-    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window && !reduceMotion) {
       observerRef.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -32,6 +33,16 @@ export function useScrollReveal() {
           observerRef.current.observe(ref)
         }
       })
+    }
+  }, [reduceMotion])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'matchMedia' in window) {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+      setReduceMotion(mq.matches)
+      const handler = () => setReduceMotion(mq.matches)
+      mq.addEventListener?.('change', handler)
+      return () => mq.removeEventListener?.('change', handler)
     }
   }, [])
 
@@ -64,11 +75,52 @@ export function useScrollReveal() {
     if (el && !scrollRefs.current.includes(el)) {
       scrollRefs.current.push(el)
       // Observe the new element immediately
-      if (observerRef.current) {
+      if (reduceMotion) {
+        el.classList.add('revealed')
+      } else if (observerRef.current) {
         observerRef.current.observe(el)
       }
     }
-  }, [])
+  }, [reduceMotion])
 
   return { addScrollRef }
 } 
+
+// Track the currently active section id based on scroll position
+export function useActiveSection(sectionIds: string[], rootMargin: string = '-50% 0px -45% 0px') {
+  const [activeId, setActiveId] = useState<string | null>(null)
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || sectionIds.length === 0) return
+
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el))
+
+    if (observerRef.current) {
+      observerRef.current.disconnect()
+    }
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        // Pick the most visible entry
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))
+        if (visible[0]) {
+          setActiveId(visible[0].target.id)
+        }
+      },
+      { threshold: [0.25, 0.5, 0.75], rootMargin }
+    )
+
+    elements.forEach((el) => observerRef.current?.observe(el))
+
+    return () => {
+      observerRef.current?.disconnect()
+    }
+  }, [sectionIds, rootMargin])
+
+  return activeId
+}

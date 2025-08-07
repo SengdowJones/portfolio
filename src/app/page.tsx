@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Navigation items={navigation} />
       
-      <main className="min-h-screen">
+      <main className="min-h-screen" id="main" role="main">
         <HeroSection 
           onEmailContact={() => scrollToSection('contact')}
           onScrollToAbout={() => scrollToSection('about')}

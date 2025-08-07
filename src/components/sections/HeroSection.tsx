@@ -10,6 +10,10 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSectionProps) {
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
   return (
     <Section className="min-h-screen flex flex-col justify-center items-center scroll-mt-20 relative overflow-hidden pt-safe sm:pt-16">
       {/* Starfield background with truly random distribution */}
@@ -19,6 +23,7 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
       <div className="absolute inset-0 bg-gradient-to-br from-gray-950/30 via-gray-900/20 to-gray-950/30 backdrop-blur-[1px] border border-gray-800/40 shadow-2xl"></div>
       
       {/* Orbiting elements for space effect */}
+      {!prefersReducedMotion && (
       <div className="absolute inset-0 pointer-events-none">
         {/* Large orbiting orb */}
         <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-400/30 rounded-full animate-orbit-slow"></div>
@@ -34,6 +39,7 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
         <div className="absolute bottom-1/5 right-1/5 w-0.5 h-0.5 bg-white/30 rounded-full animate-float-medium"></div>
         <div className="absolute top-3/4 left-1/2 w-0.5 h-0.5 bg-white/25 rounded-full animate-float-fast"></div>
       </div>
+      )}
       
         <div className="w-full relative z-10">
           <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
@@ -42,7 +48,7 @@ export default function HeroSection({ onEmailContact, onScrollToAbout }: HeroSec
               <div className="animate-subtle-fade stagger-0">
                 I&apos;m Sengdao.
                 <br />
-                <span className="bg-gradient-to-r from-indigo-500 via-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent animate-gradient">
+                <span className="bg-gradient-to-r from-indigo-500 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
                   I design experiences.
                 </span>
               </div>

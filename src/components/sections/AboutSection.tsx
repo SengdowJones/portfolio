@@ -5,7 +5,7 @@ import { Section } from '@/components/ui'
 import { skills, education } from '@/lib/constants'
 import { generatePhotoGalleries } from '@/lib/photoGallery'
 import { Calendar, Award, GraduationCap, Trophy, Camera, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 
 interface AboutSectionProps {
@@ -17,6 +17,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
   const [currentGallery, setCurrentGallery] = useState<string>('')
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [imageLoading, setImageLoading] = useState<Record<string, boolean>>({})
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
 
   // Generate photo galleries from the utility
   const photoGalleries = generatePhotoGalleries()
@@ -45,11 +46,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
     }
   }, [currentGallery, photoGalleries])
 
-  // Keyboard navigation for modal
+  // Keyboard navigation and focus/scroll management for modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return
-      
       switch (e.key) {
         case 'Escape':
           closeModal()
@@ -60,11 +60,41 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
         case 'ArrowRight':
           nextPhoto()
           break
+        case 'Tab': {
+          const modal = document.querySelector('[data-modal]') as HTMLElement | null
+          if (!modal) return
+          const focusable = Array.from(modal.querySelectorAll('button, a')) as HTMLElement[]
+          if (focusable.length === 0) return
+          const first = focusable[0]
+          const last = focusable[focusable.length - 1]
+          const active = document.activeElement as HTMLElement | null
+          if (e.shiftKey) {
+            if (active === first) {
+              e.preventDefault()
+              last.focus()
+            }
+          } else {
+            if (active === last) {
+              e.preventDefault()
+              first.focus()
+            }
+          }
+          break
+        }
       }
     }
-    
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleKeyDown)
+      // Lock scroll and focus close on open
+      document.body.style.overflow = 'hidden'
+      setTimeout(() => closeButtonRef.current?.focus(), 10)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
   }, [isModalOpen, closeModal, prevPhoto, nextPhoto])
 
   const currentGalleryData = currentGallery ? photoGalleries[currentGallery] : null
@@ -118,8 +148,10 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
               {/* Photo Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {/* Hackathons */}
-                <div 
-                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer"
+                <button 
+                  type="button"
+                  aria-label="Open Hackathons photo gallery"
+                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   onClick={() => openGallery('hackathons')}
                 >
                   <Image
@@ -145,11 +177,13 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-xs text-white">{photoGalleries.hackathons.photos.length} photos</span>
                   </div>
-                </div>
+                </button>
 
                 {/* Team Moments */}
-                <div 
-                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer"
+                <button 
+                  type="button"
+                  aria-label="Open Team Moments photo gallery"
+                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   onClick={() => openGallery('team')}
                 >
                   <Image
@@ -175,11 +209,13 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-xs text-white">{photoGalleries.team.photos.length} photos</span>
                   </div>
-                </div>
+                </button>
 
                 {/* Hobbies */}
-                <div 
-                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer"
+                <button 
+                  type="button"
+                  aria-label="Open Hobbies photo gallery"
+                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   onClick={() => openGallery('hobbies')}
                 >
                   <Image
@@ -205,11 +241,13 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-xs text-white">{photoGalleries.hobbies.photos.length} photos</span>
                   </div>
-                </div>
+                </button>
 
                 {/* Travel Adventures */}
-                <div 
-                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer"
+                <button 
+                  type="button"
+                  aria-label="Open Travel Adventures photo gallery"
+                  className="group relative overflow-hidden rounded-lg border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   onClick={() => openGallery('travel')}
                 >
                   <Image
@@ -235,7 +273,7 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
                   <div className="absolute top-2 left-2 bg-black/50 rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-xs text-white">{photoGalleries.travel.photos.length} photos</span>
                   </div>
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -324,14 +362,18 @@ export default function AboutSection({ addScrollRef }: AboutSectionProps) {
         <div 
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           data-modal
-          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${currentGalleryData.title} photo gallery`}
+          onClick={(e) => { if (e.target === e.currentTarget) closeModal() }}
         >
           <div className="relative max-w-4xl max-h-[90vh] w-full">
             {/* Close Button */}
             <button
               onClick={closeModal}
               aria-label="Close gallery"
-              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors duration-200"
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              ref={closeButtonRef}
             >
               <X className="h-6 w-6 text-white" />
             </button>

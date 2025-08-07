@@ -107,6 +107,10 @@ export default function StarfieldBackground({
   className = '' 
 }: StarfieldBackgroundProps) {
   const stars = generateStars(starCount)
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
 
   const getColorClass = (color: string) => {
     switch (color) {
@@ -137,11 +141,11 @@ export default function StarfieldBackground({
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/20 via-transparent to-purple-950/20"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-cyan-950/15 via-transparent to-indigo-950/15"></div>
       
-      {/* Stars */}
+      {/* Stars (disable animations for reduced motion) */}
       {stars.map((star) => (
         <div
           key={star.id}
-          className={`absolute star ${getSizeClass(star.size)} ${getColorClass(star.color)} ${star.animation}`}
+          className={`absolute star ${getSizeClass(star.size)} ${getColorClass(star.color)} ${prefersReducedMotion ? '' : star.animation}`}
           style={{
             top: `${star.top}%`,
             left: `${star.left}%`,
