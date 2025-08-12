@@ -10,9 +10,9 @@ interface ExperienceSectionProps {
 
 export default function ExperienceSection({ addScrollRef }: ExperienceSectionProps) {
   return (
-    <Section className="py-20 scroll-section scroll-mt-20" id="experience">
+    <Section className="py-24 md:py-28 scroll-section scroll-mt-24" id="experience">
         <div className="scroll-section-content">
-          <div className="text-center mb-10 scroll-reveal" ref={addScrollRef}>
+          <div className="text-center mb-12 scroll-reveal" ref={addScrollRef}>
             <h2 className="section-heading">
               Experience
             </h2>
@@ -22,9 +22,9 @@ export default function ExperienceSection({ addScrollRef }: ExperienceSectionPro
           </div>
           <div className="divide-y divide-gray-800">
             {experience.map((job, index) => (
-              <div key={index} className="flex flex-col md:flex-row items-start justify-between py-5 gap-4 scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
+              <div key={index} className="flex flex-col md:flex-row items-start justify-between py-6 md:py-8 gap-4 scroll-reveal w-full max-w-full" ref={addScrollRef} style={{ transitionDelay: `${index * 0.1}s` }}>
                 <div className="flex-1 min-w-0 w-full max-w-full">
-                  <div className="font-semibold text-gray-50 break-words w-full max-w-full">{job.title}</div>
+                  <div className="font-semibold text-gray-50 break-words w-full max-w-full mb-1">{job.title}</div>
                   <div className="text-blue-400 text-sm break-words w-full max-w-full mb-2">{job.company}</div>
                   <div className="text-gray-400 text-sm break-words w-full max-w-full mb-3">
                     <div className="flex items-center gap-2 mb-1">
